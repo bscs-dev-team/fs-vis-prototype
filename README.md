@@ -10,6 +10,7 @@
 * [Parcel v2.8.3](https://parceljs.org/)
 
 
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
@@ -18,10 +19,18 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 npm ci
 ```
 
+
 ## Usage
 
 ```bash
-npx parcel src/index.html
+npm start
 ```
 
 Point your browser at `localhost:1234`
+
+
+## Deploy
+
+```bash
+npm run build
+```

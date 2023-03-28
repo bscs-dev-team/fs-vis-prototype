@@ -2,9 +2,12 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "predeploy" : "parcel build",
+    "deploy" : "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "immer": "^9.0.21",
     "parcel": "^2.8.3",
     "react": "^18.2.0",
@@ -13,5 +16,6 @@
   },
   "devDependencies": {
     "process": "^0.11.10"
-  }
+  },
+  "homepage": "http://bscs-dev-team.github.io/fs-vis-prototype"
 }
