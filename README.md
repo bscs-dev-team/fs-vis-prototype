@@ -9,6 +9,8 @@
 * [React v18.2.0]()
 * [Parcel v2.8.3](https://parceljs.org/)
 
+* [gh-pages](https://www.npmjs.com/package/gh-pages)
+
 
 ## Installation
 
@@ -18,10 +20,21 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 npm ci
 ```
 
+
 ## Usage
 
 ```bash
-npx parcel src/index.html
+npm start
 ```
 
 Point your browser at `localhost:1234`
+
+
+## Deploy
+
+This will deploy to GitHub pages at `https://bscs-dev-team.github.io/fs-vis-prototype/`
+
+
+```bash
+npm run deploy
+```
