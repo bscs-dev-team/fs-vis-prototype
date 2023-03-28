@@ -9,7 +9,7 @@
 * [React v18.2.0]()
 * [Parcel v2.8.3](https://parceljs.org/)
 
-
+* [gh-pages](https://www.npmjs.com/package/gh-pages)
 
 ## Installation
 
