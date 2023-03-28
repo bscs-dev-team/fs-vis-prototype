@@ -16,6 +16,5 @@
   },
   "devDependencies": {
     "process": "^0.11.10"
-  },
-  "homepage": "http://bscs-dev-team.github.io/fs-vis-prototype"
+  }
 }
