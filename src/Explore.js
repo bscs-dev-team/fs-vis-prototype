@@ -27,7 +27,7 @@ const fieldsToShow = [
 
 export default function Explore() {
   // CSV
-  const [tableData, setTableData] = useState({});
+  const [tableData, setTableData] = useState({count: 0, fieldsToShow: [], data: [], headers: []});
   const [data, setData] = useState([]);
   const [headers, setHeaders] = useState([]);
   // -- Loader Function
@@ -63,6 +63,7 @@ export default function Explore() {
     loadCSV();
     setTableData({
       count: data.length,
+      fieldsToShow: fieldsToShow,
       data: data,
       headers: headers
     })
@@ -119,11 +120,15 @@ export default function Explore() {
   });
 
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // EXPLORATION
   const handleTitleUpdate = useCallback(event => {
     setE(draft => draft.title = event.target.value);
   }, [setE]);
 
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // FILTER
   const handleAddFilter = useCallback((filterLabel, filterTitle) => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -148,10 +153,27 @@ export default function Explore() {
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
+  const handleFilterTitle = useCallback(event => {
+    setE(draft => {
+      const filterset = draft.filtersets[e.selectedFilterSetIndex];
+      filterset.title = event.target.value;
+    });
+  }, [setE, e.selectedFilterSetIndex]);
 
+  const handleFilterSource = useCallback(event => {
+    setE(draft => {
+      const filterset = draft.filtersets[e.selectedFilterSetIndex];
+      filterset.source = event.target.value;
+    });
+  }, [setE, e.selectedFilterSetIndex]);
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // HISTORY
   const handleShowHistory = useCallback(() => {
     setE(draft => {draft.showHistory = true});
   }, [setE]);
+
   const handleShowSaved = useCallback(() => {
     setE(draft => {draft.showHistory = false});
   }, [setE]);
@@ -164,6 +186,8 @@ export default function Explore() {
   }, [setE]);
 
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // GRAPH 
   const handleAddGraph = useCallback(() => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -176,21 +200,6 @@ export default function Explore() {
     })
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
-
-  const handleFilterTitle = useCallback(event => {
-    setE(draft => {
-      const filterset = draft.filtersets[e.selectedFilterSetIndex];
-      filterset.title = event.target.value;
-    });
-  }, [setE, e.selectedFilterSetIndex]);
-  const handleFilterSource = useCallback(event => {
-    setE(draft => {
-      const filterset = draft.filtersets[e.selectedFilterSetIndex];
-      filterset.source = event.target.value;
-    });
-  }, [setE, e.selectedFilterSetIndex]);
-
-
   const handleGraphTitle = useCallback(event => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -198,6 +207,7 @@ export default function Explore() {
       selectedGraph.title = event.target.value;
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
   const handleGraphDescription = useCallback(event => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -205,6 +215,7 @@ export default function Explore() {
       selectedGraph.description = event.target.value;
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
   const handleGraphTypeSelect = useCallback(type => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -213,6 +224,7 @@ export default function Explore() {
       selectedGraph.description += ` ${type}`;
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
   const handleGraphSave = useCallback(event => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -220,6 +232,7 @@ export default function Explore() {
       selectedGraph.saved = true;
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
   const handleGraphDelete = useCallback(event => {
     setE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
@@ -230,12 +243,15 @@ export default function Explore() {
     });
   }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   return (
     <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
       <div style={{display: 'flex', flexDirection: 'column', maxHeight: '25%', padding: "10px"}}>
         <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
         <div style={{display: "grid", gridTemplateColumns: '1fr 1fr', columnGap: '10px', height: '90%' }}>
           <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
+            filters={tableData.fieldsToShow}
             handleFilterTitle={handleFilterTitle}
             handleFilterSource={handleFilterSource}
             handleAddFilter={handleAddFilter} />

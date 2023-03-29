@@ -15,7 +15,9 @@ export default function DataTable({tableData}) {
             {tableData.data.map((row, i) => (
               <tr key={i}>
                 {row.map((item, i) => (
-                  <td key={i}>{item}</td>
+                  <td key={i}>
+                    <div style={{ height: '1.2em', overflow: 'hidden'}}>{item}</div>
+                  </td>
                 ))}
               </tr>
             ))}

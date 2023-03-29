@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Exploration.css';
 import FilterEditor from './FilterEditor';
 
-export default function FilterSet({data, handleFilterTitle, handleFilterSource, handleAddFilter}) {
+export default function FilterSet({data, filters, handleFilterTitle, handleFilterSource, handleAddFilter}) {
 
   const [editorIsOpen, setEditorIsOpen] = useState(false);
 
@@ -15,6 +15,8 @@ export default function FilterSet({data, handleFilterTitle, handleFilterSource, 
     const title = data.title !== undefined ? data.title + ', ' + text : text;
     handleAddFilter(text, title);
   }
+
+  function handleClose() { setEditorIsOpen(false); }
 
   return (
     <div className="FilterSet">
@@ -29,14 +31,16 @@ export default function FilterSet({data, handleFilterTitle, handleFilterSource, 
             {data.filters.length > 0 
               ? data.filters.map((d, i) => <>
                   {i > 0 && <div></div>}
-                  <div className="filter">{d}</div>
+                  <div className="filter" key={i}>{d}</div>
               </>)
               : <div></div>
             }
             <label></label>
             <button className="primary" onClick={handleAddFilterClick} style={{ marginTop: '10px'}}>+ FILTER</button>
         </div>
-        {editorIsOpen && <FilterEditor data={data} handleAddFilter={handleFilterAdded}/>}
+        {editorIsOpen && <FilterEditor data={data} filters={filters} 
+          handleAddFilter={handleFilterAdded} 
+          handleClose={handleClose}/>}
     </div>
   );
 }

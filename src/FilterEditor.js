@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './Exploration.css';
 
-export default function FilterEditor({data, handleAddFilter}) {
+export default function FilterEditor({data, filters, handleAddFilter, handleClose}) {
 
-  const options = ['pH', 'Nitrate', 'Nitrite', 'Hardness', 'Chlorine', 'Alkalinity'];
+  //const options = ['pH', 'Nitrate', 'Nitrite', 'Hardness', 'Chlorine', 'Alkalinity'];
+  const options = filters;
 
   const [parameter, setParameter] = useState('');
   const [minval, setMinval] = useState();
@@ -42,7 +43,7 @@ export default function FilterEditor({data, handleAddFilter}) {
             <label>Maximum</label>
             <input value={data.max} onChange={e => setMaxval(e.target.value)} />
             <p></p><p></p>
-            <label></label>
+            <button onClick={handleClose}>CANCEL</button>
             <button className="primary" onClick={()=>handleSave()}>SAVE</button>
         </div>
     </div>
