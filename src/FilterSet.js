@@ -26,10 +26,13 @@ export default function FilterSet({data, handleFilterTitle, handleFilterSource, 
             <label></label>
             <hr/>
             <label>FILTERS</label>
-            {data.filters.map((d, i) => <>
-                {i > 0 && <div></div>}
-                <div className="filter">{d}</div>
-            </>)}
+            {data.filters.length > 0 
+              ? data.filters.map((d, i) => <>
+                  {i > 0 && <div></div>}
+                  <div className="filter">{d}</div>
+              </>)
+              : <div></div>
+            }
             <label></label>
             <button className="primary" onClick={handleAddFilterClick} style={{ marginTop: '10px'}}>+ FILTER</button>
         </div>

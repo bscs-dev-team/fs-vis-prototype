@@ -13,6 +13,7 @@ export default function Explore() {
   const [ e, setE ] = useImmer({
     selectedFilterSetIndex: 0,
     selectedGraphIndex: 0,
+    count: 5000,
 
     showHistory: true,
 
@@ -185,7 +186,7 @@ export default function Explore() {
         </div>
       </div>
       <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-        <MapTable />
+        <MapTable data={e} />
       </div>
       <GraphArea 
         graphData={e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex]}
