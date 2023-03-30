@@ -135,7 +135,6 @@ export default function Explore() {
   // FILTER
   const handleAddFilter = useCallback((filter) => {
     let newFilters = [];
-    console.log('handleAddFilter fullDataSet', fullDataSet);
     updateE(draft => {
       const filterLabel = filter.title;
       const filterTitle = filter.title;
@@ -144,7 +143,7 @@ export default function Explore() {
 
       // Clone filterset
       const newFilterset = Object.assign({}, filterset);
-      newFilterset.title = filterTitle;
+      newFilterset.title = (filterset.title + ', ' || '') + filterTitle;
 
       // Clone only the currently selected graph
       const selectedGraph = Object.assign({}, filterset.graphs[e.selectedGraphIndex]);

@@ -22,6 +22,7 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
       s += ' < ' + maxval;
     } else {
       s += parameter;
+      s += eqval !==undefined ? ` = ${eqval}` : '';
       s += minval !== undefined ? ` > ${minval}` : '';
       s += maxval !== undefined ? ` < ${maxval}` : '';
     }
