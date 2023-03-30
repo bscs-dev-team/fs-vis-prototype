@@ -106,3 +106,4 @@ dist
 # Local
 .vscode/
 .parcel-cache/
+NOTES.md

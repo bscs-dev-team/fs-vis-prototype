@@ -1,6 +1,7 @@
 import './Exploration.css';
 
 export default function DataTable({tableData}) {
+  console.log('table render')
   return (
     <div className="DataTable" style={{ display: "grid" }}>
         <table>

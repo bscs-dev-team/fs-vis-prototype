@@ -27,6 +27,7 @@ export default function History({data, selected, handleShowHistory, handleShowSa
                 {d.graphs.map((g, graphIndex) => {
                   if (showHistory || g.saved) {
                     return <GraphIcon 
+                      key={graphIndex}
                       type={g.type}
                       selected={(filterIndex===data.selectedFilterSetIndex) && (data.selectedGraphIndex === graphIndex)}
                       saved={g.saved}

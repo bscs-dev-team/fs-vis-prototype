@@ -27,6 +27,9 @@ Notes on setting up the dev stack for Windows 11.
         "build": "parcel build"
     },
     ```
+    NOTE: We need to specify a public url of `.`
+    so to allow for relative referencing of routes.
+    See https://stackoverflow.com/questions/70259224/deploying-react-app-with-parcel-build-on-github-pages
 
 3. Install Libraries
     `npm i -S immer`
@@ -40,3 +43,38 @@ Notes on setting up the dev stack for Windows 11.
     `npm start`
 
 
+6. Set up github pages
+    `npm i -S gh-pages`
+
+    Make repo public if it isn't already -- needs to be public for gh-pages to work.
+
+    Add to `.package.json`
+    ```
+    ...
+    "scripts": {
+        ...
+        "predeploy" : "parcel build --public-url .",
+        "deploy" : "gh-pages -d dist",
+    },
+    ```
+
+    NOTE: with GitHub Desktop you might need to set the "Repository -> Repository Settings -> Git config" to "Use a lcoal Git config" with "bscs-dev-team" as the user.
+
+
+## Convert CSV to JSON
+
+`convert-csv-to-json` uses `fs` to load a file.  So ti does not run in the browser.  
+    
+# Troubleshooting
+
+#### `fatal: a branch named 'gh-pages' already exists`
+Message dispalyed during `npm run deploy`.
+Remove the `node_modules/.cache/gh-pages` folder.
+
+#### `remote: Permission to git denied to`
+
+On Windows, issue might be git credentials maanger.
+1. Hit "Wdinows" key
+2. Start "Credentials Manager"
+3. Search for `github` entries.
+4. Remove old entires.

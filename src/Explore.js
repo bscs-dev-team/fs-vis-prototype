@@ -82,14 +82,14 @@ export default function Explore() {
     filtersets: [
       {
         title: undefined,
-        source: 'Water Insights',
+        source: 'FrogWatch',
         filters: [],
         graphs: [
-          {
-            title: 'No filter',
-            description: 'Default graph',
-            type: 'map'
-          }
+          // {
+          //   title: 'No filter',
+          //   description: 'Default graph',
+          //   type: 'map'
+          // }
         ]
       },
       // {
@@ -192,7 +192,7 @@ export default function Explore() {
             return passed;
           }) 
         : allData.data;
-      rowData = filteredData.map(row => {
+      const rowData = filteredData.map(row => {
         const items = [];
         fieldsToShow.forEach(k => items.push(row[k]));
         return items;

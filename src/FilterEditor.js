@@ -44,7 +44,7 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
             <label>Parameter</label>
             <select onChange={handleSelect}>
               <option value="">--Select a parameter--</option>
-              {options.map(o => <option value={o}>{o}</option>)}
+              {options.map(o => <option value={o} key={o}>{o}</option>)}
             </select>
             <label>Equals</label>
             <input value={data.eq} onChange={e => setEqval(e.target.value)} />
