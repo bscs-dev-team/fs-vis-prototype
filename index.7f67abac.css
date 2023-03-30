@@ -179,11 +179,29 @@ button.link {
   background-color: #e3f0b1;
   flex-grow: 1;
   padding: 5px;
+  font-size: 12px;
+}
+
+.MapTable .stats {
+  color: #666;
 }
 
 .DataTable {
   color: #333;
   background-color: #f1f8d8;
+  overflow: scroll;
+}
+
+.DataTable table {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.DataTable th, .DataTable td {
+  vertical-align: bottom;
+  height: 20px;
+  overflow: hidden;
 }
 
 .GraphView {
