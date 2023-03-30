@@ -27322,7 +27322,13 @@ function Explore() {
                 title: undefined,
                 source: "FrogWatch",
                 filters: [],
-                graphs: []
+                graphs: [
+                    {
+                        title: "No filter",
+                        description: "Map",
+                        type: "map"
+                    }
+                ]
             }
         ]
     });
@@ -27345,7 +27351,7 @@ function Explore() {
             const filterset = draft.filtersets[e.selectedFilterSetIndex];
             // Clone filterset
             const newFilterset = Object.assign({}, filterset);
-            newFilterset.title = filterset.title + ", " + filterTitle;
+            newFilterset.title = (filterset.title ? filterset.title + ", " : "") + filterTitle;
             // Clone only the currently selected graph
             const selectedGraph = Object.assign({}, filterset.graphs[e.selectedGraphIndex]);
             selectedGraph.saved = undefined;
