@@ -2941,7 +2941,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _app.App), {}, void 0, 
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./App":"2kQhy","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./index.css":"irmnC"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./index.css":"irmnC","./App":"2kQhy","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("3e2fc9879c8c3b43");
 
@@ -27126,7 +27126,7 @@ module.exports = require("81eaa1c636d839da");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"2kQhy":[function(require,module,exports) {
+},{}],"irmnC":[function() {},{}],"2kQhy":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f00f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27320,15 +27320,9 @@ function Explore() {
         filtersets: [
             {
                 title: undefined,
-                source: "Water Insights",
+                source: "FrogWatch",
                 filters: [],
-                graphs: [
-                    {
-                        title: "No filter",
-                        description: "Default graph",
-                        type: "map"
-                    }
-                ]
+                graphs: []
             }
         ]
     });
@@ -27402,7 +27396,7 @@ function Explore() {
                 });
                 return passed;
             }) : allData.data;
-            rowData = filteredData.map((row)=>{
+            const rowData = filteredData.map((row)=>{
                 const items = [];
                 fieldsToShow.forEach((k)=>items.push(row[k]));
                 return items;
@@ -28887,7 +28881,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                             selected: filterIndex === data.selectedFilterSetIndex && data.selectedGraphIndex === graphIndex,
                                             saved: g.saved,
                                             handleClick: ()=>handleGraphClick(filterIndex, graphIndex)
-                                        }, void 0, false, {
+                                        }, graphIndex, false, {
                                             fileName: "src/History.js",
                                             lineNumber: 29,
                                             columnNumber: 28
@@ -28896,7 +28890,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                             children: "No Graph"
                                         }, void 0, false, {
                                             fileName: "src/History.js",
-                                            lineNumber: 36,
+                                            lineNumber: 37,
                                             columnNumber: 26
                                         }, this);
                                     }),
@@ -28906,7 +28900,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                         children: "+ GRAPH"
                                     }, void 0, false, {
                                         fileName: "src/History.js",
-                                        lineNumber: 39,
+                                        lineNumber: 40,
                                         columnNumber: 63
                                     }, this)
                                 ]
@@ -29348,7 +29342,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                             options.map((o)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                                     value: o,
                                     children: o
-                                }, void 0, false, {
+                                }, o, false, {
                                     fileName: "src/FilterEditor.js",
                                     lineNumber: 47,
                                     columnNumber: 33
@@ -29664,6 +29658,7 @@ var _graphEditor = require("./GraphEditor");
 var _graphEditorDefault = parcelHelpers.interopDefault(_graphEditor);
 function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
     const isDirty = true;
+    console.error("GraphArea");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphArea",
         children: [
@@ -29679,20 +29674,21 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         handleGraphDescription: handleGraphDescription
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 12,
+                        lineNumber: 13,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorDefault.default), {
+                        graphData: graphData,
                         handleGraphTypeSelect: handleGraphTypeSelect
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/GraphArea.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29707,7 +29703,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         children: "DUPLICATE (Save As)"
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 20,
+                        lineNumber: 21,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29716,7 +29712,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         children: "DELETE"
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 21,
+                        lineNumber: 22,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29724,7 +29720,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         children: "CLOSE"
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 22,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29734,19 +29730,19 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         children: "SAVE"
                     }, void 0, false, {
                         fileName: "src/GraphArea.js",
-                        lineNumber: 23,
+                        lineNumber: 24,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/GraphArea.js",
-                lineNumber: 19,
+                lineNumber: 20,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/GraphArea.js",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -29774,6 +29770,7 @@ var _explorationCss = require("./Exploration.css");
 var _graphIcon = require("./GraphIcon");
 var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
 function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
+    console.warn("GraphView Render", graphData);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphView",
         style: {
@@ -29795,20 +29792,20 @@ function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
                             }
                         }, void 0, false, {
                             fileName: "src/GraphView.js",
-                            lineNumber: 10,
+                            lineNumber: 11,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                             children: "[ ]"
                         }, void 0, false, {
                             fileName: "src/GraphView.js",
-                            lineNumber: 11,
+                            lineNumber: 12,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/GraphView.js",
-                    lineNumber: 9,
+                    lineNumber: 10,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -29816,7 +29813,7 @@ function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
                     value: graphData.description
                 }, void 0, false, {
                     fileName: "src/GraphView.js",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29824,14 +29821,14 @@ function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
                     type: graphData.type
                 }, void 0, false, {
                     fileName: "src/GraphView.js",
-                    lineNumber: 14,
+                    lineNumber: 15,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true)
     }, void 0, false, {
         fileName: "src/GraphView.js",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }
@@ -29858,7 +29855,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _explorationCss = require("./Exploration.css");
 var _graphIcon = require("./GraphIcon");
 var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
-function GraphEditor({ data , handleAddFilter , handleGraphTypeSelect  }) {
+function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphEditor",
         children: [
@@ -29870,7 +29867,7 @@ function GraphEditor({ data , handleAddFilter , handleGraphTypeSelect  }) {
                 lineNumber: 8,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     display: "grid",
                     gridTemplateColumns: "120px 2fr"
@@ -29982,7 +29979,7 @@ function GraphEditor({ data , handleAddFilter , handleGraphTypeSelect  }) {
             }, void 0, true, {
                 fileName: "src/GraphEditor.js",
                 lineNumber: 9,
-                columnNumber: 7
+                columnNumber: 21
             }, this)
         ]
     }, void 0, true, {
@@ -35956,6 +35953,6 @@ module.exports = function(t) {
 },{}],"lojGL":[function(require,module,exports) {
 module.exports = require("56f9db67ab81bcd7").getBundleURL("bLxZJ") + "frogs.cd815536.csv" + "?" + Date.now();
 
-},{"56f9db67ab81bcd7":"lgJ39"}],"irmnC":[function() {},{}]},["1xC6H","jC2qd","8lqZg"], "8lqZg", "parcelRequire94c2")
+},{"56f9db67ab81bcd7":"lgJ39"}]},["1xC6H","jC2qd","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map
