@@ -232,7 +232,9 @@ export default function Explore() {
     updateE(draft => {
       draft.selectedFilterSetIndex = filterIndex;
       draft.selectedGraphIndex = graphIndex;
-    })
+    });
+    const newFilters = e.filtersets[filterIndex].filters;
+    applyFilters(fullDataSet, newFilters);
   }, [updateE]);
 
 
