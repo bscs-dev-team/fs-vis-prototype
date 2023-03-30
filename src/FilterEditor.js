@@ -7,11 +7,11 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
   const options = filters;
 
   const [parameter, setParameter] = useState('');
+  const [eqval, setEqval] = useState();
   const [minval, setMinval] = useState();
   const [maxval, setMaxval] = useState();
 
   function handleSelect(e) {
-    console.log('selected', e);
     setParameter(e.target.value);
   }
   function handleSave() {
@@ -25,7 +25,14 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
       s += minval !== undefined ? ` > ${minval}` : '';
       s += maxval !== undefined ? ` < ${maxval}` : '';
     }
-    handleAddFilter(s);
+    const filter = {
+      title: s,
+      field: parameter,
+      eq: eqval,
+      min: minval,
+      max: maxval
+    }
+    handleAddFilter(filter);
   }
 
   return (
@@ -38,6 +45,8 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
               <option value="">--Select a parameter--</option>
               {options.map(o => <option value={o}>{o}</option>)}
             </select>
+            <label>Equals</label>
+            <input value={data.eq} onChange={e => setEqval(e.target.value)} />
             <label>Minimum</label>
             <input value={data.min} onChange={e => setMinval(e.target.value)} />
             <label>Maximum</label>

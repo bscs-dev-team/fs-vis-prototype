@@ -10,10 +10,10 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
     setEditorIsOpen(true);
   }
 
-  function handleFilterAdded(text) {
+  function handleFilterAdded(filter) {
     setEditorIsOpen(false);
-    const title = data.title !== undefined ? data.title + ', ' + text : text;
-    handleAddFilter(text, title);
+    const title = data.title !== undefined ? data.title + ', ' + filter.title : filter.title;
+    handleAddFilter(filter);
   }
 
   function handleClose() { setEditorIsOpen(false); }
@@ -31,7 +31,7 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
             {data.filters.length > 0 
               ? data.filters.map((d, i) => <>
                   {i > 0 && <div></div>}
-                  <div className="filter" key={i}>{d}</div>
+                  <div className="filter" key={i}>{d.title}</div>
               </>)
               : <div></div>
             }

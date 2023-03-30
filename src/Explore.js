@@ -13,7 +13,7 @@ import csvFileUrl from 'url:./data/frogs.csv';
 
 // CSV DATA LOADING
 let alreadyLoaded = false;
-const fieldsToShow = [
+const fieldsToShow = [ // in sort order
   "Observation Date",
   "Start Time",
   "End Time",
@@ -23,11 +23,12 @@ const fieldsToShow = [
   "Characterize Land Use",
   "Observation Notes"
 ]
+let fullDataSet;
 
 
 export default function Explore() {
   // CSV
-  const [tableData, setTableData] = useState({count: 0, fieldsToShow: [], data: [], headers: []});
+  const [tableData, updateTableData] = useImmer({count: 0, headers: [], data: []});
   const [data, setData] = useState([]);
   const [headers, setHeaders] = useState([]);
   // -- Loader Function
@@ -43,17 +44,21 @@ export default function Explore() {
           .fromString(text)
           .then((json) => {
             if (json === undefined) return console.error('Could not load CSV!');
-            // setHeaders( Object.keys(json[0]).filter( h => fieldsToShow.includes(h) ) );
             setHeaders( fieldsToShow );
-            setData( () => {
-              const fieldData = json.map(row => {
-                const items = [];
-                fieldsToShow.forEach(k => items.push(row[k]));
-                return items;
-              });
-              console.log('fieldData', fieldData)
-              return fieldData;
-            });
+            // const fieldData = json.map(row => {
+            //   const items = [];
+            //   fieldsToShow.forEach(k => items.push(row[k]));
+            //   return items;
+            // });
+            setData( json );
+            const allData = {
+              count: json.length,
+              data: json,
+              headers: fieldsToShow
+            };
+            fullDataSet = allData;
+            console.warn('......loadCSV apply filter allData is', allData)
+            applyFilters(allData);
           });
       });
   }
@@ -61,18 +66,12 @@ export default function Explore() {
   useEffect(() => {
     console.error('useEffect!', alreadyLoaded)
     loadCSV();
-    setTableData({
-      count: data.length,
-      fieldsToShow: fieldsToShow,
-      data: data,
-      headers: headers
-    })
     return
   }, [data, headers]);
 
 
   // Exploration Data
-  const [ e, setE ] = useImmer({
+  const [ e, updateE ] = useImmer({
     selectedFilterSetIndex: 0,
     selectedGraphIndex: 0,
     count: 5000,
@@ -97,7 +96,12 @@ export default function Explore() {
       //   title: 'Chlorine > 1',
       //   source: 'Water Insights',
       //   filters: [
-      //     "Chlorine > 0.1ppm"
+      //     {
+      //       title: "Chlorine > 0.1ppm",
+      //       field: "Chlorine",
+      //       min: 0.1,
+      //       max: undefined
+      //     }
       //   ],
       //   graphs: [
       //     {
@@ -123,14 +127,19 @@ export default function Explore() {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // EXPLORATION
   const handleTitleUpdate = useCallback(event => {
-    setE(draft => draft.title = event.target.value);
-  }, [setE]);
+    updateE(draft => {draft.title = event.target.value});
+  }, [updateE]);
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // FILTER
-  const handleAddFilter = useCallback((filterLabel, filterTitle) => {
-    setE(draft => {
+  const handleAddFilter = useCallback((filter) => {
+    let newFilters = [];
+    console.log('handleAddFilter fullDataSet', fullDataSet);
+    updateE(draft => {
+      const filterLabel = filter.title;
+      const filterTitle = filter.title;
+
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
 
       // Clone filterset
@@ -144,52 +153,93 @@ export default function Explore() {
       draft.selectedGraphIndex = 0;
 
       // Clone Filter
-      const newFilters = [...filterset.filters]; // clone
-      newFilters.push(filterLabel);
+      newFilters = [...filterset.filters]; // clone
+      newFilters.push(filter);
       newFilterset.filters = newFilters;
 
+      console.log('new filters', newFilters)
       draft.filtersets.push(newFilterset);
       draft.selectedFilterSetIndex = draft.filtersets.length-1; // select it
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+    applyFilters(fullDataSet, newFilters);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
+  const applyFilters = useCallback((allData, filters) => {
+    console.log('applyFIlter caleld fullDataset is', fullDataSet)
+    updateTableData(draft => {
+      draft.headers = allData.headers;
+      // Apply Filters
+      // data {
+      //   Observation: '1/2/23',
+      //   Temperature: 5,
+      //   Chlorine: 0.01,
+      //   Notes: undefined
+      // }
+      // filter   {
+      //       title: "Chlorine > 0.1ppm",
+      //       field: "Chlorine",
+      //       min: 0.1,
+      //       max: undefined
+      //     }
+      const filteredData = filters 
+        ? allData.data.filter(d => {
+            let passed = true;
+            filters.forEach(f => {
+              if (!Object.hasOwn(d, f.field)) return;
+              if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
+              if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
+            });
+            return passed;
+          }) 
+        : allData.data;
+      rowData = filteredData.map(row => {
+        const items = [];
+        fieldsToShow.forEach(k => items.push(row[k]));
+        return items;
+      });
+      draft.data = rowData;
+      draft.count = rowData.length;
+      console.log('count', draft.count)
+    });
+  }, [updateTableData]);
 
   const handleFilterTitle = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       filterset.title = event.target.value;
     });
-  }, [setE, e.selectedFilterSetIndex]);
+  }, [updateE, e.selectedFilterSetIndex]);
 
   const handleFilterSource = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       filterset.source = event.target.value;
     });
-  }, [setE, e.selectedFilterSetIndex]);
+  }, [updateE, e.selectedFilterSetIndex]);
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // HISTORY
   const handleShowHistory = useCallback(() => {
-    setE(draft => {draft.showHistory = true});
-  }, [setE]);
+    updateE(draft => {draft.showHistory = true});
+  }, [updateE]);
 
   const handleShowSaved = useCallback(() => {
-    setE(draft => {draft.showHistory = false});
-  }, [setE]);
+    updateE(draft => {draft.showHistory = false});
+  }, [updateE]);
 
   const handleGraphSelect = useCallback((filterIndex, graphIndex) => {
-    setE(draft => {
+    updateE(draft => {
       draft.selectedFilterSetIndex = filterIndex;
       draft.selectedGraphIndex = graphIndex;
     })
-  }, [setE]);
+  }, [updateE]);
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // GRAPH 
   const handleAddGraph = useCallback(() => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       const newGraph = Object.assign({},selectedGraph);
@@ -197,51 +247,52 @@ export default function Explore() {
       newGraph.saved = undefined;
       filterset.graphs.push(newGraph);
       draft.selectedGraphIndex = filterset.graphs.length - 1; // select it
+      console.warn('addGraph', draft);
     })
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const handleGraphTitle = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       selectedGraph.title = event.target.value;
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const handleGraphDescription = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       selectedGraph.description = event.target.value;
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const handleGraphTypeSelect = useCallback(type => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       selectedGraph.type = type;
       selectedGraph.description += ` ${type}`;
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const handleGraphSave = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       selectedGraph.saved = true;
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const handleGraphDelete = useCallback(event => {
-    setE(draft => {
+    updateE(draft => {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       filterset.graphs.splice(e.selectedGraphIndex);
       draft.selectedGraphIndex = filterset.graphs.length > 0
         ? draft.selectedGraphIndex - 1
         : -1;
     });
-  }, [setE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -251,7 +302,7 @@ export default function Explore() {
         <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
         <div style={{display: "grid", gridTemplateColumns: '1fr 1fr', columnGap: '10px', height: '90%' }}>
           <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
-            filters={tableData.fieldsToShow}
+            filters={tableData.headers}
             handleFilterTitle={handleFilterTitle}
             handleFilterSource={handleFilterSource}
             handleAddFilter={handleAddFilter} />
