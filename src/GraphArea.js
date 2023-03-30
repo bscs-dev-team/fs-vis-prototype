@@ -5,6 +5,7 @@ import GraphEditor from './GraphEditor';
 export default function GraphArea({graphData, handleGraphTitle, handleGraphDescription, handleGraphTypeSelect, handleGraphSave, handleGraphDelete}) {
 
   const isDirty = true;
+  console.error('GraphArea')
 
   return (
     <div className="GraphArea">
@@ -14,7 +15,7 @@ export default function GraphArea({graphData, handleGraphTitle, handleGraphDescr
               handleGraphTitle={handleGraphTitle}
               handleGraphDescription={handleGraphDescription}
             />
-            <GraphEditor handleGraphTypeSelect={handleGraphTypeSelect}/>
+            <GraphEditor graphData={graphData} handleGraphTypeSelect={handleGraphTypeSelect}/>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#999'}}>
           <button className="link">DUPLICATE (Save As)</button>

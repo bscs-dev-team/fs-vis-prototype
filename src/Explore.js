@@ -82,14 +82,14 @@ export default function Explore() {
     filtersets: [
       {
         title: undefined,
-        source: 'Water Insights',
+        source: 'FrogWatch',
         filters: [],
         graphs: [
-          {
-            title: 'No filter',
-            description: 'Default graph',
-            type: 'map'
-          }
+          // {
+          //   title: 'No filter',
+          //   description: 'Default graph',
+          //   type: 'map'
+          // }
         ]
       },
       // {

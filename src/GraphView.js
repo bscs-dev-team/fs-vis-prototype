@@ -3,6 +3,7 @@ import GraphIcon from './GraphIcon';
 
 export default function GraphView({graphData, handleGraphTitle, handleGraphDescription}) {
 
+  console.warn('GraphView Render', graphData)
   return (
     <div className="GraphView" style={{ display: 'flex', flexDirection: 'column' }}>
       {graphData && <>
@@ -11,7 +12,7 @@ export default function GraphView({graphData, handleGraphTitle, handleGraphDescr
             <button>[ ]</button>
           </div>
           <textarea onChange={handleGraphDescription} value={graphData.description} />
-          <GraphIcon  size="max" type={graphData.type} />
+          <GraphIcon size="max" type={graphData.type} />
           </>
       }
     </div>

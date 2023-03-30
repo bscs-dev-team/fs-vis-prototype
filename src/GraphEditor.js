@@ -1,12 +1,12 @@
 import './Exploration.css';
 import GraphIcon from './GraphIcon';
 
-export default function GraphEditor({data, handleAddFilter, handleGraphTypeSelect}) {
+export default function GraphEditor({graphData, handleAddFilter, handleGraphTypeSelect}) {
 
   return (
     <div className="GraphEditor">
       <div className="system">DATA DISPLAY</div>
-      <div style={{ display: "grid", gridTemplateColumns: "120px 2fr"}}>
+      {graphData && <div style={{ display: "grid", gridTemplateColumns: "120px 2fr"}}>
         <label>X:</label>
         <input value={'x'}  />
         <label>Y:</label>
@@ -20,7 +20,7 @@ export default function GraphEditor({data, handleAddFilter, handleGraphTypeSelec
           <GraphIcon size="large" type="timeseries" handleClick={() => handleGraphTypeSelect('timeseries')} />
           <GraphIcon size="large" type="whisker" handleClick={() => handleGraphTypeSelect('whisker')} />
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
