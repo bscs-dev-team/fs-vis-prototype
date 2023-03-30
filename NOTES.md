@@ -61,20 +61,18 @@ Notes on setting up the dev stack for Windows 11.
     NOTE: with GitHub Desktop you might need to set the "Repository -> Repository Settings -> Git config" to "Use a lcoal Git config" with "bscs-dev-team" as the user.
 
 
-## Convert CSV to JSON
-
-`convert-csv-to-json` uses `fs` to load a file.  So ti does not run in the browser.  
     
 # Troubleshooting
+
 
 #### `fatal: a branch named 'gh-pages' already exists`
 Message dispalyed during `npm run deploy`.
 Remove the `node_modules/.cache/gh-pages` folder.
 
-#### `remote: Permission to git denied to`
 
+#### `remote: Permission to git denied to...`
 On Windows, issue might be git credentials maanger.
-1. Hit "Wdinows" key
+1. Hit "Windows" key
 2. Start "Credentials Manager"
 3. Search for `github` entries.
-4. Remove old entires.
+4. Remove old entries.

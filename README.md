@@ -33,7 +33,7 @@ Point your browser at `localhost:1234`
 
 ## Deploy
 
-This will deploy to GitHub pages at `https://bscs-dev-team.github.io/fs-vis-prototype/`
+This will deploy to GitHub Pages at `https://bscs-dev-team.github.io/fs-vis-prototype/`
 
 
 ```bash

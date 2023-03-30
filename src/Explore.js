@@ -85,11 +85,11 @@ export default function Explore() {
         source: 'FrogWatch',
         filters: [],
         graphs: [
-          // {
-          //   title: 'No filter',
-          //   description: 'Default graph',
-          //   type: 'map'
-          // }
+          {
+            title: 'No filter',
+            description: 'Map',
+            type: 'map'
+          }
         ]
       },
       // {
@@ -143,7 +143,7 @@ export default function Explore() {
 
       // Clone filterset
       const newFilterset = Object.assign({}, filterset);
-      newFilterset.title = (filterset.title + ', ' || '') + filterTitle;
+      newFilterset.title = (filterset.title ? filterset.title + ', ' : '') + filterTitle;
 
       // Clone only the currently selected graph
       const selectedGraph = Object.assign({}, filterset.graphs[e.selectedGraphIndex]);
