@@ -5,11 +5,12 @@
 
 # Built With
 
-* [Node v19.8.1]()
-* [React v18.2.0]()
 * [Parcel v2.8.3](https://parceljs.org/)
-
 * [gh-pages](https://www.npmjs.com/package/gh-pages)
+
+* [React v18.2.0]()
+* [Node v19.8.1]()
+
 
 
 ## Installation
