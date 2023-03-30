@@ -3,10 +3,11 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "predeploy" : "parcel build --public-url .",
-    "deploy" : "gh-pages -d dist"
+    "predeploy": "parcel build --public-url .",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "csvtojson": "^2.0.10",
     "gh-pages": "^5.0.0",
     "immer": "^9.0.21",
     "parcel": "^2.8.3",

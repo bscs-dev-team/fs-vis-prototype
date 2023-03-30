@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import './Exploration.css';
 
-export default function FilterEditor({data, handleAddFilter}) {
+export default function FilterEditor({data, filters, handleAddFilter, handleClose}) {
 
-  const options = ['pH', 'Nitrate', 'Nitrite', 'Hardness', 'Chlorine', 'Alkalinity'];
+  //const options = ['pH', 'Nitrate', 'Nitrite', 'Hardness', 'Chlorine', 'Alkalinity'];
+  const options = filters;
 
   const [parameter, setParameter] = useState('');
+  const [eqval, setEqval] = useState();
   const [minval, setMinval] = useState();
   const [maxval, setMaxval] = useState();
 
   function handleSelect(e) {
-    console.log('selected', e);
     setParameter(e.target.value);
   }
   function handleSave() {
@@ -21,10 +22,18 @@ export default function FilterEditor({data, handleAddFilter}) {
       s += ' < ' + maxval;
     } else {
       s += parameter;
+      s += eqval !==undefined ? ` = ${eqval}` : '';
       s += minval !== undefined ? ` > ${minval}` : '';
       s += maxval !== undefined ? ` < ${maxval}` : '';
     }
-    handleAddFilter(s);
+    const filter = {
+      title: s,
+      field: parameter,
+      eq: eqval,
+      min: minval,
+      max: maxval
+    }
+    handleAddFilter(filter);
   }
 
   return (
@@ -37,12 +46,14 @@ export default function FilterEditor({data, handleAddFilter}) {
               <option value="">--Select a parameter--</option>
               {options.map(o => <option value={o}>{o}</option>)}
             </select>
+            <label>Equals</label>
+            <input value={data.eq} onChange={e => setEqval(e.target.value)} />
             <label>Minimum</label>
             <input value={data.min} onChange={e => setMinval(e.target.value)} />
             <label>Maximum</label>
             <input value={data.max} onChange={e => setMaxval(e.target.value)} />
             <p></p><p></p>
-            <label></label>
+            <button onClick={handleClose}>CANCEL</button>
             <button className="primary" onClick={()=>handleSave()}>SAVE</button>
         </div>
     </div>
