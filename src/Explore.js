@@ -186,6 +186,7 @@ export default function Explore() {
             let passed = true;
             filters.forEach(f => {
               if (!Object.hasOwn(d, f.field)) return;
+              if (f.eq !== undefined && String(d[f.field]) !== String(f.eq)) passed=false;
               if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
               if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
             });
@@ -201,7 +202,7 @@ export default function Explore() {
       draft.count = rowData.length;
       console.log('count', draft.count)
     });
-  }, [updateTableData]);
+  }, [updateTableData, fieldsToShow]);
 
   const handleFilterTitle = useCallback(event => {
     updateE(draft => {
@@ -233,9 +234,14 @@ export default function Explore() {
       draft.selectedFilterSetIndex = filterIndex;
       draft.selectedGraphIndex = graphIndex;
     });
-    const newFilters = e.filtersets[filterIndex].filters;
-    applyFilters(fullDataSet, newFilters);
-  }, [updateE]);
+    console.log('try ', filterIndex,' filtersets', e.filtersets[filterIndex])
+    try {
+      const newFilters = e.filtersets[filterIndex].filters;
+      applyFilters(fullDataSet, newFilters);
+    } catch (e) {
+      console.error('Failed', e )
+    }
+  }, [updateE, e]);
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
