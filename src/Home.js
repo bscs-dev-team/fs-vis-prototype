@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Explore from './Explore';
+import Explore from './Explore3';
 
 
 export default function Home() {

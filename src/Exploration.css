@@ -1,3 +1,7 @@
+label {
+    color: #ffffff66;
+}
+
 input { 
     color: white;
     background-color: #ffffff33;
@@ -26,16 +30,23 @@ button.primary {
     color: #ffffff;
     text-align: center;
 }
-
 button.link {
     display: inline-block;
     color: #ffffff99;
     background-color: transparent;
     border: none;
 }
+button.small {
+    padding: 2px;
+    font-size: 12px;
+}
 
 .system {
     font-size: 12px;
+    color: #666;
+}
+.colophon {
+    font-size: 10px;
     color: #666;
 }
 
@@ -64,10 +75,26 @@ button.link {
 
 /* History */
 .History {
-    margin: 5px 0;
+    margin: 5px 10px 0 10px;
     background-color: #3b520f;
     max-height: 200px;
     overflow: hidden;
+}
+.History.short {
+    max-height: inherit;
+    flex-grow: 1;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.History.short .FilterSet {
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+    padding: 5px;
+}
+.History.short li {
+    padding: 2px;
 }
 .History .browserViewer {
     max-height: 150px;
@@ -106,13 +133,20 @@ button.link {
     width: 45px;
     height: 45px;
 }
-.GraphIcon.max, .GraphIcon.max img{
+.GraphIcon.max {
+    height: fit-content;
+    width: fit-content;
+}
+.GraphIcon.max img{
     height: 100%;
     width: 100%;
 }
 .GraphIcon.large, .GraphIcon.large img {
     width: 75px;
     height: 75px;
+}
+.GraphIcon.small, .GraphIcon.small img {
+    width: 25px; height: 25px;
 }
 .GraphIcon.selected {
     border: 2px solid #f65925
@@ -140,9 +174,14 @@ button.link {
 
 /* FilterSet */
 .FilterSet {
-    margin: 5px 0;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    /* border-bottom-left-radius: 0; */
+    margin: 0 0 0 5px;
     padding: 5px;
-    background-color: #577421;
+    background-color: indigo;
+    /* background-color: #577421; */
 }
 .FilterSet label, .GraphEditor label {
     text-align: right;
@@ -162,7 +201,6 @@ button.link {
     height: 100%;
     padding: 5px;
     background-color: #e3f0b1;
-    font-size: 12px;
 }
 .MapTable .stats {
     color: #666;
@@ -171,6 +209,7 @@ button.link {
     color: #333;
     background-color: #f1f8d8;
     overflow: scroll;
+    font-size: 12px;
 }
 .DataTable table {
     /* table-layout: fixed; */
