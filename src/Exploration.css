@@ -41,6 +41,15 @@ button.small {
     font-size: 12px;
 }
 
+select {
+    color: #ffffff99;
+    background-color: #ffffff03;
+    border: none;
+}
+select option {
+    color: #333;
+}
+
 .system {
     font-size: 12px;
     color: #666;
@@ -50,6 +59,19 @@ button.small {
     color: #666;
 }
 
+.toggleButton {
+    color: #ffffff33;
+    background-color: #0004;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 2px 5px;
+    margin-right: 2px; 
+}
+.toggleButton.on {
+    color: #ffffff99;
+    background-color: transparent;
+}
 /* dialog */
 .dialog {
     position: absolute;
@@ -64,6 +86,7 @@ button.small {
 /* Exploration */
 .ExplorationTitle {
     display: flex;
+    align-items: baseline;
 }
 .ExplorationTitle label {
     padding-right: 10px;
@@ -81,17 +104,22 @@ button.small {
     overflow: hidden;
 }
 .History.short {
+    display: flex;
+    flex-direction: column;
     max-height: inherit;
+    background-color: #0004;
     flex-grow: 1;
-    margin-top: 10px;
+    margin: 10px;
     font-size: 12px;
 }
 .History.short .FilterSet {
-    border-radius: 15px;
+    border-radius: 10px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
-    padding: 5px;
+    padding: 3px 3px 3px 5px;
+    line-height: 20px;
+    color: #ffffff66;
 }
 .History.short li {
     padding: 2px;
