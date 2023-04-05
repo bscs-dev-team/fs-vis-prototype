@@ -161,8 +161,8 @@ export default function Explore() {
       newFilterset.filters = newFilters;
 
       console.log('new filters', newFilters)
-      draft.filtersets.push(newFilterset);
-      draft.selectedFilterSetIndex = draft.filtersets.length-1; // select it
+      draft.filtersets.unshift(newFilterset);
+      draft.selectedFilterSetIndex = 0; // draft.filtersets.length-1; // select it
     });
     applyFilters(fullDataSet, newFilters);
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
@@ -189,7 +189,7 @@ export default function Explore() {
             let passed = true;
             filters.forEach(f => {
               if (!Object.hasOwn(d, f.field)) return;
-              if (f.eq !== undefined && String(d[f.field]) !== String(f.eq)) passed=false;
+              if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed=false;
               if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
               if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
             });
@@ -310,7 +310,9 @@ export default function Explore() {
   return (
     <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
       {/* LAYOUT with two columns */}
-      <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
+      <div style={{ padding: '2px 5px'}}>
+        <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
+      </div>
       <div style={{overflow: 'hidden', flexGrow: 1, display: 'flex', flexDirection: 'row'}}>
         {/* History / Filters */}
         <div style={{overflow: 'hidden', minWidth: '350px', display: 'flex', flexDirection: 'column'}}>

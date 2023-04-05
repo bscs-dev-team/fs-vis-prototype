@@ -5,6 +5,7 @@ import GraphIcon from './GraphIcon';
 export default function History({data, selected, handleShowHistory, handleShowSaved, handleGraphSelect, handleAddGraph}) {
 
   useEffect(() => {
+    console.log('useEffect history')
     const els = document.getElementsByClassName('selected');
     els[0].scrollIntoView()
   })
@@ -18,8 +19,8 @@ export default function History({data, selected, handleShowHistory, handleShowSa
   return (
     <div className="History short">
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
-        <button className="small" onClick={handleShowHistory}>HISTORY</button>
-        <button className="small" onClick={handleShowSaved}>SAVED GRAPHS</button>
+        <div className="toggleButton on"  onClick={handleShowHistory}>HISTORY</div>
+        <div className="toggleButton"  onClick={handleShowSaved}>SAVED GRAPHS</div>
       </div>
       <div className="browserViewer">
         <div className="browser">
