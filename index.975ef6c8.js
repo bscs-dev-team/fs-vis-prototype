@@ -27534,8 +27534,8 @@ function Explore() {
             newFilters.push(filter);
             newFilterset.filters = newFilters;
             console.log("new filters", newFilters);
-            draft.filtersets.push(newFilterset);
-            draft.selectedFilterSetIndex = draft.filtersets.length - 1; // select it
+            draft.filtersets.unshift(newFilterset);
+            draft.selectedFilterSetIndex = 0; // draft.filtersets.length-1; // select it
         });
         applyFilters(fullDataSet, newFilters);
     }, [
@@ -27564,7 +27564,7 @@ function Explore() {
                 let passed = true;
                 filters.forEach((f)=>{
                     if (!Object.hasOwn(d, f.field)) return;
-                    if (f.eq !== undefined && String(d[f.field]) !== String(f.eq)) passed = false;
+                    if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed = false;
                     if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed = false;
                     if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed = false;
                 });
@@ -27715,9 +27715,18 @@ function Explore() {
             flexDirection: "column"
         },
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
-                title: e.title,
-                handleTitleUpdate: handleTitleUpdate
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    padding: "2px 5px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                    title: e.title,
+                    handleTitleUpdate: handleTitleUpdate
+                }, void 0, false, {
+                    fileName: "src/Explore3.js",
+                    lineNumber: 314,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "src/Explore3.js",
                 lineNumber: 313,
@@ -27753,7 +27762,7 @@ function Explore() {
                                     handleAddFilter: handleAddFilter
                                 }, void 0, false, {
                                     fileName: "src/Explore3.js",
-                                    lineNumber: 319,
+                                    lineNumber: 321,
                                     columnNumber: 21
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
@@ -27767,18 +27776,18 @@ function Explore() {
                                     handleAddGraph: handleAddGraph
                                 }, void 0, false, {
                                     fileName: "src/Explore3.js",
-                                    lineNumber: 324,
+                                    lineNumber: 326,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/Explore3.js",
-                            lineNumber: 318,
+                            lineNumber: 320,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "src/Explore3.js",
-                        lineNumber: 316,
+                        lineNumber: 318,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27789,18 +27798,18 @@ function Explore() {
                             tableData: tableData
                         }, void 0, false, {
                             fileName: "src/Explore3.js",
-                            lineNumber: 336,
+                            lineNumber: 338,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/Explore3.js",
-                        lineNumber: 334,
+                        lineNumber: 336,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Explore3.js",
-                lineNumber: 314,
+                lineNumber: 316,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27817,12 +27826,12 @@ function Explore() {
                     handleGraphDelete: handleGraphDelete
                 }, void 0, false, {
                     fileName: "src/Explore3.js",
-                    lineNumber: 342,
+                    lineNumber: 344,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/Explore3.js",
-                lineNumber: 340,
+                lineNumber: 342,
                 columnNumber: 7
             }, this)
         ]
@@ -28867,6 +28876,7 @@ var _s = $RefreshSig$();
 function History({ data , selected , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph  }) {
     _s();
     (0, _react.useEffect)(()=>{
+        console.log("useEffect history");
         const els = document.getElementsByClassName("selected");
         els[0].scrollIntoView();
     });
@@ -28883,28 +28893,28 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                     gridTemplateColumns: "1fr 1fr"
                 },
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "small",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "toggleButton on",
                         onClick: handleShowHistory,
                         children: "HISTORY"
                     }, void 0, false, {
                         fileName: "src/HistoryShort.js",
-                        lineNumber: 21,
+                        lineNumber: 22,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "small",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "toggleButton",
                         onClick: handleShowSaved,
                         children: "SAVED GRAPHS"
                     }, void 0, false, {
                         fileName: "src/HistoryShort.js",
-                        lineNumber: 22,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/HistoryShort.js",
-                lineNumber: 20,
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28923,7 +28933,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                         children: d.title !== undefined ? d.title : "No Filters"
                                     }, void 0, false, {
                                         fileName: "src/HistoryShort.js",
-                                        lineNumber: 31,
+                                        lineNumber: 32,
                                         columnNumber: 33
                                     }, this),
                                     d.graphs.map((g, graphIndex)=>{
@@ -28935,13 +28945,13 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                             handleClick: ()=>handleGraphClick(filterIndex, graphIndex)
                                         }, graphIndex, false, {
                                             fileName: "src/HistoryShort.js",
-                                            lineNumber: 34,
+                                            lineNumber: 35,
                                             columnNumber: 28
                                         }, this);
                                         // No graph
                                         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                             fileName: "src/HistoryShort.js",
-                                            lineNumber: 44,
+                                            lineNumber: 45,
                                             columnNumber: 26
                                         }, this);
                                     }),
@@ -28951,34 +28961,34 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                         children: "+ GRAPH"
                                     }, void 0, false, {
                                         fileName: "src/HistoryShort.js",
-                                        lineNumber: 46,
+                                        lineNumber: 47,
                                         columnNumber: 63
                                     }, this)
                                 ]
                             }, filterIndex, true, {
                                 fileName: "src/HistoryShort.js",
-                                lineNumber: 28,
+                                lineNumber: 29,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "src/HistoryShort.js",
-                        lineNumber: 26,
+                        lineNumber: 27,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/HistoryShort.js",
-                    lineNumber: 25,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/HistoryShort.js",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/HistoryShort.js",
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }
@@ -29543,9 +29553,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _explorationCss = require("./Exploration.css");
 var _dataTable = require("./DataTable");
 var _dataTableDefault = parcelHelpers.interopDefault(_dataTable);
-var _visWidgetCardMapPng = require("./img/vis-widget-card-map.png");
-var _visWidgetCardMapPngDefault = parcelHelpers.interopDefault(_visWidgetCardMapPng);
-function MapTable({ tableData , handleAddFilter  }) {
+function MapTable({ tableData  }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "MapTable",
         style: {
@@ -29557,32 +29565,23 @@ function MapTable({ tableData , handleAddFilter  }) {
                 style: {
                     display: "flex"
                 },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "stats",
-                        style: {
-                            flexGrow: 1
-                        },
-                        children: [
-                            tableData.count,
-                            " Observations"
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/MapTableNarrow.js",
-                        lineNumber: 10,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "Table/Map"
-                    }, void 0, false, {
-                        fileName: "src/MapTableNarrow.js",
-                        lineNumber: 11,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "stats",
+                    style: {
+                        flexGrow: 1
+                    },
+                    children: [
+                        "Observations Found: ",
+                        tableData.count
+                    ]
+                }, void 0, true, {
+                    fileName: "src/MapTableNarrow.js",
+                    lineNumber: 8,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
                 fileName: "src/MapTableNarrow.js",
-                lineNumber: 9,
+                lineNumber: 7,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29597,18 +29596,18 @@ function MapTable({ tableData , handleAddFilter  }) {
                     tableData: tableData
                 }, void 0, false, {
                     fileName: "src/MapTableNarrow.js",
-                    lineNumber: 14,
+                    lineNumber: 12,
                     columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "src/MapTableNarrow.js",
-                lineNumber: 13,
+                lineNumber: 11,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/MapTableNarrow.js",
-        lineNumber: 8,
+        lineNumber: 6,
         columnNumber: 5
     }, this);
 }
@@ -29622,7 +29621,7 @@ $RefreshReg$(_c, "MapTable");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./DataTable":"8666l","./img/vis-widget-card-map.png":"f1kyz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8666l":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./DataTable":"8666l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8666l":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4602 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29634,6 +29633,16 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _explorationCss = require("./Exploration.css");
 function DataTable({ tableData  }) {
+    const HACK = [
+        "Observation Date is the date the data was observed and recorded",
+        "Start Time is the local time when the participant started to listen/record for frog sounds",
+        "End Time is the local time when the participant stopped listening/recording frog sounds",
+        "Species is the frog species heard",
+        "Call Intensity is the number of individuals heard",
+        "Air Temperature in Celcius",
+        "Characterize Land Use is the type of land area",
+        "Observation Notes are additional notes taken during the observation"
+    ];
     console.log("table render");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "DataTable",
@@ -29645,20 +29654,27 @@ function DataTable({ tableData  }) {
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                         children: tableData.headers.map((h, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                children: h
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    title: HACK[i],
+                                    children: h
+                                }, void 0, false, {
+                                    fileName: "src/DataTable.js",
+                                    lineNumber: 21,
+                                    columnNumber: 31
+                                }, this)
                             }, i, false, {
                                 fileName: "src/DataTable.js",
-                                lineNumber: 11,
+                                lineNumber: 21,
                                 columnNumber: 19
                             }, this))
                     }, void 0, false, {
                         fileName: "src/DataTable.js",
-                        lineNumber: 9,
+                        lineNumber: 19,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "src/DataTable.js",
-                    lineNumber: 8,
+                    lineNumber: 18,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -29669,36 +29685,37 @@ function DataTable({ tableData  }) {
                                             height: "1.2em",
                                             overflow: "hidden"
                                         },
+                                        title: item,
                                         children: item
                                     }, void 0, false, {
                                         fileName: "src/DataTable.js",
-                                        lineNumber: 20,
+                                        lineNumber: 30,
                                         columnNumber: 21
                                     }, this)
                                 }, i, false, {
                                     fileName: "src/DataTable.js",
-                                    lineNumber: 19,
+                                    lineNumber: 29,
                                     columnNumber: 19
                                 }, this))
                         }, i, false, {
                             fileName: "src/DataTable.js",
-                            lineNumber: 17,
+                            lineNumber: 27,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "src/DataTable.js",
-                    lineNumber: 15,
+                    lineNumber: 25,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/DataTable.js",
-            lineNumber: 7,
+            lineNumber: 17,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "src/DataTable.js",
-        lineNumber: 6,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 }

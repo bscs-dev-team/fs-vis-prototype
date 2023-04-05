@@ -65,6 +65,16 @@ button.small {
   font-size: 12px;
 }
 
+select {
+  color: #fff9;
+  background-color: #ffffff03;
+  border: none;
+}
+
+select option {
+  color: #333;
+}
+
 .system {
   color: #666;
   font-size: 12px;
@@ -73,6 +83,19 @@ button.small {
 .colophon {
   color: #666;
   font-size: 10px;
+}
+
+.toggleButton {
+  color: #fff3;
+  background-color: #0004;
+  border-radius: 5px 5px 0 0;
+  margin-right: 2px;
+  padding: 2px 5px;
+}
+
+.toggleButton.on {
+  color: #fff9;
+  background-color: #0000;
 }
 
 .dialog {
@@ -86,6 +109,7 @@ button.small {
 }
 
 .ExplorationTitle {
+  align-items: baseline;
   display: flex;
 }
 
@@ -106,19 +130,29 @@ button.small {
 
 .History.short {
   max-height: inherit;
+  background-color: #0004;
+  flex-direction: column;
   flex-grow: 1;
-  margin-top: 10px;
+  margin: 10px;
   font-size: 12px;
+  display: flex;
 }
 
 .History.short .FilterSet {
-  border-radius: 15px 0 0 15px;
+  color: #fff6;
+  border-radius: 10px 0 0 10px;
   margin: 0;
-  padding: 5px;
+  padding: 3px 3px 3px 5px;
+  line-height: 20px;
 }
 
 .History.short li {
   padding: 2px;
+}
+
+.History.short .browserViewer {
+  height: 100%;
+  max-height: inherit;
 }
 
 .History .browserViewer {
