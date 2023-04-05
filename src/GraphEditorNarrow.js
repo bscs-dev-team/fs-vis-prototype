@@ -4,14 +4,16 @@ import GraphIcon from './GraphIcon';
 export default function GraphEditor({graphData, handleAddFilter, handleGraphTypeSelect}) {
 
   return (
-    <div className="GraphEditor">
+    <div className="GraphEditor" style={{ overflow: 'hidden' }}>
       <div className="system">DATA DISPLAY</div>
-      {graphData && <div style={{ display: "grid", gridTemplateColumns: "120px 2fr"}}>
+      {graphData && <div style={{ display: "grid", gridTemplateColumns: "40px 2fr"}}>
         <label>X:</label>
         <input value={'x'}  />
         <label>Y:</label>
         <input value={'y'}  />
-        <label>Select Graph Type:</label>
+        <label></label>
+        <label style={{textAlign: 'left'}}>Select Graph Type:</label>
+        <label></label>
         <div style={{ display: 'grid', gridTemplateColumns: "1fr 1fr 1fr", rowGap: '10px'}}>
           <GraphIcon size="large" type="map" handleClick={() => handleGraphTypeSelect('map')} />
           <GraphIcon size="large" type="histogram" handleClick={() => handleGraphTypeSelect('histogram')} />
@@ -20,12 +22,14 @@ export default function GraphEditor({graphData, handleAddFilter, handleGraphType
           <GraphIcon size="large" type="timeseries" handleClick={() => handleGraphTypeSelect('timeseries')} />
           <GraphIcon size="large" type="whisker" handleClick={() => handleGraphTypeSelect('whisker')} />
         </div>
-        <br/>
-        <br/>
+        <div></div>
+        <hr/>
+        <hr/>
+        <div></div>
         <label></label>
-        <button>Copy to Clipboard</button>
+        <a>Copy to Clipboard</a>
         <label></label>
-        <button>Download PNG</button>
+        <a>Download PNG</a>
       </div>}
     </div>
   );

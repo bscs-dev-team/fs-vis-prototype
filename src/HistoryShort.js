@@ -16,33 +16,33 @@ export default function History({data, selected, handleShowHistory, handleShowSa
   }
 
   return (
-    <div className="History">
-      <div style={{ display: "grid", gridTemplateColumns: "100px 1fr 1fr"}}>
-        <div>Selection History</div>
-        <button onClick={handleShowHistory}>HISTORY</button>
-        <button onClick={handleShowSaved}>SAVED GRAPHS</button>
+    <div className="History short">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+        <button className="small" onClick={handleShowHistory}>HISTORY</button>
+        <button className="small" onClick={handleShowSaved}>SAVED GRAPHS</button>
       </div>
       <div className="browserViewer">
         <div className="browser">
           <ul>
           {data.filtersets.map((d, filterIndex) => 
             <li key={filterIndex} 
-              style={{ display: "grid", gridTemplateColumns: "100px auto"}}
+              style={{ display: "flex" }}
               className={filterIndex===data.selectedFilterSetIndex ? 'selected' : ''}>
-                <div className="FilterSet  filtersetTitle">{d.title !== undefined ? d.title : 'No Filters'}</div>
+                {showHistory && <div className="FilterSet  filtersetTitle">{d.title !== undefined ? d.title : 'No Filters'}</div>}
                 {d.graphs.map((g, graphIndex) => {
                   if (showHistory || g.saved) {
                     return <GraphIcon 
                       key={graphIndex}
                       type={g.type}
+                      size="small"
                       selected={(filterIndex===data.selectedFilterSetIndex) && (data.selectedGraphIndex === graphIndex)}
                       saved={g.saved}
                       handleClick={() => handleGraphClick(filterIndex, graphIndex)}
                     />
                   }
-                  return <div>No Graph</div>
-                }
-                )}
+                  // No graph
+                  return <div></div>
+                })}
                 {filterIndex===data.selectedFilterSetIndex && <button className="primary" onClick={handleAddGraph}>+ GRAPH</button>}
             </li>
           )}

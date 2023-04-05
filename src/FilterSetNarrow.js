@@ -20,15 +20,14 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
 
   return (
     <div className="FilterSet">
-        <div style={{ display: "grid", gridTemplateColumns: "90px 2fr"}}>
-          <label>Selection</label>
+        <div style={{ display: "flex", flexDirection: 'column', padding: '5px'}}>
           <input value={data.title !== undefined ? data.title : 'No Filters'} onChange={handleFilterTitle} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "160px 2fr"}}>
+        <div style={{ display: "grid", gridTemplateColumns: "80px 2fr"}}>
           <label>SOURCE</label>
-          <input value={data.source} onChange={handleFilterSource} />
-          <label></label>
-          <hr/>
+          <select>
+            <option selected value={data.source} onChange={handleFilterSource}>{data.source}</option>
+          </select>
           <label>FILTERS</label>
           {data.filters.length > 0 
             ? data.filters.map((d, i) => <>
