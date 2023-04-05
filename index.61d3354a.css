@@ -19,6 +19,10 @@ code {
   overflow: hidden;
 }
 
+label {
+  color: #fff6;
+}
+
 input {
   color: #fff;
   background-color: #fff3;
@@ -56,9 +60,19 @@ button.link {
   display: inline-block;
 }
 
+button.small {
+  padding: 2px;
+  font-size: 12px;
+}
+
 .system {
   color: #666;
   font-size: 12px;
+}
+
+.colophon {
+  color: #666;
+  font-size: 10px;
 }
 
 .dialog {
@@ -86,8 +100,25 @@ button.link {
 .History {
   max-height: 200px;
   background-color: #3b520f;
-  margin: 5px 0;
+  margin: 5px 10px 0;
   overflow: hidden;
+}
+
+.History.short {
+  max-height: inherit;
+  flex-grow: 1;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.History.short .FilterSet {
+  border-radius: 15px 0 0 15px;
+  margin: 0;
+  padding: 5px;
+}
+
+.History.short li {
+  padding: 2px;
 }
 
 .History .browserViewer {
@@ -131,7 +162,14 @@ button.link {
   position: relative;
 }
 
-.GraphIcon.max, .GraphIcon.max img {
+.GraphIcon.max {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.GraphIcon.max img {
   height: 100%;
   width: 100%;
 }
@@ -139,6 +177,11 @@ button.link {
 .GraphIcon.large, .GraphIcon.large img {
   width: 75px;
   height: 75px;
+}
+
+.GraphIcon.small, .GraphIcon.small img {
+  width: 25px;
+  height: 25px;
 }
 
 .GraphIcon.selected {
@@ -168,8 +211,9 @@ button.link {
 }
 
 .FilterSet {
-  background-color: #577421;
-  margin: 5px 0;
+  background-color: indigo;
+  border-radius: 15px 0 0 15px;
+  margin: 0 0 0 5px;
   padding: 5px;
 }
 
@@ -190,7 +234,6 @@ button.link {
   background-color: #e3f0b1;
   flex-grow: 1;
   padding: 5px;
-  font-size: 12px;
 }
 
 .MapTable .stats {
@@ -200,6 +243,7 @@ button.link {
 .DataTable {
   color: #333;
   background-color: #f1f8d8;
+  font-size: 12px;
   overflow: scroll;
 }
 

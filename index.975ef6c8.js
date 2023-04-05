@@ -27166,8 +27166,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _explore = require("./Explore");
-var _exploreDefault = parcelHelpers.interopDefault(_explore);
+var _explore3 = require("./Explore3");
+var _explore3Default = parcelHelpers.interopDefault(_explore3);
 var _s = $RefreshSig$();
 function Home() {
     _s();
@@ -27201,7 +27201,7 @@ function Home() {
                     columnNumber: 11
                 }, this)
             ]
-        }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreDefault.default), {}, void 0, false, {
+        }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explore3Default.default), {}, void 0, false, {
             fileName: "src/Home.js",
             lineNumber: 21,
             columnNumber: 9
@@ -27223,11 +27223,174 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Explore":"5nf7m","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5nf7m":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$5e86 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Explore3":"jfhOY"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("89f613f24315a0ea");
+function debounce(func, delay) {
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
+            }
+        };
+    }
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"89f613f24315a0ea":"786KC"}],"jfhOY":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c8f8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$5e86.prelude(module);
+$parcel$ReactRefreshHelpers$c8f8.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -27239,18 +27402,23 @@ var _useImmer = require("use-immer");
 var _exploreCss = require("./Explore.css");
 var _explorationTitle = require("./ExplorationTitle");
 var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
-var _history = require("./History");
-var _historyDefault = parcelHelpers.interopDefault(_history);
-var _filterSet = require("./FilterSet");
-var _filterSetDefault = parcelHelpers.interopDefault(_filterSet);
-var _mapTable = require("./MapTable");
-var _mapTableDefault = parcelHelpers.interopDefault(_mapTable);
-var _graphArea = require("./GraphArea");
-var _graphAreaDefault = parcelHelpers.interopDefault(_graphArea);
+// import History from './History';
+var _historyShort = require("./HistoryShort");
+var _historyShortDefault = parcelHelpers.interopDefault(_historyShort);
+var _generic = require("./Generic");
+var _genericDefault = parcelHelpers.interopDefault(_generic);
+// import FilterSet from './FilterSet';
+var _filterSetNarrow = require("./FilterSetNarrow");
+var _filterSetNarrowDefault = parcelHelpers.interopDefault(_filterSetNarrow);
+// import MapTable from './MapTable';
+var _mapTableNarrow = require("./MapTableNarrow");
+var _mapTableNarrowDefault = parcelHelpers.interopDefault(_mapTableNarrow);
+var _graphAreaSwapped = require("./GraphAreaSwapped");
+var _graphAreaSwappedDefault = parcelHelpers.interopDefault(_graphAreaSwapped);
 var _frogsCsv = require("url:./data/frogs.csv");
 var _frogsCsvDefault = parcelHelpers.interopDefault(_frogsCsv);
 var _s = $RefreshSig$();
-const csv2json = require("a149c6ac795d231");
+const csv2json = require("6079d1a1666a50bd");
 // CSV DATA LOADING
 let alreadyLoaded = false;
 const fieldsToShow = [
@@ -27547,97 +27715,120 @@ function Explore() {
             flexDirection: "column"
         },
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                title: e.title,
+                handleTitleUpdate: handleTitleUpdate
+            }, void 0, false, {
+                fileName: "src/Explore3.js",
+                lineNumber: 313,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
+                    overflow: "hidden",
+                    flexGrow: 1,
                     display: "flex",
-                    flexDirection: "column",
-                    maxHeight: "25%",
-                    padding: "10px"
+                    flexDirection: "row"
                 },
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
-                        title: e.title,
-                        handleTitleUpdate: handleTitleUpdate
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetNarrowDefault.default), {
+                                    data: e.filtersets[e.selectedFilterSetIndex],
+                                    filters: tableData.headers,
+                                    handleFilterTitle: handleFilterTitle,
+                                    handleFilterSource: handleFilterSource,
+                                    handleAddFilter: handleAddFilter
+                                }, void 0, false, {
+                                    fileName: "src/Explore3.js",
+                                    lineNumber: 319,
+                                    columnNumber: 21
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
+                                    data: e,
+                                    style: {
+                                        flexGrow: 1
+                                    },
+                                    handleShowHistory: handleShowHistory,
+                                    handleShowSaved: handleShowSaved,
+                                    handleGraphSelect: handleGraphSelect,
+                                    handleAddGraph: handleAddGraph
+                                }, void 0, false, {
+                                    fileName: "src/Explore3.js",
+                                    lineNumber: 324,
+                                    columnNumber: 21
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Explore3.js",
+                            lineNumber: 318,
+                            columnNumber: 17
+                        }, this)
                     }, void 0, false, {
-                        fileName: "src/Explore.js",
-                        lineNumber: 309,
+                        fileName: "src/Explore3.js",
+                        lineNumber: 316,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         style: {
-                            display: "grid",
-                            gridTemplateColumns: "1fr 1fr",
-                            columnGap: "10px",
-                            height: "90%"
+                            overflow: "hidden"
                         },
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetDefault.default), {
-                                data: e.filtersets[e.selectedFilterSetIndex],
-                                filters: tableData.headers,
-                                handleFilterTitle: handleFilterTitle,
-                                handleFilterSource: handleFilterSource,
-                                handleAddFilter: handleAddFilter
-                            }, void 0, false, {
-                                fileName: "src/Explore.js",
-                                lineNumber: 311,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyDefault.default), {
-                                data: e,
-                                handleShowHistory: handleShowHistory,
-                                handleShowSaved: handleShowSaved,
-                                handleGraphSelect: handleGraphSelect,
-                                handleAddGraph: handleAddGraph
-                            }, void 0, false, {
-                                fileName: "src/Explore.js",
-                                lineNumber: 316,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/Explore.js",
-                        lineNumber: 310,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableNarrowDefault.default), {
+                            tableData: tableData
+                        }, void 0, false, {
+                            fileName: "src/Explore3.js",
+                            lineNumber: 336,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Explore3.js",
+                        lineNumber: 334,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/Explore.js",
-                lineNumber: 308,
+                fileName: "src/Explore3.js",
+                lineNumber: 314,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
-                    flexGrow: 1,
-                    overflow: "hidden"
+                    display: "flex",
+                    flexDirection: "column"
                 },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableDefault.default), {
-                    tableData: tableData
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaSwappedDefault.default), {
+                    graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
+                    handleGraphTitle: handleGraphTitle,
+                    handleGraphDescription: handleGraphDescription,
+                    handleGraphTypeSelect: handleGraphTypeSelect,
+                    handleGraphSave: handleGraphSave,
+                    handleGraphDelete: handleGraphDelete
                 }, void 0, false, {
-                    fileName: "src/Explore.js",
-                    lineNumber: 324,
+                    fileName: "src/Explore3.js",
+                    lineNumber: 342,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
-                fileName: "src/Explore.js",
-                lineNumber: 323,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaDefault.default), {
-                graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
-                handleGraphTitle: handleGraphTitle,
-                handleGraphDescription: handleGraphDescription,
-                handleGraphTypeSelect: handleGraphTypeSelect,
-                handleGraphSave: handleGraphSave,
-                handleGraphDelete: handleGraphDelete
-            }, void 0, false, {
-                fileName: "src/Explore.js",
-                lineNumber: 326,
+                fileName: "src/Explore3.js",
+                lineNumber: 340,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/Explore.js",
-        lineNumber: 307,
+        fileName: "src/Explore3.js",
+        lineNumber: 311,
         columnNumber: 5
     }, this);
 }
@@ -27652,12 +27843,12 @@ _c = Explore;
 var _c;
 $RefreshReg$(_c, "Explore");
 
-  $parcel$ReactRefreshHelpers$5e86.postlude(module);
+  $parcel$ReactRefreshHelpers$c8f8.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","use-immer":"YHnci","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./History":"lnqOz","./FilterSet":"jl9N2","./MapTable":"c7II1","./GraphArea":"ey9Se","a149c6ac795d231":"gJHs0","url:./data/frogs.csv":"lojGL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"YHnci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","use-immer":"YHnci","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./HistoryShort":"eOAxI","./Generic":"jNPiD","./FilterSetNarrow":"50Bfr","./MapTableNarrow":"fLdC1","./GraphAreaSwapped":"doKPU","6079d1a1666a50bd":"gJHs0","url:./data/frogs.csv":"lojGL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"YHnci":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useImmer", ()=>i);
@@ -28611,37 +28802,7 @@ var un = function() {
 }(), an = new un, fn = an.produce, cn = an.produceWithPatches.bind(an), sn = an.setAutoFreeze.bind(an), vn = an.setUseProxies.bind(an), pn = an.applyPatches.bind(an), ln = an.createDraft.bind(an), dn = an.finishDraft.bind(an);
 exports.default = fn;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"fmS59":[function() {},{}],"4IoEo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fmS59":[function() {},{}],"4IoEo":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$07f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28688,144 +28849,11 @@ $RefreshReg$(_c, "ExplorationTitle");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("89f613f24315a0ea");
-function debounce(func, delay) {
-    {
-        let timeout = undefined;
-        let lastTime = 0;
-        return function(args) {
-            // Call immediately if last call was more than the delay ago.
-            // Otherwise, set a timeout. This means the first call is fast
-            // (for the common case of a single update), and subsequent updates
-            // are batched.
-            let now = Date.now();
-            if (now - lastTime > delay) {
-                lastTime = now;
-                func.call(null, args);
-            } else {
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    timeout = undefined;
-                    lastTime = Date.now();
-                    func.call(null, args);
-                }, delay);
-            }
-        };
-    }
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"89f613f24315a0ea":"786KC"}],"lnqOz":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4abe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"eOAxI":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0396 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4abe.prelude(module);
+$parcel$ReactRefreshHelpers$0396.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -28847,23 +28875,37 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
         handleGraphSelect(filterIndex, graphIndex);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "History",
+        className: "History short",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: handleShowHistory,
-                children: "HISTORY"
-            }, void 0, false, {
-                fileName: "src/History.js",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "small",
+                        onClick: handleShowHistory,
+                        children: "HISTORY"
+                    }, void 0, false, {
+                        fileName: "src/HistoryShort.js",
+                        lineNumber: 21,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "small",
+                        onClick: handleShowSaved,
+                        children: "SAVED GRAPHS"
+                    }, void 0, false, {
+                        fileName: "src/HistoryShort.js",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/HistoryShort.js",
                 lineNumber: 20,
                 columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: handleShowSaved,
-                children: "SAVED GRAPHS"
-            }, void 0, false, {
-                fileName: "src/History.js",
-                lineNumber: 20,
-                columnNumber: 59
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "browserViewer",
@@ -28871,32 +28913,35 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                     className: "browser",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                         children: data.filtersets.map((d, filterIndex)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                style: {
+                                    display: "flex"
+                                },
                                 className: filterIndex === data.selectedFilterSetIndex ? "selected" : "",
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "filtersetTitle",
+                                    showHistory && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "FilterSet filtersetTitle",
                                         children: d.title !== undefined ? d.title : "No Filters"
                                     }, void 0, false, {
-                                        fileName: "src/History.js",
-                                        lineNumber: 26,
-                                        columnNumber: 17
+                                        fileName: "src/HistoryShort.js",
+                                        lineNumber: 31,
+                                        columnNumber: 33
                                     }, this),
                                     d.graphs.map((g, graphIndex)=>{
                                         if (showHistory || g.saved) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
                                             type: g.type,
+                                            size: "small",
                                             selected: filterIndex === data.selectedFilterSetIndex && data.selectedGraphIndex === graphIndex,
                                             saved: g.saved,
                                             handleClick: ()=>handleGraphClick(filterIndex, graphIndex)
                                         }, graphIndex, false, {
-                                            fileName: "src/History.js",
-                                            lineNumber: 29,
+                                            fileName: "src/HistoryShort.js",
+                                            lineNumber: 34,
                                             columnNumber: 28
                                         }, this);
-                                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            children: "No Graph"
-                                        }, void 0, false, {
-                                            fileName: "src/History.js",
-                                            lineNumber: 37,
+                                        // No graph
+                                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                                            fileName: "src/HistoryShort.js",
+                                            lineNumber: 44,
                                             columnNumber: 26
                                         }, this);
                                     }),
@@ -28905,34 +28950,34 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                                         onClick: handleAddGraph,
                                         children: "+ GRAPH"
                                     }, void 0, false, {
-                                        fileName: "src/History.js",
-                                        lineNumber: 40,
+                                        fileName: "src/HistoryShort.js",
+                                        lineNumber: 46,
                                         columnNumber: 63
                                     }, this)
                                 ]
                             }, filterIndex, true, {
-                                fileName: "src/History.js",
-                                lineNumber: 25,
+                                fileName: "src/HistoryShort.js",
+                                lineNumber: 28,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
-                        fileName: "src/History.js",
-                        lineNumber: 23,
+                        fileName: "src/HistoryShort.js",
+                        lineNumber: 26,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
-                    fileName: "src/History.js",
-                    lineNumber: 22,
+                    fileName: "src/HistoryShort.js",
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
-                fileName: "src/History.js",
-                lineNumber: 21,
+                fileName: "src/HistoryShort.js",
+                lineNumber: 24,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/History.js",
+        fileName: "src/HistoryShort.js",
         lineNumber: 19,
         columnNumber: 5
     }, this);
@@ -28943,7 +28988,7 @@ _c = History;
 var _c;
 $RefreshReg$(_c, "History");
 
-  $parcel$ReactRefreshHelpers$4abe.postlude(module);
+  $parcel$ReactRefreshHelpers$0396.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -29092,11 +29137,46 @@ module.exports = require("e625c20b0cac0673").getBundleURL("bLxZJ") + "vis-widget
 },{"e625c20b0cac0673":"lgJ39"}],"f1kyz":[function(require,module,exports) {
 module.exports = require("a33be123605485be").getBundleURL("bLxZJ") + "vis-widget-card-map.40c42982.png" + "?" + Date.now();
 
-},{"a33be123605485be":"lgJ39"}],"jl9N2":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d865 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"a33be123605485be":"lgJ39"}],"jNPiD":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$242e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d865.prelude(module);
+$parcel$ReactRefreshHelpers$242e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function Generic() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: {
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#ff000066",
+            border: "1px single #ff0000"
+        },
+        children: "\xa0"
+    }, void 0, false, {
+        fileName: "src/Generic.js",
+        lineNumber: 2,
+        columnNumber: 11
+    }, this);
+}
+exports.default = Generic;
+_c = Generic;
+var _c;
+$RefreshReg$(_c, "Generic");
+
+  $parcel$ReactRefreshHelpers$242e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"50Bfr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$efa3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$efa3.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29126,88 +29206,84 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
+                    display: "flex",
+                    flexDirection: "column",
+                    padding: "5px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    value: data.title !== undefined ? data.title : "No Filters",
+                    onChange: handleFilterTitle
+                }, void 0, false, {
+                    fileName: "src/FilterSetNarrow.js",
+                    lineNumber: 24,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "src/FilterSetNarrow.js",
+                lineNumber: 23,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
                     display: "grid",
-                    gridTemplateColumns: "120px 2fr"
+                    gridTemplateColumns: "80px 2fr"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
-                            children: "FILTER SET"
-                        }, void 0, false, {
-                            fileName: "src/FilterSet.js",
-                            lineNumber: 24,
-                            columnNumber: 20
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 24,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        value: data.title !== undefined ? data.title : "No Filters",
-                        onChange: handleFilterTitle
-                    }, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 25,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "SOURCE"
                     }, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 26,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        value: data.source,
-                        onChange: handleFilterSource
-                    }, void 0, false, {
-                        fileName: "src/FilterSet.js",
+                        fileName: "src/FilterSetNarrow.js",
                         lineNumber: 27,
-                        columnNumber: 13
+                        columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/FilterSet.js",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                            selected: true,
+                            value: data.source,
+                            onChange: handleFilterSource,
+                            children: data.source
+                        }, void 0, false, {
+                            fileName: "src/FilterSetNarrow.js",
+                            lineNumber: 29,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/FilterSetNarrow.js",
                         lineNumber: 28,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 29,
-                        columnNumber: 13
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "FILTERS"
                     }, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 30,
-                        columnNumber: 13
+                        fileName: "src/FilterSetNarrow.js",
+                        lineNumber: 31,
+                        columnNumber: 11
                     }, this),
                     data.filters.length > 0 ? data.filters.map((d, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                             children: [
                                 i > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                                    fileName: "src/FilterSet.js",
-                                    lineNumber: 33,
-                                    columnNumber: 29
+                                    fileName: "src/FilterSetNarrow.js",
+                                    lineNumber: 34,
+                                    columnNumber: 27
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "filter",
                                     children: d.title
                                 }, i, false, {
-                                    fileName: "src/FilterSet.js",
-                                    lineNumber: 34,
-                                    columnNumber: 19
+                                    fileName: "src/FilterSetNarrow.js",
+                                    lineNumber: 35,
+                                    columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 36,
-                        columnNumber: 17
+                        fileName: "src/FilterSetNarrow.js",
+                        lineNumber: 37,
+                        columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 38,
-                        columnNumber: 13
+                        fileName: "src/FilterSetNarrow.js",
+                        lineNumber: 39,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "primary",
@@ -29217,14 +29293,14 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                         },
                         children: "+ FILTER"
                     }, void 0, false, {
-                        fileName: "src/FilterSet.js",
-                        lineNumber: 39,
-                        columnNumber: 13
+                        fileName: "src/FilterSetNarrow.js",
+                        lineNumber: 40,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/FilterSet.js",
-                lineNumber: 23,
+                fileName: "src/FilterSetNarrow.js",
+                lineNumber: 26,
                 columnNumber: 9
             }, this),
             editorIsOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterEditorDefault.default), {
@@ -29233,13 +29309,13 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                 handleAddFilter: handleFilterAdded,
                 handleClose: handleClose
             }, void 0, false, {
-                fileName: "src/FilterSet.js",
-                lineNumber: 41,
-                columnNumber: 26
+                fileName: "src/FilterSetNarrow.js",
+                lineNumber: 42,
+                columnNumber: 24
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/FilterSet.js",
+        fileName: "src/FilterSetNarrow.js",
         lineNumber: 22,
         columnNumber: 5
     }, this);
@@ -29250,7 +29326,7 @@ _c = FilterSet;
 var _c;
 $RefreshReg$(_c, "FilterSet");
 
-  $parcel$ReactRefreshHelpers$d865.postlude(module);
+  $parcel$ReactRefreshHelpers$efa3.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -29286,10 +29362,9 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
             s += parameter;
             s += " < " + maxval;
         } else {
-            s += parameter;
-            s += eqval !== undefined ? ` = ${eqval}` : "";
-            s += minval !== undefined ? ` > ${minval}` : "";
-            s += maxval !== undefined ? ` < ${maxval}` : "";
+            s += eqval !== undefined ? `${eqval}` : "";
+            s += minval !== undefined ? `${parameter} > ${minval}` : "";
+            s += maxval !== undefined ? `${parameter} < ${maxval}` : "";
         }
         const filter = {
             title: s,
@@ -29308,17 +29383,17 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                     children: "ADD FILTER"
                 }, void 0, false, {
                     fileName: "src/FilterEditor.js",
-                    lineNumber: 41,
+                    lineNumber: 40,
                     columnNumber: 16
                 }, this)
             }, void 0, false, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 42,
+                lineNumber: 41,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29331,7 +29406,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "Parameter"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 44,
+                        lineNumber: 43,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
@@ -29342,7 +29417,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                                 children: "--Select a parameter--"
                             }, void 0, false, {
                                 fileName: "src/FilterEditor.js",
-                                lineNumber: 46,
+                                lineNumber: 45,
                                 columnNumber: 15
                             }, this),
                             options.map((o)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -29350,20 +29425,20 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                                     children: o
                                 }, o, false, {
                                     fileName: "src/FilterEditor.js",
-                                    lineNumber: 47,
+                                    lineNumber: 46,
                                     columnNumber: 33
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Equals"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 49,
+                        lineNumber: 48,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -29371,14 +29446,14 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setEqval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 50,
+                        lineNumber: 49,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Minimum"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 51,
+                        lineNumber: 50,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -29386,14 +29461,14 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setMinval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 52,
+                        lineNumber: 51,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Maximum"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 53,
+                        lineNumber: 52,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -29401,17 +29476,17 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setMaxval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
+                        lineNumber: 53,
+                        columnNumber: 13
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                        fileName: "src/FilterEditor.js",
                         lineNumber: 54,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 55,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                        fileName: "src/FilterEditor.js",
-                        lineNumber: 55,
+                        lineNumber: 54,
                         columnNumber: 20
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29419,7 +29494,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "CANCEL"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 56,
+                        lineNumber: 55,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -29428,19 +29503,19 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "SAVE"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 57,
+                        lineNumber: 56,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 43,
+                lineNumber: 42,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/FilterEditor.js",
-        lineNumber: 40,
+        lineNumber: 39,
         columnNumber: 5
     }, this);
 }
@@ -29455,11 +29530,11 @@ $RefreshReg$(_c, "FilterEditor");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"c7II1":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a936 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"fLdC1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a936.prelude(module);
+$parcel$ReactRefreshHelpers$d8cc.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29493,56 +29568,46 @@ function MapTable({ tableData , handleAddFilter  }) {
                             " Observations"
                         ]
                     }, void 0, true, {
-                        fileName: "src/MapTable.js",
+                        fileName: "src/MapTableNarrow.js",
                         lineNumber: 10,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "Table/Map"
                     }, void 0, false, {
-                        fileName: "src/MapTable.js",
+                        fileName: "src/MapTableNarrow.js",
                         lineNumber: 11,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/MapTable.js",
+                fileName: "src/MapTableNarrow.js",
                 lineNumber: 9,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     display: "grid",
-                    gridTemplateColumns: "80% 20%",
+                    gridTemplateColumns: "100%",
                     gridTemplateRows: "100%",
                     height: "100%",
                     overflow: "hidden"
                 },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataTableDefault.default), {
-                        tableData: tableData
-                    }, void 0, false, {
-                        fileName: "src/MapTable.js",
-                        lineNumber: 14,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: (0, _visWidgetCardMapPngDefault.default),
-                        alt: "map"
-                    }, void 0, false, {
-                        fileName: "src/MapTable.js",
-                        lineNumber: 15,
-                        columnNumber: 13
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/MapTable.js",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataTableDefault.default), {
+                    tableData: tableData
+                }, void 0, false, {
+                    fileName: "src/MapTableNarrow.js",
+                    lineNumber: 14,
+                    columnNumber: 13
+                }, this)
+            }, void 0, false, {
+                fileName: "src/MapTableNarrow.js",
                 lineNumber: 13,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/MapTable.js",
+        fileName: "src/MapTableNarrow.js",
         lineNumber: 8,
         columnNumber: 5
     }, this);
@@ -29552,7 +29617,7 @@ _c = MapTable;
 var _c;
 $RefreshReg$(_c, "MapTable");
 
-  $parcel$ReactRefreshHelpers$a936.postlude(module);
+  $parcel$ReactRefreshHelpers$d8cc.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -29647,53 +29712,57 @@ $RefreshReg$(_c, "DataTable");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"ey9Se":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$bbd7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"doKPU":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b040 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$bbd7.prelude(module);
+$parcel$ReactRefreshHelpers$b040.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _explorationCss = require("./Exploration.css");
-var _graphView = require("./GraphView");
-var _graphViewDefault = parcelHelpers.interopDefault(_graphView);
-var _graphEditor = require("./GraphEditor");
-var _graphEditorDefault = parcelHelpers.interopDefault(_graphEditor);
+var _graphViewWide = require("./GraphViewWide");
+var _graphViewWideDefault = parcelHelpers.interopDefault(_graphViewWide);
+var _graphEditorNarrow = require("./GraphEditorNarrow");
+var _graphEditorNarrowDefault = parcelHelpers.interopDefault(_graphEditorNarrow);
 function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
     const isDirty = true;
     console.error("GraphArea");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphArea",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     display: "grid",
-                    gridTemplateColumns: "50% 50%"
+                    gridTemplateColumns: "350px auto"
                 },
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphViewDefault.default), {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorNarrowDefault.default), {
+                        graphData: graphData,
+                        handleGraphTypeSelect: handleGraphTypeSelect
+                    }, void 0, false, {
+                        fileName: "src/GraphAreaSwapped.js",
+                        lineNumber: 13,
+                        columnNumber: 13
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphViewWideDefault.default), {
                         graphData: graphData,
                         handleGraphTitle: handleGraphTitle,
                         handleGraphDescription: handleGraphDescription
                     }, void 0, false, {
-                        fileName: "src/GraphArea.js",
-                        lineNumber: 13,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorDefault.default), {
-                        graphData: graphData,
-                        handleGraphTypeSelect: handleGraphTypeSelect
-                    }, void 0, false, {
-                        fileName: "src/GraphArea.js",
-                        lineNumber: 18,
+                        fileName: "src/GraphAreaSwapped.js",
+                        lineNumber: 14,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/GraphArea.js",
+                fileName: "src/GraphAreaSwapped.js",
                 lineNumber: 12,
                 columnNumber: 9
             }, this),
@@ -29708,7 +29777,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         className: "link",
                         children: "DUPLICATE (Save As)"
                     }, void 0, false, {
-                        fileName: "src/GraphArea.js",
+                        fileName: "src/GraphAreaSwapped.js",
                         lineNumber: 21,
                         columnNumber: 11
                     }, this),
@@ -29717,7 +29786,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         onClick: handleGraphDelete,
                         children: "DELETE"
                     }, void 0, false, {
-                        fileName: "src/GraphArea.js",
+                        fileName: "src/GraphAreaSwapped.js",
                         lineNumber: 22,
                         columnNumber: 11
                     }, this),
@@ -29725,7 +29794,7 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         className: "secondary",
                         children: "CLOSE"
                     }, void 0, false, {
-                        fileName: "src/GraphArea.js",
+                        fileName: "src/GraphAreaSwapped.js",
                         lineNumber: 23,
                         columnNumber: 11
                     }, this),
@@ -29735,19 +29804,19 @@ function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , han
                         onClick: handleGraphSave,
                         children: "SAVE"
                     }, void 0, false, {
-                        fileName: "src/GraphArea.js",
+                        fileName: "src/GraphAreaSwapped.js",
                         lineNumber: 24,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/GraphArea.js",
+                fileName: "src/GraphAreaSwapped.js",
                 lineNumber: 20,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/GraphArea.js",
+        fileName: "src/GraphAreaSwapped.js",
         lineNumber: 11,
         columnNumber: 5
     }, this);
@@ -29757,16 +29826,16 @@ _c = GraphArea;
 var _c;
 $RefreshReg$(_c, "GraphArea");
 
-  $parcel$ReactRefreshHelpers$bbd7.postlude(module);
+  $parcel$ReactRefreshHelpers$b040.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphView":"8AJgU","./GraphEditor":"kPrNE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8AJgU":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e66f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphViewWide":"9I581","./GraphEditorNarrow":"1amTR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"9I581":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$dec9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e66f.prelude(module);
+$parcel$ReactRefreshHelpers$dec9.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29780,60 +29849,129 @@ function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphView",
         style: {
-            display: "flex",
-            flexDirection: "column"
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "300px auto"
         },
         children: graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     style: {
-                        display: "flex"
+                        display: "flex",
+                        flexDirection: "column"
                     },
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            value: graphData.title,
-                            onChange: handleGraphTitle,
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             style: {
-                                flexGrow: 1
-                            }
-                        }, void 0, false, {
-                            fileName: "src/GraphView.js",
+                                display: "flex"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    value: graphData.title,
+                                    onChange: handleGraphTitle,
+                                    style: {
+                                        flexGrow: 1
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 12,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    children: "[ ]"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 13,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
                             lineNumber: 11,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            children: "[ ]"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                            onChange: handleGraphDescription,
+                            value: graphData.description,
+                            style: {
+                                width: "98%",
+                                height: "10em"
+                            }
                         }, void 0, false, {
-                            fileName: "src/GraphView.js",
-                            lineNumber: 12,
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 15,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                flexGrow: 1
+                            },
+                            children: "\xa0"
+                        }, void 0, false, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 16,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "colophon",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "Data"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 17,
+                                    columnNumber: 39
+                                }, this),
+                                " from ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "Water Insights"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 17,
+                                    columnNumber: 56
+                                }, this),
+                                " project"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 17,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "colophon",
+                            children: [
+                                "Powered by ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "FieldScope"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 18,
+                                    columnNumber: 50
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 18,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "src/GraphView.js",
+                    fileName: "src/GraphViewWide.js",
                     lineNumber: 10,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                    onChange: handleGraphDescription,
-                    value: graphData.description
-                }, void 0, false, {
-                    fileName: "src/GraphView.js",
-                    lineNumber: 14,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
                     size: "max",
                     type: graphData.type
                 }, void 0, false, {
-                    fileName: "src/GraphView.js",
-                    lineNumber: 15,
+                    fileName: "src/GraphViewWide.js",
+                    lineNumber: 20,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true)
     }, void 0, false, {
-        fileName: "src/GraphView.js",
+        fileName: "src/GraphViewWide.js",
         lineNumber: 8,
         columnNumber: 5
     }, this);
@@ -29843,16 +29981,16 @@ _c = GraphView;
 var _c;
 $RefreshReg$(_c, "GraphView");
 
-  $parcel$ReactRefreshHelpers$e66f.postlude(module);
+  $parcel$ReactRefreshHelpers$dec9.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"kPrNE":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$a014 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"1amTR":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9701 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$a014.prelude(module);
+$parcel$ReactRefreshHelpers$9701.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -29864,54 +30002,70 @@ var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
 function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "GraphEditor",
+        style: {
+            overflow: "hidden"
+        },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "system",
                 children: "DATA DISPLAY"
             }, void 0, false, {
-                fileName: "src/GraphEditor.js",
+                fileName: "src/GraphEditorNarrow.js",
                 lineNumber: 8,
                 columnNumber: 7
             }, this),
             graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     display: "grid",
-                    gridTemplateColumns: "120px 2fr"
+                    gridTemplateColumns: "40px 2fr"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "X:"
                     }, void 0, false, {
-                        fileName: "src/GraphEditor.js",
+                        fileName: "src/GraphEditorNarrow.js",
                         lineNumber: 10,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         value: "x"
                     }, void 0, false, {
-                        fileName: "src/GraphEditor.js",
+                        fileName: "src/GraphEditorNarrow.js",
                         lineNumber: 11,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Y:"
                     }, void 0, false, {
-                        fileName: "src/GraphEditor.js",
+                        fileName: "src/GraphEditorNarrow.js",
                         lineNumber: 12,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         value: "y"
                     }, void 0, false, {
-                        fileName: "src/GraphEditor.js",
+                        fileName: "src/GraphEditorNarrow.js",
                         lineNumber: 13,
                         columnNumber: 9
                     }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 14,
+                        columnNumber: 9
+                    }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        style: {
+                            textAlign: "left"
+                        },
                         children: "Select Graph Type:"
                     }, void 0, false, {
-                        fileName: "src/GraphEditor.js",
-                        lineNumber: 14,
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 15,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 16,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29926,8 +30080,8 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "map",
                                 handleClick: ()=>handleGraphTypeSelect("map")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 16,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 18,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29935,8 +30089,8 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "histogram",
                                 handleClick: ()=>handleGraphTypeSelect("histogram")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 17,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 19,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29944,8 +30098,8 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "numeric",
                                 handleClick: ()=>handleGraphTypeSelect("numeric")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 18,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 20,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29953,8 +30107,8 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "scatterplot",
                                 handleClick: ()=>handleGraphTypeSelect("scatterplot")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 19,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 21,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29962,8 +30116,8 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "timeseries",
                                 handleClick: ()=>handleGraphTypeSelect("timeseries")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 20,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 22,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
@@ -29971,25 +30125,69 @@ function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
                                 type: "whisker",
                                 handleClick: ()=>handleGraphTypeSelect("whisker")
                             }, void 0, false, {
-                                fileName: "src/GraphEditor.js",
-                                lineNumber: 21,
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 23,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "src/GraphEditor.js",
-                        lineNumber: 15,
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                        children: "Copy to Clipboard"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 30,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                        children: "Download PNG"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 32,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/GraphEditor.js",
+                fileName: "src/GraphEditorNarrow.js",
                 lineNumber: 9,
                 columnNumber: 21
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/GraphEditor.js",
+        fileName: "src/GraphEditorNarrow.js",
         lineNumber: 7,
         columnNumber: 5
     }, this);
@@ -29999,7 +30197,7 @@ _c = GraphEditor;
 var _c;
 $RefreshReg$(_c, "GraphEditor");
 
-  $parcel$ReactRefreshHelpers$a014.postlude(module);
+  $parcel$ReactRefreshHelpers$9701.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
