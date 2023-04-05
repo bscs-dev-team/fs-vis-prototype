@@ -124,6 +124,10 @@ select option {
 .History.short li {
     padding: 2px;
 }
+.History.short .browserViewer {
+    height: 100%;
+    max-height: inherit;
+}
 .History .browserViewer {
     max-height: 150px;
     overflow-y: scroll;
