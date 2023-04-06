@@ -22,14 +22,11 @@ export default function GraphEditor({graphData, handleAddFilter, handleGraphType
           <GraphIcon size="large" type="timeseries" handleClick={() => handleGraphTypeSelect('timeseries')} />
           <GraphIcon size="large" type="whisker" handleClick={() => handleGraphTypeSelect('whisker')} />
         </div>
-        <div></div>
-        <hr/>
-        <hr/>
-        <div></div>
         <label></label>
-        <a>Copy to Clipboard</a>
-        <label></label>
-        <a>Download PNG</a>
+        <div>
+          <a>Copy to Clipboard</a>
+          <a>Download PNG</a>
+        </div>
       </div>}
     </div>
   );

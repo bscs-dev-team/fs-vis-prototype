@@ -4,14 +4,9 @@ import { useImmer } from "use-immer";
 import './Explore.css';
 import ExplorationTitle from './ExplorationTitle';
 import History from './History';
-import Generic from './Generic';
 import FilterSet from './FilterSet';
 import MapTable from './MapTable';
 import GraphArea from './GraphArea';
-// import History from './History';
-// import FilterSet from './FilterSet';
-// import MapTable from './MapTable';
-// import GraphArea from './GraphArea';
 
 const csv2json = require('csvtojson');
 import csvFileUrl from 'url:./data/frogs.csv';
@@ -310,31 +305,24 @@ export default function Explore() {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   return (
     <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
-      {/* LAYOUT with three rows */}
-      {/* History / Filters */}
-      <div style={{display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: "10px"}}>
+      <div style={{display: 'flex', flexDirection: 'column', maxHeight: '25%', padding: "10px"}}>
         <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
-        <div style={{display: "grid", gridTemplateColumns: '300px 1fr', columnGap: '10px', height: '90%' }}>
-          <div style={{display: "flex", flexDirection: 'column', maxHeight: '50%'}}>
-            <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
-              filters={tableData.headers}
-              handleFilterTitle={handleFilterTitle}
-              handleFilterSource={handleFilterSource}
-              handleAddFilter={handleAddFilter} />
-            <History data={e} 
-              handleShowHistory={handleShowHistory}
-              handleShowSaved={handleShowSaved}
-              handleGraphSelect={handleGraphSelect} 
-              handleAddGraph={handleAddGraph} />
-          </div>
+        <div style={{display: "grid", gridTemplateColumns: '1fr 1fr', columnGap: '10px', height: '90%' }}>
+          <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
+            filters={tableData.headers}
+            handleFilterTitle={handleFilterTitle}
+            handleFilterSource={handleFilterSource}
+            handleAddFilter={handleAddFilter} />
+          <History data={e} 
+            handleShowHistory={handleShowHistory}
+            handleShowSaved={handleShowSaved}
+            handleGraphSelect={handleGraphSelect} 
+            handleAddGraph={handleAddGraph} />
         </div>
       </div>
-      {/* Table */}
-      <div style={{ flexGrow: 1, overflow: 'hidden', height: '100%' }}>
-        {/* <Generic/> */}
+      <div style={{ flexGrow: 1, overflow: 'hidden' }}>
         <MapTable tableData={tableData} />
       </div>
-      {/* Graph Area */}
       <GraphArea 
         graphData={e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex]}
         handleGraphTitle={handleGraphTitle}

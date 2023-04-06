@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useImmer } from "use-immer";
 
-import './Explore.css';
-import ExplorationTitle from './ExplorationTitle';
-import History from './History';
-import FilterSet from './FilterSet';
-import MapTable from './MapTable';
-import GraphArea from './GraphArea';
+import ExploreRound4 from './ExploreRound4';
+import ExploreFilterHistory from './ExploreFilterHistory';
+import ExploreMapHistory from './ExploreMapHistory';
+import ExploreMapTable from './ExploreMapTable';
 
 const csv2json = require('csvtojson');
 import csvFileUrl from 'url:./data/frogs.csv';
@@ -25,8 +23,16 @@ const fieldsToShow = [ // in sort order
 ]
 let fullDataSet;
 
+// LAYOUT
+const ROUND4 = 'Round 4';
+const FILTERHISTORY = 'History below Filter';
+const MAPHISTORY = 'Context Map below History';
+const MAPTABLE = 'Context Map in Table';
 
 export default function Explore() {
+  // LAYOUT SELECTOR
+  const [layout, setLayout] = useState();
+
   // CSV
   const [tableData, updateTableData] = useImmer({count: 0, headers: [], data: []});
   const [data, setData] = useState([]);
@@ -86,8 +92,8 @@ export default function Explore() {
         filters: [],
         graphs: [
           {
-            title: 'No filter',
-            description: 'Map',
+            title: undefined,
+            description: undefined,
             type: 'map'
           }
         ]
@@ -185,7 +191,7 @@ export default function Explore() {
             let passed = true;
             filters.forEach(f => {
               if (!Object.hasOwn(d, f.field)) return;
-              if (f.eq !== undefined && String(d[f.field]) !== String(f.eq)) passed=false;
+              if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed=false;
               if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
               if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
             });
@@ -303,34 +309,99 @@ export default function Explore() {
 
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-  return (
-    <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
-      <div style={{display: 'flex', flexDirection: 'column', maxHeight: '25%', padding: "10px"}}>
-        <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
-        <div style={{display: "grid", gridTemplateColumns: '1fr 1fr', columnGap: '10px', height: '90%' }}>
-          <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
-            filters={tableData.headers}
-            handleFilterTitle={handleFilterTitle}
-            handleFilterSource={handleFilterSource}
-            handleAddFilter={handleAddFilter} />
-          <History data={e} 
-            handleShowHistory={handleShowHistory}
-            handleShowSaved={handleShowSaved}
-            handleGraphSelect={handleGraphSelect} 
-            handleAddGraph={handleAddGraph} />
-        </div>
-      </div>
-      <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-        <MapTable tableData={tableData} />
-      </div>
-      <GraphArea 
-        graphData={e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex]}
+  let VIEW;
+
+  switch (layout) {
+    case ROUND4:
+      VIEW = (<ExploreRound4
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
         handleGraphTitle={handleGraphTitle}
         handleGraphDescription={handleGraphDescription}
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
-      />
-    </div>
-  );
+      />);
+      break;
+    case FILTERHISTORY:
+      VIEW = (<ExploreFilterHistory
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+      />);
+      break;
+    case MAPHISTORY:
+      VIEW = (<ExploreMapHistory
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+      />);
+      break;
+    case MAPTABLE:
+      VIEW = (<ExploreMapTable
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+      />);
+      break;
+    default:
+      VIEW = (<div>
+        Select a view:
+        <ul>
+          <li><button onClick={()=>setLayout(ROUND4)}>{ROUND4}</button></li>
+          <li><button onClick={()=>setLayout(FILTERHISTORY)}>{FILTERHISTORY}</button></li>
+          <li><button onClick={()=>setLayout(MAPHISTORY)}>{MAPHISTORY}</button></li>
+          <li><button onClick={()=>setLayout(MAPTABLE)}>{MAPTABLE}</button></li>
+        </ul>
+      </div>);
+      break;
+  }
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  return (<>{VIEW}</>);
 }

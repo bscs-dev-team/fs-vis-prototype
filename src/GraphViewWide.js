@@ -5,7 +5,7 @@ export default function GraphView({graphData, handleGraphTitle, handleGraphDescr
 
   console.warn('GraphView Render', graphData)
   return (
-    <div className="GraphView" style={{ width: '100%', display: 'grid', gridTemplateColumns: '300px auto' }}>
+    <div className="GraphView" style={{ width: '100%', display: 'grid', gridTemplateColumns: '33% auto' }}>
       {graphData && <>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex' }}>
