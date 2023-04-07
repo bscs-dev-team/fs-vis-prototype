@@ -11,13 +11,16 @@ export default function GraphArea({graphData, handleAddGraph, handleGraphTitle, 
     <div className="GraphArea" style={{ display: 'flex', flexDirection: 'column'}}>
         <div style={{ display: "grid", gridTemplateColumns: "auto"}}>
         {/* <div style={{ display: "grid", gridTemplateColumns: "350px auto"}}> */}
-            {/* <GraphEditor graphData={graphData} handleGraphTypeSelect={handleGraphTypeSelect}/> */}
+            
             { graphData.title 
-              ? <GraphView 
-                  graphData={graphData}
-                  handleGraphTitle={handleGraphTitle}
-                  handleGraphDescription={handleGraphDescription}
-                />
+                ? <>
+                    <GraphEditor graphData={graphData} handleGraphTypeSelect={handleGraphTypeSelect}/>
+                    <GraphView 
+                      graphData={graphData}
+                      handleGraphTitle={handleGraphTitle}
+                      handleGraphDescription={handleGraphDescription}
+                    />
+                </>
               : <>
                   <button className="primary" onClick={handleAddGraph}>+ GRAPH</button>
                 </>

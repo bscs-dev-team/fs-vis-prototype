@@ -2,6 +2,10 @@
 
 
 ## REWORK
+* Pop up Editr
+* When editing existing graph, duplicate?  Or replace?  Only if previously saved?
+
+
 
 ## MAJOR
 * No graph view?  Default "No Filters" has a no graph view?  But then how do you select it again?

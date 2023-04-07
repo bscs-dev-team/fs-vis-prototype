@@ -273,6 +273,9 @@ select option {
     padding: 5px;
     background-color: #ccc;
 }
+.GraphEditor.dialog {
+    z-index: 100;
+}
 .GraphView input, .GraphEditor input {
     width: 100%;
     color: #333;
