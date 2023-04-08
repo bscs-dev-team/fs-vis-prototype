@@ -105,7 +105,6 @@ select option {
   position: absolute;
   top: 40%;
   left: 40%;
-  box-shadow: 20px 20px 20px #0003;
 }
 
 .ExplorationTitle {
@@ -133,7 +132,8 @@ select option {
   background-color: #0004;
   flex-direction: column;
   flex-grow: 1;
-  margin: 10px;
+  margin: 3px 0 0;
+  padding: 0 0 0 3px;
   font-size: 12px;
   display: flex;
 }
@@ -143,11 +143,16 @@ select option {
   border-radius: 10px 0 0 10px;
   margin: 0;
   padding: 3px 3px 3px 5px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.History.short ul {
+  margin: 0;
 }
 
 .History.short li {
-  padding: 2px;
+  padding: 1px;
 }
 
 .History.short .browserViewer {
@@ -188,10 +193,10 @@ select option {
 }
 
 .GraphIcon, .GraphIcon img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background-color: #fff3;
-  border: 2px solid #fff0;
+  border: 1px solid #fff0;
   font-size: 10px;
   position: relative;
 }
@@ -209,13 +214,13 @@ select option {
 }
 
 .GraphIcon.large, .GraphIcon.large img {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
 }
 
 .GraphIcon.small, .GraphIcon.small img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .GraphIcon.selected {
@@ -230,12 +235,12 @@ select option {
 .GraphIcon .saved {
   color: #f65925;
   text-align: center;
-  width: 45px;
+  width: 22px;
   z-index: 10;
   text-shadow: 2px 2px #0004;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 900;
-  line-height: 40px;
+  line-height: 18px;
   display: block;
   position: absolute;
 }
@@ -246,14 +251,19 @@ select option {
 
 .FilterSet {
   background-color: indigo;
-  border-radius: 15px 0 0 15px;
+  border-radius: 10px 0 0 10px;
   margin: 0 0 0 5px;
-  padding: 5px;
+  padding: 3px;
+  font-size: 14px;
 }
 
 .FilterSet label, .GraphEditor label {
   text-align: right;
   padding-right: 10px;
+}
+
+.FilterSet input {
+  margin-bottom: 3px;
 }
 
 .FilterSet .filter {
@@ -303,9 +313,28 @@ select option {
   padding: 5px;
 }
 
-.GraphView input, .GraphEditor input, .GraphView textarea {
+.GraphEditor.dialog {
+  z-index: 100;
+  top: inherit;
+  width: 330px;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+.GraphView input, .GraphEditor input {
+  width: 100%;
   color: #333;
   background-color: #f3f3f3;
+}
+
+.GraphView textarea {
+  color: #333;
+  background-color: #f3f3f3;
+}
+
+.GraphEditor a {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=index.61d3354a.css.map */

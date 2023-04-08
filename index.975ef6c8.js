@@ -27165,55 +27165,23 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _explore3 = require("./Explore3");
-var _explore3Default = parcelHelpers.interopDefault(_explore3);
-var _s = $RefreshSig$();
+var _explore = require("./Explore");
+var _exploreDefault = parcelHelpers.interopDefault(_explore);
 function Home() {
-    _s();
-    const [count, setSCount] = (0, _react.useState)(0);
-    const [exploreIsActive, setExploreIsActive] = (0, _react.useState)(true);
-    function showExplore() {
-        setExploreIsActive(!exploreIsActive);
-    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "Home",
-        children: !exploreIsActive ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: [
-                "FieldScope",
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>setSCount(count + 1),
-                    children: [
-                        "+ Data ",
-                        count
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Home.js",
-                    lineNumber: 18,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: showExplore,
-                    children: "+ Exploration"
-                }, void 0, false, {
-                    fileName: "src/Home.js",
-                    lineNumber: 19,
-                    columnNumber: 11
-                }, this)
-            ]
-        }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explore3Default.default), {}, void 0, false, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreDefault.default), {}, void 0, false, {
             fileName: "src/Home.js",
-            lineNumber: 21,
-            columnNumber: 9
+            lineNumber: 6,
+            columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/Home.js",
-        lineNumber: 14,
+        lineNumber: 5,
         columnNumber: 5
     }, this);
 }
 exports.default = Home;
-_s(Home, "QPmRqGeNhZXKkHZI+npnkObabZ0=");
 _c = Home;
 var _c;
 $RefreshReg$(_c, "Home");
@@ -27223,7 +27191,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Explore3":"jfhOY"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Explore":"5nf7m"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27386,11 +27354,11 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"89f613f24315a0ea":"786KC"}],"jfhOY":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$c8f8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"89f613f24315a0ea":"786KC"}],"5nf7m":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5e86 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$c8f8.prelude(module);
+$parcel$ReactRefreshHelpers$5e86.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -27399,85 +27367,222 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _useImmer = require("use-immer");
-var _exploreCss = require("./Explore.css");
-var _explorationTitle = require("./ExplorationTitle");
-var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
-// import History from './History';
-var _historyShort = require("./HistoryShort");
-var _historyShortDefault = parcelHelpers.interopDefault(_historyShort);
-var _generic = require("./Generic");
-var _genericDefault = parcelHelpers.interopDefault(_generic);
-// import FilterSet from './FilterSet';
-var _filterSetNarrow = require("./FilterSetNarrow");
-var _filterSetNarrowDefault = parcelHelpers.interopDefault(_filterSetNarrow);
-// import MapTable from './MapTable';
-var _mapTableNarrow = require("./MapTableNarrow");
-var _mapTableNarrowDefault = parcelHelpers.interopDefault(_mapTableNarrow);
-var _graphAreaSwapped = require("./GraphAreaSwapped");
-var _graphAreaSwappedDefault = parcelHelpers.interopDefault(_graphAreaSwapped);
+var _exploreRound4 = require("./ExploreRound4");
+var _exploreRound4Default = parcelHelpers.interopDefault(_exploreRound4);
+var _exploreFilterHistory = require("./ExploreFilterHistory");
+var _exploreFilterHistoryDefault = parcelHelpers.interopDefault(_exploreFilterHistory);
+var _exploreMapHistory = require("./ExploreMapHistory");
+var _exploreMapHistoryDefault = parcelHelpers.interopDefault(_exploreMapHistory);
+var _exploreMapTable = require("./ExploreMapTable");
+var _exploreMapTableDefault = parcelHelpers.interopDefault(_exploreMapTable);
+var _chesapeakeCsv = require("url:./data/chesapeake.csv");
+var _chesapeakeCsvDefault = parcelHelpers.interopDefault(_chesapeakeCsv);
 var _frogsCsv = require("url:./data/frogs.csv");
 var _frogsCsvDefault = parcelHelpers.interopDefault(_frogsCsv);
+var _journeynorthCsv = require("url:./data/journeynorth.csv");
+var _journeynorthCsvDefault = parcelHelpers.interopDefault(_journeynorthCsv);
+var _waterinsightsCsv = require("url:./data/waterinsights.csv");
+var _waterinsightsCsvDefault = parcelHelpers.interopDefault(_waterinsightsCsv);
 var _s = $RefreshSig$();
-const csv2json = require("6079d1a1666a50bd");
+const csv2json = require("a149c6ac795d231");
+let csvFileUrl; // Defined in handleSetLayout;
+const DATASETS = [
+    {
+        label: "chesapeake",
+        url: (0, _chesapeakeCsvDefault.default),
+        headers: [
+            "Station Name",
+            "Observation Date",
+            "Latitude",
+            "Longitude",
+            "Observation Time",
+            "Observation Notes",
+            "Relative Humidity",
+            "Barometric Pressure",
+            "Air Temperature",
+            "Wind Direction ",
+            "Visibility ",
+            "Water Temperature",
+            "Turbidity",
+            "Secchi Depth",
+            "Width",
+            "Depth",
+            "Stream Discharge",
+            "Surface Water Appearance",
+            "Stream Bank Eroision",
+            "Water Type",
+            "Salinity",
+            "Conductivity",
+            "Dissolved Oxygen",
+            "Nitrate",
+            "Ammonia",
+            "Phosphate",
+            "pH",
+            "Biological Oxygen Demand",
+            "Total Dissolved Solids",
+            "Fecal Coliform",
+            "Dissolved Carbon Dioxide",
+            "Tolerant Macroinvertebrates",
+            "Less Sensitive Macroinvertebrates",
+            "Sensitive Macroinvertebrates",
+            "Total Index Value",
+            "Caddisfly (Trichoptera-Other)",
+            "Mayfly (Ephemeroptera)",
+            "Stonefly (Plecoptera)",
+            "Watersnipe Flies (Diptera-Athericidae)",
+            "Riffle Beetles (Elmidae)",
+            "Water Pennies (Psephenidae)",
+            "Gilled Snails (Viviparidae)",
+            "Dobsonfies (Corydalinae)",
+            "Fishflies (Chauliodinae)",
+            "Netspinning Caddisfly (Trichoptera-Hydropsychidae)",
+            "Damselflies (Zygoptera)",
+            "Dragonflies (Anisoptera)",
+            "Alderflies (Sialidae)",
+            "Crayfish (Astacoidea)",
+            "Scuds (Amphipoda)",
+            "Aquatic Sowbugs (Isopoda)",
+            "Clams (Sphaeriidae)",
+            "Mussels (Palaeoheterodonta)",
+            "Aquatic Worms (Oligochaeta)",
+            "Black Flies (Diptera-Simuliidae)",
+            "Midge Flies",
+            "Leeches (Hirundinea)",
+            "Lunged Snails (Pulmonata)",
+            "Other Macroinvertebrate",
+            "silt (mud)",
+            'sand (1/16"" - 1/4"" grains)',
+            'gravel (1/4"" - 2"" stones)',
+            'cobbles (2"" - 10"" stones)',
+            'boulders (> 10"" stones)',
+            "trees",
+            "shrubs",
+            "grass",
+            "bare soil",
+            "rocks",
+            "other"
+        ]
+    },
+    {
+        label: "frogwatch",
+        url: (0, _frogsCsvDefault.default),
+        headers: [
+            "Observation Date",
+            "Start Time",
+            "End Time",
+            "Species",
+            "Call Intensity",
+            "Air Temperature",
+            "Characterize Land Use",
+            "Observation Notes"
+        ]
+    },
+    {
+        label: "journeynorth",
+        url: (0, _journeynorthCsvDefault.default),
+        headers: [
+            "Station Name",
+            "Observation Date",
+            "Latitude",
+            "Longitude",
+            "Reporting Category",
+            "# Observed",
+            "Comments"
+        ]
+    },
+    {
+        label: "waterinsights",
+        url: (0, _waterinsightsCsvDefault.default),
+        headers: [
+            "Station Name",
+            "Observation Date",
+            "Latitude",
+            "Longitude",
+            "Water Type",
+            "pH",
+            "Nitrate",
+            "Nitrite",
+            "Hardness",
+            "Chlorine",
+            "Alkalinity",
+            "Other Observations"
+        ]
+    }
+];
 // CSV DATA LOADING
 let alreadyLoaded = false;
-const fieldsToShow = [
-    "Observation Date",
-    "Start Time",
-    "End Time",
-    "Species",
-    "Call Intensity",
-    "Air Temperature",
-    "Characterize Land Use",
-    "Observation Notes"
-];
-let fullDataSet;
+let fieldsToShow = []; // in sort order
+let fullDataset = [];
+// LAYOUTS
+const ROUND4 = "Round 4";
+const FILTERHISTORY = "History below Filter";
+const MAPHISTORY = "Context Map below History";
+const MAPTABLE = "Context Map in Table";
 function Explore() {
     _s();
+    // LAYOUT SELECTOR
+    const [layout, setLayout] = (0, _react.useState)();
     // CSV
+    const [selectedDataset, setSelectedDataset] = (0, _react.useState)(DATASETS[0]);
     const [tableData, updateTableData] = (0, _useImmer.useImmer)({
         count: 0,
         headers: [],
         data: []
     });
-    const [data, setData] = (0, _react.useState)([]);
-    const [headers, setHeaders] = (0, _react.useState)([]);
+    // UI Handlers - - - - - - - - - - - - - - - - - 
+    function handleDatasetSelect(e) {
+        setSelectedDataset(DATASETS[e.target.value]);
+        console.log("handle datsetselect", JSON.stringify(DATASETS[e.target.value]));
+    }
+    function handleSetLayout(layout) {
+        // 1. Load CSV First
+        //    a. set selected dataset
+        console.warn("selected dataset", selectedDataset.url, selectedDataset.headers);
+        csvFileUrl = selectedDataset.url;
+        fieldsToShow = selectedDataset.headers;
+        initFilters(selectedDataset.label);
+        //    b. load 
+        loadCSV();
+        // 2. Then set layout
+        setLayout(layout);
+    }
+    // CSV
+    // const [data, setData] = useState([]);
+    // const [headers, setHeaders] = useState([]);
     // -- Loader Function
     async function loadCSV() {
         if (alreadyLoaded) return console.log("...skipping");
-        console.log("...loadCSV!");
-        await fetch((0, _frogsCsvDefault.default)).then((r)=>r.text()).then((text)=>{
+        console.log("...loadCSV! csvFileUrl", csvFileUrl, fieldsToShow);
+        await fetch(csvFileUrl).then((r)=>r.text()).then((text)=>{
             console.log("......result", alreadyLoaded);
             alreadyLoaded = true;
             csv2json().fromString(text).then((json)=>{
                 if (json === undefined) return console.error("Could not load CSV!");
-                setHeaders(fieldsToShow);
+                // setHeaders( fieldsToShow );
                 // const fieldData = json.map(row => {
                 //   const items = [];
                 //   fieldsToShow.forEach(k => items.push(row[k]));
                 //   return items;
                 // });
-                setData(json);
+                // setData( json );
                 const allData = {
                     count: json.length,
                     data: json,
                     headers: fieldsToShow
                 };
-                fullDataSet = allData;
+                fullDataset = allData;
                 console.warn("......loadCSV apply filter allData is", allData);
                 applyFilters(allData);
             });
         });
     }
-    // -- Init Load
-    (0, _react.useEffect)(()=>{
-        console.error("useEffect!", alreadyLoaded);
-        loadCSV();
-        return;
-    }, [
-        data,
-        headers
-    ]);
+    // NOW HANDLED BY handleSetLayout
+    // // -- Init Load
+    // useEffect(() => {
+    //   console.error('useEffect!', alreadyLoaded)
+    //   loadCSV();
+    //   return
+    // }, [data, headers]);
     // Exploration Data
     const [e, updateE] = (0, _useImmer.useImmer)({
         selectedFilterSetIndex: 0,
@@ -27485,20 +27590,7 @@ function Explore() {
         count: 5000,
         showHistory: true,
         title: "March 10 2023 4:35p Exploration",
-        filtersets: [
-            {
-                title: undefined,
-                source: "FrogWatch",
-                filters: [],
-                graphs: [
-                    {
-                        title: "No filter",
-                        description: "Map",
-                        type: "map"
-                    }
-                ]
-            }
-        ]
+        filtersets: []
     });
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     // EXPLORATION
@@ -27511,6 +27603,25 @@ function Explore() {
     ]);
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     // FILTER
+    const initFilters = (0, _react.useCallback)((selectedLabel)=>{
+        updateE((draft)=>{
+            const filterset = {
+                source: selectedLabel,
+                filters: [],
+                graphs: [
+                    {
+                        title: undefined,
+                        description: undefined,
+                        type: "map"
+                    }
+                ]
+            };
+            draft.filtersets.push(filterset);
+            draft.selectedFilterSetIndex = draft.filtersets.length - 1; // select it
+        });
+    }, [
+        updateE
+    ]);
     const handleAddFilter = (0, _react.useCallback)((filter)=>{
         let newFilters = [];
         updateE((draft)=>{
@@ -27534,17 +27645,17 @@ function Explore() {
             newFilters.push(filter);
             newFilterset.filters = newFilters;
             console.log("new filters", newFilters);
-            draft.filtersets.unshift(newFilterset);
-            draft.selectedFilterSetIndex = 0; // draft.filtersets.length-1; // select it
+            draft.filtersets.push(newFilterset);
+            draft.selectedFilterSetIndex = draft.filtersets.length - 1; // select it
         });
-        applyFilters(fullDataSet, newFilters);
+        applyFilters(fullDataset, newFilters);
     }, [
         updateE,
         e.selectedFilterSetIndex,
         e.selectedGraphIndex
     ]);
     const applyFilters = (0, _react.useCallback)((allData, filters)=>{
-        console.log("applyFIlter caleld fullDataset is", fullDataSet);
+        console.log("applyFIlter caleld fullDataset is", allData);
         updateTableData((draft)=>{
             draft.headers = allData.headers;
             // Apply Filters
@@ -27565,8 +27676,8 @@ function Explore() {
                 filters.forEach((f)=>{
                     if (!Object.hasOwn(d, f.field)) return;
                     if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed = false;
-                    if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed = false;
-                    if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed = false;
+                    if (f.min !== undefined && d[f.field] <= f.min) passed = false;
+                    if (f.max !== undefined && d[f.field] >= f.max) passed = false;
                 });
                 return passed;
             }) : allData.data;
@@ -27625,7 +27736,7 @@ function Explore() {
         console.log("try ", filterIndex, " filtersets", e.filtersets[filterIndex]);
         try {
             const newFilters = e.filtersets[filterIndex].filters;
-            applyFilters(fullDataSet, newFilters);
+            applyFilters(fullDataset, newFilters);
         } catch (e) {
             console.error("Failed", e);
         }
@@ -27640,7 +27751,7 @@ function Explore() {
             const filterset = draft.filtersets[e.selectedFilterSetIndex];
             const selectedGraph = filterset.graphs[e.selectedGraphIndex];
             const newGraph = Object.assign({}, selectedGraph);
-            newGraph.title = newGraph.title + " copy";
+            newGraph.title = newGraph.title ? newGraph.title + " copy" : "untitled";
             newGraph.saved = undefined;
             filterset.graphs.push(newGraph);
             draft.selectedGraphIndex = filterset.graphs.length - 1; // select it
@@ -27678,7 +27789,8 @@ function Explore() {
             const filterset = draft.filtersets[e.selectedFilterSetIndex];
             const selectedGraph = filterset.graphs[e.selectedGraphIndex];
             selectedGraph.type = type;
-            selectedGraph.description += ` ${type}`;
+            selectedGraph.title = selectedGraph.title ? `${selectedGraph.title} ${type}` : type;
+            selectedGraph.description = selectedGraph.description ? `${selectedGraph.description} ${type}` : type;
         });
     }, [
         updateE,
@@ -27707,142 +27819,236 @@ function Explore() {
         e.selectedFilterSetIndex,
         e.selectedGraphIndex
     ]);
+    const handleNotImplemented = ()=>{
+        alert("Not implemented!");
+    };
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "Explore",
-        style: {
-            display: "flex",
-            flexDirection: "column"
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    padding: "2px 5px"
-                },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
-                    title: e.title,
-                    handleTitleUpdate: handleTitleUpdate
-                }, void 0, false, {
-                    fileName: "src/Explore3.js",
-                    lineNumber: 314,
-                    columnNumber: 9
-                }, this)
+    let VIEW;
+    switch(layout){
+        case ROUND4:
+            VIEW = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreRound4Default.default), {
+                e: e,
+                tableData: tableData,
+                handleTitleUpdate: handleTitleUpdate,
+                handleFilterTitle: handleFilterTitle,
+                handleFilterSource: handleFilterSource,
+                handleAddFilter: handleAddFilter,
+                handleShowHistory: handleShowHistory,
+                handleShowSaved: handleShowSaved,
+                handleGraphSelect: handleGraphSelect,
+                handleAddGraph: handleAddGraph,
+                handleGraphTitle: handleGraphTitle,
+                handleGraphDescription: handleGraphDescription,
+                handleGraphTypeSelect: handleGraphTypeSelect,
+                handleGraphSave: handleGraphSave,
+                handleGraphDelete: handleGraphDelete,
+                handleNotImplemented: handleNotImplemented
             }, void 0, false, {
-                fileName: "src/Explore3.js",
-                lineNumber: 313,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    overflow: "hidden",
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "row"
-                },
+                fileName: "src/Explore.js",
+                lineNumber: 480,
+                columnNumber: 15
+            }, this);
+            break;
+        case FILTERHISTORY:
+            VIEW = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreFilterHistoryDefault.default), {
+                e: e,
+                tableData: tableData,
+                handleTitleUpdate: handleTitleUpdate,
+                handleFilterTitle: handleFilterTitle,
+                handleFilterSource: handleFilterSource,
+                handleAddFilter: handleAddFilter,
+                handleShowHistory: handleShowHistory,
+                handleShowSaved: handleShowSaved,
+                handleGraphSelect: handleGraphSelect,
+                handleAddGraph: handleAddGraph,
+                handleGraphTitle: handleGraphTitle,
+                handleGraphDescription: handleGraphDescription,
+                handleGraphTypeSelect: handleGraphTypeSelect,
+                handleGraphSave: handleGraphSave,
+                handleGraphDelete: handleGraphDelete,
+                handleNotImplemented: handleNotImplemented
+            }, void 0, false, {
+                fileName: "src/Explore.js",
+                lineNumber: 500,
+                columnNumber: 15
+            }, this);
+            break;
+        case MAPHISTORY:
+            VIEW = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreMapHistoryDefault.default), {
+                e: e,
+                tableData: tableData,
+                handleTitleUpdate: handleTitleUpdate,
+                handleFilterTitle: handleFilterTitle,
+                handleFilterSource: handleFilterSource,
+                handleAddFilter: handleAddFilter,
+                handleShowHistory: handleShowHistory,
+                handleShowSaved: handleShowSaved,
+                handleGraphSelect: handleGraphSelect,
+                handleAddGraph: handleAddGraph,
+                handleGraphTitle: handleGraphTitle,
+                handleGraphDescription: handleGraphDescription,
+                handleGraphTypeSelect: handleGraphTypeSelect,
+                handleGraphSave: handleGraphSave,
+                handleGraphDelete: handleGraphDelete,
+                handleNotImplemented: handleNotImplemented
+            }, void 0, false, {
+                fileName: "src/Explore.js",
+                lineNumber: 520,
+                columnNumber: 15
+            }, this);
+            break;
+        case MAPTABLE:
+            VIEW = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _exploreMapTableDefault.default), {
+                e: e,
+                tableData: tableData,
+                handleTitleUpdate: handleTitleUpdate,
+                handleFilterTitle: handleFilterTitle,
+                handleFilterSource: handleFilterSource,
+                handleAddFilter: handleAddFilter,
+                handleShowHistory: handleShowHistory,
+                handleShowSaved: handleShowSaved,
+                handleGraphSelect: handleGraphSelect,
+                handleAddGraph: handleAddGraph,
+                handleGraphTitle: handleGraphTitle,
+                handleGraphDescription: handleGraphDescription,
+                handleGraphTypeSelect: handleGraphTypeSelect,
+                handleGraphSave: handleGraphSave,
+                handleGraphDelete: handleGraphDelete,
+                handleNotImplemented: handleNotImplemented
+            }, void 0, false, {
+                fileName: "src/Explore.js",
+                lineNumber: 540,
+                columnNumber: 15
+            }, this);
+            break;
+        default:
+            VIEW = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        style: {
-                            overflow: "hidden",
-                            minWidth: "350px",
-                            display: "flex",
-                            flexDirection: "column"
-                        },
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetNarrowDefault.default), {
-                                    data: e.filtersets[e.selectedFilterSetIndex],
-                                    filters: tableData.headers,
-                                    handleFilterTitle: handleFilterTitle,
-                                    handleFilterSource: handleFilterSource,
-                                    handleAddFilter: handleAddFilter
-                                }, void 0, false, {
-                                    fileName: "src/Explore3.js",
-                                    lineNumber: 321,
-                                    columnNumber: 21
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
-                                    data: e,
-                                    style: {
-                                        flexGrow: 1
-                                    },
-                                    handleShowHistory: handleShowHistory,
-                                    handleShowSaved: handleShowSaved,
-                                    handleGraphSelect: handleGraphSelect,
-                                    handleAddGraph: handleAddGraph
-                                }, void 0, false, {
-                                    fileName: "src/Explore3.js",
-                                    lineNumber: 326,
-                                    columnNumber: 21
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Explore3.js",
-                            lineNumber: 320,
-                            columnNumber: 17
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "src/Explore3.js",
-                        lineNumber: 318,
+                        children: [
+                            "1. Select a dataset:",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                style: {
+                                    color: "#000"
+                                },
+                                onChange: handleDatasetSelect,
+                                children: DATASETS.map((d, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: i,
+                                        children: d.label
+                                    }, void 0, false, {
+                                        fileName: "src/Explore.js",
+                                        lineNumber: 565,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "src/Explore.js",
+                                lineNumber: 563,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Explore.js",
+                        lineNumber: 561,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        style: {
-                            overflow: "hidden"
-                        },
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableNarrowDefault.default), {
-                            tableData: tableData
-                        }, void 0, false, {
-                            fileName: "src/Explore3.js",
-                            lineNumber: 338,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "src/Explore3.js",
-                        lineNumber: 336,
+                        children: [
+                            "2. Select a view:",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                onClick: ()=>handleSetLayout(ROUND4),
+                                                children: ROUND4
+                                            }, void 0, false, {
+                                                fileName: "src/Explore.js",
+                                                lineNumber: 572,
+                                                columnNumber: 17
+                                            }, this),
+                                            ' -- "Filter" and "History" side by side -- needs screen > 700px tall'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Explore.js",
+                                        lineNumber: 572,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                onClick: ()=>handleSetLayout(FILTERHISTORY),
+                                                children: FILTERHISTORY
+                                            }, void 0, false, {
+                                                fileName: "src/Explore.js",
+                                                lineNumber: 573,
+                                                columnNumber: 17
+                                            }, this),
+                                            ' -- "History" below "Filter", no map in Table -- needs screen > 700px tall'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Explore.js",
+                                        lineNumber: 573,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                onClick: ()=>handleSetLayout(MAPHISTORY),
+                                                children: MAPHISTORY
+                                            }, void 0, false, {
+                                                fileName: "src/Explore.js",
+                                                lineNumber: 574,
+                                                columnNumber: 17
+                                            }, this),
+                                            ' -- "Context Map" below "Filter", "History" full height'
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Explore.js",
+                                        lineNumber: 574,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            onClick: ()=>handleSetLayout(MAPTABLE),
+                                            children: MAPTABLE
+                                        }, void 0, false, {
+                                            fileName: "src/Explore.js",
+                                            lineNumber: 575,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "src/Explore.js",
+                                        lineNumber: 575,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Explore.js",
+                                lineNumber: 571,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Explore.js",
+                        lineNumber: 569,
                         columnNumber: 9
-                    }, this)
+                    }, this),
+                    'Hit "Reload" to select a different dataset or layout.'
                 ]
             }, void 0, true, {
-                fileName: "src/Explore3.js",
-                lineNumber: 316,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "flex",
-                    flexDirection: "column"
-                },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaSwappedDefault.default), {
-                    graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
-                    handleGraphTitle: handleGraphTitle,
-                    handleGraphDescription: handleGraphDescription,
-                    handleGraphTypeSelect: handleGraphTypeSelect,
-                    handleGraphSave: handleGraphSave,
-                    handleGraphDelete: handleGraphDelete
-                }, void 0, false, {
-                    fileName: "src/Explore3.js",
-                    lineNumber: 344,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "src/Explore3.js",
-                lineNumber: 342,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/Explore3.js",
-        lineNumber: 311,
-        columnNumber: 5
-    }, this);
+                fileName: "src/Explore.js",
+                lineNumber: 560,
+                columnNumber: 15
+            }, this);
+            break;
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: VIEW
+    }, void 0, false);
 }
 exports.default = Explore;
-_s(Explore, "H8TBGv2CaeHWLrti214HXWrWXXs=", false, function() {
+_s(Explore, "Frnlv48L2xu3pzL4ypgwt0K/CzU=", false, function() {
     return [
         (0, _useImmer.useImmer),
         (0, _useImmer.useImmer)
@@ -27852,12 +28058,12 @@ _c = Explore;
 var _c;
 $RefreshReg$(_c, "Explore");
 
-  $parcel$ReactRefreshHelpers$c8f8.postlude(module);
+  $parcel$ReactRefreshHelpers$5e86.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","use-immer":"YHnci","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./HistoryShort":"eOAxI","./Generic":"jNPiD","./FilterSetNarrow":"50Bfr","./MapTableNarrow":"fLdC1","./GraphAreaSwapped":"doKPU","6079d1a1666a50bd":"gJHs0","url:./data/frogs.csv":"lojGL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"YHnci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","use-immer":"YHnci","./ExploreFilterHistory":"2K9K0","a149c6ac795d231":"gJHs0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ExploreRound4":"8qGWe","./ExploreMapHistory":"k8H9N","./ExploreMapTable":"hY5oD","url:./data/journeynorth.csv":"cgQmH","url:./data/frogs.csv":"lojGL","url:./data/chesapeake.csv":"5B9dJ","url:./data/waterinsights.csv":"4r76X"}],"YHnci":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useImmer", ()=>i);
@@ -28811,7 +29017,189 @@ var un = function() {
 }(), an = new un, fn = an.produce, cn = an.produceWithPatches.bind(an), sn = an.setAutoFreeze.bind(an), vn = an.setUseProxies.bind(an), pn = an.applyPatches.bind(an), ln = an.createDraft.bind(an), dn = an.finishDraft.bind(an);
 exports.default = fn;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fmS59":[function() {},{}],"4IoEo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2K9K0":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e965 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e965.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _exploreCss = require("./Explore.css");
+var _explorationTitle = require("./ExplorationTitle");
+var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
+var _historyShort = require("./HistoryShort");
+var _historyShortDefault = parcelHelpers.interopDefault(_historyShort);
+var _filterSetNarrow = require("./FilterSetNarrow");
+var _filterSetNarrowDefault = parcelHelpers.interopDefault(_filterSetNarrow);
+var _mapTableNarrow = require("./MapTableNarrow");
+var _mapTableNarrowDefault = parcelHelpers.interopDefault(_mapTableNarrow);
+var _graphArea = require("./GraphArea");
+var _graphAreaDefault = parcelHelpers.interopDefault(_graphArea);
+function Explore({ e , tableData , handleTitleUpdate , handleFilterTitle , handleFilterSource , handleAddFilter , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "Explore",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    padding: "0 5px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                    title: e.title,
+                    handleTitleUpdate: handleTitleUpdate
+                }, void 0, false, {
+                    fileName: "src/ExploreFilterHistory.js",
+                    lineNumber: 48,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/ExploreFilterHistory.js",
+                lineNumber: 47,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    overflow: "hidden",
+                    flexGrow: 1,
+                    display: "flex",
+                    flexDirection: "row"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetNarrowDefault.default), {
+                                    data: e.filtersets[e.selectedFilterSetIndex],
+                                    filters: tableData.headers,
+                                    handleFilterTitle: handleFilterTitle,
+                                    handleFilterSource: handleFilterSource,
+                                    handleAddFilter: handleAddFilter
+                                }, void 0, false, {
+                                    fileName: "src/ExploreFilterHistory.js",
+                                    lineNumber: 55,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
+                                    data: e,
+                                    style: {
+                                        flexGrow: 1
+                                    },
+                                    handleShowHistory: handleShowHistory,
+                                    handleShowSaved: handleShowSaved,
+                                    handleGraphSelect: handleGraphSelect,
+                                    handleAddGraph: handleAddGraph
+                                }, void 0, false, {
+                                    fileName: "src/ExploreFilterHistory.js",
+                                    lineNumber: 60,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/ExploreFilterHistory.js",
+                            lineNumber: 54,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/ExploreFilterHistory.js",
+                        lineNumber: 53,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                overflow: "hidden",
+                                flexGrow: 1
+                            },
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableNarrowDefault.default), {
+                                tableData: tableData
+                            }, void 0, false, {
+                                fileName: "src/ExploreFilterHistory.js",
+                                lineNumber: 71,
+                                columnNumber: 17
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/ExploreFilterHistory.js",
+                            lineNumber: 70,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/ExploreFilterHistory.js",
+                        lineNumber: 68,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/ExploreFilterHistory.js",
+                lineNumber: 51,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex",
+                    flexDirection: "column"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaDefault.default), {
+                    graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
+                    handleAddGraph: handleAddGraph,
+                    handleGraphTitle: handleGraphTitle,
+                    handleGraphDescription: handleGraphDescription,
+                    handleGraphTypeSelect: handleGraphTypeSelect,
+                    handleGraphSave: handleGraphSave,
+                    handleGraphDelete: handleGraphDelete
+                }, void 0, false, {
+                    fileName: "src/ExploreFilterHistory.js",
+                    lineNumber: 78,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "src/ExploreFilterHistory.js",
+                lineNumber: 76,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/ExploreFilterHistory.js",
+        lineNumber: 44,
+        columnNumber: 5
+    }, this);
+}
+exports.default = Explore;
+_c = Explore;
+var _c;
+$RefreshReg$(_c, "Explore");
+
+  $parcel$ReactRefreshHelpers$e965.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./GraphArea":"ey9Se","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./MapTableNarrow":"fLdC1","./HistoryShort":"eOAxI","./FilterSetNarrow":"50Bfr"}],"fmS59":[function() {},{}],"4IoEo":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$07f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28854,6 +29242,734 @@ var _c;
 $RefreshReg$(_c, "ExplorationTitle");
 
   $parcel$ReactRefreshHelpers$07f6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"ey9Se":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bbd7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bbd7.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphView = require("./GraphView");
+var _graphViewDefault = parcelHelpers.interopDefault(_graphView);
+var _graphEditor = require("./GraphEditor");
+var _graphEditorDefault = parcelHelpers.interopDefault(_graphEditor);
+function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
+    const isDirty = true;
+    console.error("GraphArea");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphArea",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "50% 50%"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphViewDefault.default), {
+                        graphData: graphData,
+                        handleGraphTitle: handleGraphTitle,
+                        handleGraphDescription: handleGraphDescription
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 13,
+                        columnNumber: 13
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorDefault.default), {
+                        graphData: graphData,
+                        handleGraphTypeSelect: handleGraphTypeSelect
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 18,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/GraphArea.js",
+                lineNumber: 12,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    backgroundColor: "#999"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "link",
+                        children: "DUPLICATE (Save As)"
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 21,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "link",
+                        onClick: handleGraphDelete,
+                        children: "DELETE"
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 22,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "secondary",
+                        children: "CLOSE"
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 23,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        disabled: !isDirty,
+                        className: isDirty ? "primary" : "",
+                        onClick: handleGraphSave,
+                        children: "SAVE"
+                    }, void 0, false, {
+                        fileName: "src/GraphArea.js",
+                        lineNumber: 24,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/GraphArea.js",
+                lineNumber: 20,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/GraphArea.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphArea;
+_c = GraphArea;
+var _c;
+$RefreshReg$(_c, "GraphArea");
+
+  $parcel$ReactRefreshHelpers$bbd7.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphView":"8AJgU","./GraphEditor":"kPrNE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8AJgU":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e66f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e66f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphIcon = require("./GraphIcon");
+var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
+function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
+    console.warn("GraphView Render", graphData);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphView",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    style: {
+                        display: "flex"
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            value: graphData.title,
+                            onChange: handleGraphTitle,
+                            style: {
+                                flexGrow: 1
+                            }
+                        }, void 0, false, {
+                            fileName: "src/GraphView.js",
+                            lineNumber: 11,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            children: "[ ]"
+                        }, void 0, false, {
+                            fileName: "src/GraphView.js",
+                            lineNumber: 12,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/GraphView.js",
+                    lineNumber: 10,
+                    columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                    onChange: handleGraphDescription,
+                    value: graphData.description
+                }, void 0, false, {
+                    fileName: "src/GraphView.js",
+                    lineNumber: 14,
+                    columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                    size: "max",
+                    type: graphData.type
+                }, void 0, false, {
+                    fileName: "src/GraphView.js",
+                    lineNumber: 15,
+                    columnNumber: 11
+                }, this)
+            ]
+        }, void 0, true)
+    }, void 0, false, {
+        fileName: "src/GraphView.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphView;
+_c = GraphView;
+var _c;
+$RefreshReg$(_c, "GraphView");
+
+  $parcel$ReactRefreshHelpers$e66f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"6wFHx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$fd70 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$fd70.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _visWidgetCardHistogramPng = require("./img/vis-widget-card-histogram.png");
+var _visWidgetCardHistogramPngDefault = parcelHelpers.interopDefault(_visWidgetCardHistogramPng);
+var _visWidgetCardNumericPng = require("./img/vis-widget-card-numeric.png");
+var _visWidgetCardNumericPngDefault = parcelHelpers.interopDefault(_visWidgetCardNumericPng);
+var _visWidgetCardScatterplotPng = require("./img/vis-widget-card-scatterplot.png");
+var _visWidgetCardScatterplotPngDefault = parcelHelpers.interopDefault(_visWidgetCardScatterplotPng);
+var _visWidgetCardTimeseriesPng = require("./img/vis-widget-card-timeseries.png");
+var _visWidgetCardTimeseriesPngDefault = parcelHelpers.interopDefault(_visWidgetCardTimeseriesPng);
+var _visWidgetCardRangePlotPng = require("./img/vis-widget-card-range-plot.png");
+var _visWidgetCardRangePlotPngDefault = parcelHelpers.interopDefault(_visWidgetCardRangePlotPng);
+var _visWidgetCardMapPng = require("./img/vis-widget-card-map.png");
+var _visWidgetCardMapPngDefault = parcelHelpers.interopDefault(_visWidgetCardMapPng);
+function GraphIcon({ type , size , selected , saved , handleClick  }) {
+    let imgurl;
+    switch(type){
+        case "histogram":
+            imgurl = (0, _visWidgetCardHistogramPngDefault.default);
+            break;
+        case "numeric":
+            imgurl = (0, _visWidgetCardNumericPngDefault.default);
+            break;
+        case "scatterplot":
+            imgurl = (0, _visWidgetCardScatterplotPngDefault.default);
+            break;
+        case "timeseries":
+            imgurl = (0, _visWidgetCardTimeseriesPngDefault.default);
+            break;
+        case "whisker":
+            imgurl = (0, _visWidgetCardRangePlotPngDefault.default);
+            break;
+        default:
+        case "map":
+            imgurl = (0, _visWidgetCardMapPngDefault.default);
+            break;
+    }
+    const sizeClass = size ? size : "";
+    const selectedClass = selected ? "selected" : "";
+    const notsavedClass = !saved ? "notsaved" : "";
+    const css = [
+        "GraphIcon",
+        sizeClass,
+        selectedClass,
+        notsavedClass
+    ].join(" ");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: css,
+        onClick: handleClick,
+        children: [
+            saved && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                className: "saved",
+                children: "✓"
+            }, void 0, false, {
+                fileName: "src/GraphIcon.js",
+                lineNumber: 46,
+                columnNumber: 17
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: imgurl,
+                alt: type
+            }, void 0, false, {
+                fileName: "src/GraphIcon.js",
+                lineNumber: 48,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/GraphIcon.js",
+        lineNumber: 45,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphIcon;
+_c = GraphIcon;
+var _c;
+$RefreshReg$(_c, "GraphIcon");
+
+  $parcel$ReactRefreshHelpers$fd70.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./img/vis-widget-card-histogram.png":"eXh7Q","./img/vis-widget-card-numeric.png":"ixujL","./img/vis-widget-card-scatterplot.png":"1NH17","./img/vis-widget-card-timeseries.png":"1YEvh","./img/vis-widget-card-range-plot.png":"gnyqV","./img/vis-widget-card-map.png":"f1kyz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"eXh7Q":[function(require,module,exports) {
+module.exports = require("9ca46da3cfe4617f").getBundleURL("bLxZJ") + "vis-widget-card-histogram.2c09924e.png" + "?" + Date.now();
+
+},{"9ca46da3cfe4617f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"ixujL":[function(require,module,exports) {
+module.exports = require("8c1fd44a8543b626").getBundleURL("bLxZJ") + "vis-widget-card-numeric.543c0c4f.png" + "?" + Date.now();
+
+},{"8c1fd44a8543b626":"lgJ39"}],"1NH17":[function(require,module,exports) {
+module.exports = require("b2808225d5b8f013").getBundleURL("bLxZJ") + "vis-widget-card-scatterplot.12f5f280.png" + "?" + Date.now();
+
+},{"b2808225d5b8f013":"lgJ39"}],"1YEvh":[function(require,module,exports) {
+module.exports = require("3b7d95229902e621").getBundleURL("bLxZJ") + "vis-widget-card-timeseries.1128bd20.png" + "?" + Date.now();
+
+},{"3b7d95229902e621":"lgJ39"}],"gnyqV":[function(require,module,exports) {
+module.exports = require("e625c20b0cac0673").getBundleURL("bLxZJ") + "vis-widget-card-range-plot.52c74fba.png" + "?" + Date.now();
+
+},{"e625c20b0cac0673":"lgJ39"}],"f1kyz":[function(require,module,exports) {
+module.exports = require("a33be123605485be").getBundleURL("bLxZJ") + "vis-widget-card-map.40c42982.png" + "?" + Date.now();
+
+},{"a33be123605485be":"lgJ39"}],"kPrNE":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a014 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a014.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphIcon = require("./GraphIcon");
+var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
+function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphEditor",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "system",
+                children: "DATA DISPLAY"
+            }, void 0, false, {
+                fileName: "src/GraphEditor.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
+            graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "120px 2fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "X:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: "x"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "Y:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: "y"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "Select Graph Type:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 14,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr 1fr",
+                            rowGap: "10px"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "map",
+                                handleClick: ()=>handleGraphTypeSelect("map")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 16,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "histogram",
+                                handleClick: ()=>handleGraphTypeSelect("histogram")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 17,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "numeric",
+                                handleClick: ()=>handleGraphTypeSelect("numeric")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 18,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "scatterplot",
+                                handleClick: ()=>handleGraphTypeSelect("scatterplot")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 19,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "timeseries",
+                                handleClick: ()=>handleGraphTypeSelect("timeseries")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 20,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "whisker",
+                                handleClick: ()=>handleGraphTypeSelect("whisker")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditor.js",
+                                lineNumber: 21,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 15,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 24,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Copy to Clipboard"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Download PNG"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditor.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/GraphEditor.js",
+                lineNumber: 9,
+                columnNumber: 21
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/GraphEditor.js",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphEditor;
+_c = GraphEditor;
+var _c;
+$RefreshReg$(_c, "GraphEditor");
+
+  $parcel$ReactRefreshHelpers$a014.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"fLdC1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d8cc.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _dataTable = require("./DataTable");
+var _dataTableDefault = parcelHelpers.interopDefault(_dataTable);
+function MapTable({ tableData  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "MapTable",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "stats",
+                    style: {
+                        flexGrow: 1
+                    },
+                    children: tableData.count > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                        children: [
+                            "Observations Found: ",
+                            tableData.count
+                        ]
+                    }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                        children: "Loading data..."
+                    }, void 0, false)
+                }, void 0, false, {
+                    fileName: "src/MapTableNarrow.js",
+                    lineNumber: 8,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "src/MapTableNarrow.js",
+                lineNumber: 7,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "100%",
+                    gridTemplateRows: "100%",
+                    height: "100%",
+                    overflow: "hidden"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataTableDefault.default), {
+                    tableData: tableData
+                }, void 0, false, {
+                    fileName: "src/MapTableNarrow.js",
+                    lineNumber: 17,
+                    columnNumber: 13
+                }, this)
+            }, void 0, false, {
+                fileName: "src/MapTableNarrow.js",
+                lineNumber: 16,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/MapTableNarrow.js",
+        lineNumber: 6,
+        columnNumber: 5
+    }, this);
+}
+exports.default = MapTable;
+_c = MapTable;
+var _c;
+$RefreshReg$(_c, "MapTable");
+
+  $parcel$ReactRefreshHelpers$d8cc.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./DataTable":"8666l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8666l":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4602 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4602.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+function DataTable({ tableData  }) {
+    const HACK = [
+        "Observation Date is the date the data was observed and recorded",
+        "Start Time is the local time when the participant started to listen/record for frog sounds",
+        "End Time is the local time when the participant stopped listening/recording frog sounds",
+        "Species is the frog species heard",
+        "Call Intensity is the number of individuals heard",
+        "Air Temperature in Celcius",
+        "Characterize Land Use is the type of land area",
+        "Observation Notes are additional notes taken during the observation"
+    ];
+    console.log("table render");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "DataTable",
+        style: {
+            display: "grid"
+        },
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                        children: tableData.headers.map((h, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    title: HACK[i],
+                                    children: h
+                                }, void 0, false, {
+                                    fileName: "src/DataTable.js",
+                                    lineNumber: 21,
+                                    columnNumber: 31
+                                }, this)
+                            }, i, false, {
+                                fileName: "src/DataTable.js",
+                                lineNumber: 21,
+                                columnNumber: 19
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "src/DataTable.js",
+                        lineNumber: 19,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/DataTable.js",
+                    lineNumber: 18,
+                    columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                    children: tableData.data.map((row, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                            children: row.map((item, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        style: {
+                                            height: "1.2em",
+                                            overflow: "hidden"
+                                        },
+                                        title: item,
+                                        children: item
+                                    }, void 0, false, {
+                                        fileName: "src/DataTable.js",
+                                        lineNumber: 30,
+                                        columnNumber: 21
+                                    }, this)
+                                }, i, false, {
+                                    fileName: "src/DataTable.js",
+                                    lineNumber: 29,
+                                    columnNumber: 19
+                                }, this))
+                        }, i, false, {
+                            fileName: "src/DataTable.js",
+                            lineNumber: 27,
+                            columnNumber: 15
+                        }, this))
+                }, void 0, false, {
+                    fileName: "src/DataTable.js",
+                    lineNumber: 25,
+                    columnNumber: 11
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/DataTable.js",
+            lineNumber: 17,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "src/DataTable.js",
+        lineNumber: 16,
+        columnNumber: 5
+    }, this);
+}
+exports.default = DataTable;
+_c = DataTable;
+var _c;
+$RefreshReg$(_c, "DataTable");
+
+  $parcel$ReactRefreshHelpers$4602.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -29003,186 +30119,7 @@ $RefreshReg$(_c, "History");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"6wFHx":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$fd70 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$fd70.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-var _visWidgetCardHistogramPng = require("./img/vis-widget-card-histogram.png");
-var _visWidgetCardHistogramPngDefault = parcelHelpers.interopDefault(_visWidgetCardHistogramPng);
-var _visWidgetCardNumericPng = require("./img/vis-widget-card-numeric.png");
-var _visWidgetCardNumericPngDefault = parcelHelpers.interopDefault(_visWidgetCardNumericPng);
-var _visWidgetCardScatterplotPng = require("./img/vis-widget-card-scatterplot.png");
-var _visWidgetCardScatterplotPngDefault = parcelHelpers.interopDefault(_visWidgetCardScatterplotPng);
-var _visWidgetCardTimeseriesPng = require("./img/vis-widget-card-timeseries.png");
-var _visWidgetCardTimeseriesPngDefault = parcelHelpers.interopDefault(_visWidgetCardTimeseriesPng);
-var _visWidgetCardRangePlotPng = require("./img/vis-widget-card-range-plot.png");
-var _visWidgetCardRangePlotPngDefault = parcelHelpers.interopDefault(_visWidgetCardRangePlotPng);
-var _visWidgetCardMapPng = require("./img/vis-widget-card-map.png");
-var _visWidgetCardMapPngDefault = parcelHelpers.interopDefault(_visWidgetCardMapPng);
-function GraphIcon({ type , size , selected , saved , handleClick  }) {
-    let imgurl;
-    switch(type){
-        case "histogram":
-            imgurl = (0, _visWidgetCardHistogramPngDefault.default);
-            break;
-        case "numeric":
-            imgurl = (0, _visWidgetCardNumericPngDefault.default);
-            break;
-        case "scatterplot":
-            imgurl = (0, _visWidgetCardScatterplotPngDefault.default);
-            break;
-        case "timeseries":
-            imgurl = (0, _visWidgetCardTimeseriesPngDefault.default);
-            break;
-        case "whisker":
-            imgurl = (0, _visWidgetCardRangePlotPngDefault.default);
-            break;
-        default:
-        case "map":
-            imgurl = (0, _visWidgetCardMapPngDefault.default);
-            break;
-    }
-    const sizeClass = size ? size : "";
-    const selectedClass = selected ? "selected" : "";
-    const notsavedClass = !saved ? "notsaved" : "";
-    const css = [
-        "GraphIcon",
-        sizeClass,
-        selectedClass,
-        notsavedClass
-    ].join(" ");
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: css,
-        onClick: handleClick,
-        children: [
-            saved && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                className: "saved",
-                children: "✓"
-            }, void 0, false, {
-                fileName: "src/GraphIcon.js",
-                lineNumber: 46,
-                columnNumber: 17
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: imgurl,
-                alt: type
-            }, void 0, false, {
-                fileName: "src/GraphIcon.js",
-                lineNumber: 48,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/GraphIcon.js",
-        lineNumber: 45,
-        columnNumber: 5
-    }, this);
-}
-exports.default = GraphIcon;
-_c = GraphIcon;
-var _c;
-$RefreshReg$(_c, "GraphIcon");
-
-  $parcel$ReactRefreshHelpers$fd70.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./img/vis-widget-card-histogram.png":"eXh7Q","./img/vis-widget-card-numeric.png":"ixujL","./img/vis-widget-card-scatterplot.png":"1NH17","./img/vis-widget-card-timeseries.png":"1YEvh","./img/vis-widget-card-range-plot.png":"gnyqV","./img/vis-widget-card-map.png":"f1kyz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"eXh7Q":[function(require,module,exports) {
-module.exports = require("9ca46da3cfe4617f").getBundleURL("bLxZJ") + "vis-widget-card-histogram.2c09924e.png" + "?" + Date.now();
-
-},{"9ca46da3cfe4617f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"ixujL":[function(require,module,exports) {
-module.exports = require("8c1fd44a8543b626").getBundleURL("bLxZJ") + "vis-widget-card-numeric.543c0c4f.png" + "?" + Date.now();
-
-},{"8c1fd44a8543b626":"lgJ39"}],"1NH17":[function(require,module,exports) {
-module.exports = require("b2808225d5b8f013").getBundleURL("bLxZJ") + "vis-widget-card-scatterplot.12f5f280.png" + "?" + Date.now();
-
-},{"b2808225d5b8f013":"lgJ39"}],"1YEvh":[function(require,module,exports) {
-module.exports = require("3b7d95229902e621").getBundleURL("bLxZJ") + "vis-widget-card-timeseries.1128bd20.png" + "?" + Date.now();
-
-},{"3b7d95229902e621":"lgJ39"}],"gnyqV":[function(require,module,exports) {
-module.exports = require("e625c20b0cac0673").getBundleURL("bLxZJ") + "vis-widget-card-range-plot.52c74fba.png" + "?" + Date.now();
-
-},{"e625c20b0cac0673":"lgJ39"}],"f1kyz":[function(require,module,exports) {
-module.exports = require("a33be123605485be").getBundleURL("bLxZJ") + "vis-widget-card-map.40c42982.png" + "?" + Date.now();
-
-},{"a33be123605485be":"lgJ39"}],"jNPiD":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$242e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$242e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-function Generic() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        style: {
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#ff000066",
-            border: "1px single #ff0000"
-        },
-        children: "\xa0"
-    }, void 0, false, {
-        fileName: "src/Generic.js",
-        lineNumber: 2,
-        columnNumber: 11
-    }, this);
-}
-exports.default = Generic;
-_c = Generic;
-var _c;
-$RefreshReg$(_c, "Generic");
-
-  $parcel$ReactRefreshHelpers$242e.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"50Bfr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"50Bfr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$efa3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29218,7 +30155,7 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                 style: {
                     display: "flex",
                     flexDirection: "column",
-                    padding: "5px"
+                    padding: "3px"
                 },
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                     value: data.title !== undefined ? data.title : "No Filters",
@@ -29296,10 +30233,10 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "primary",
+                        className: "primary small",
                         onClick: handleAddFilterClick,
                         style: {
-                            marginTop: "10px"
+                            marginTop: "3px"
                         },
                         children: "+ FILTER"
                     }, void 0, false, {
@@ -29540,686 +30477,7 @@ $RefreshReg$(_c, "FilterEditor");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"fLdC1":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d8cc.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-var _dataTable = require("./DataTable");
-var _dataTableDefault = parcelHelpers.interopDefault(_dataTable);
-function MapTable({ tableData  }) {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "MapTable",
-        style: {
-            display: "flex",
-            flexDirection: "column"
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "flex"
-                },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "stats",
-                    style: {
-                        flexGrow: 1
-                    },
-                    children: [
-                        "Observations Found: ",
-                        tableData.count
-                    ]
-                }, void 0, true, {
-                    fileName: "src/MapTableNarrow.js",
-                    lineNumber: 8,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "src/MapTableNarrow.js",
-                lineNumber: 7,
-                columnNumber: 9
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "grid",
-                    gridTemplateColumns: "100%",
-                    gridTemplateRows: "100%",
-                    height: "100%",
-                    overflow: "hidden"
-                },
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataTableDefault.default), {
-                    tableData: tableData
-                }, void 0, false, {
-                    fileName: "src/MapTableNarrow.js",
-                    lineNumber: 12,
-                    columnNumber: 13
-                }, this)
-            }, void 0, false, {
-                fileName: "src/MapTableNarrow.js",
-                lineNumber: 11,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/MapTableNarrow.js",
-        lineNumber: 6,
-        columnNumber: 5
-    }, this);
-}
-exports.default = MapTable;
-_c = MapTable;
-var _c;
-$RefreshReg$(_c, "MapTable");
-
-  $parcel$ReactRefreshHelpers$d8cc.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./DataTable":"8666l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"8666l":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4602 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4602.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-function DataTable({ tableData  }) {
-    const HACK = [
-        "Observation Date is the date the data was observed and recorded",
-        "Start Time is the local time when the participant started to listen/record for frog sounds",
-        "End Time is the local time when the participant stopped listening/recording frog sounds",
-        "Species is the frog species heard",
-        "Call Intensity is the number of individuals heard",
-        "Air Temperature in Celcius",
-        "Characterize Land Use is the type of land area",
-        "Observation Notes are additional notes taken during the observation"
-    ];
-    console.log("table render");
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "DataTable",
-        style: {
-            display: "grid"
-        },
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                        children: tableData.headers.map((h, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    title: HACK[i],
-                                    children: h
-                                }, void 0, false, {
-                                    fileName: "src/DataTable.js",
-                                    lineNumber: 21,
-                                    columnNumber: 31
-                                }, this)
-                            }, i, false, {
-                                fileName: "src/DataTable.js",
-                                lineNumber: 21,
-                                columnNumber: 19
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "src/DataTable.js",
-                        lineNumber: 19,
-                        columnNumber: 13
-                    }, this)
-                }, void 0, false, {
-                    fileName: "src/DataTable.js",
-                    lineNumber: 18,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                    children: tableData.data.map((row, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                            children: row.map((item, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        style: {
-                                            height: "1.2em",
-                                            overflow: "hidden"
-                                        },
-                                        title: item,
-                                        children: item
-                                    }, void 0, false, {
-                                        fileName: "src/DataTable.js",
-                                        lineNumber: 30,
-                                        columnNumber: 21
-                                    }, this)
-                                }, i, false, {
-                                    fileName: "src/DataTable.js",
-                                    lineNumber: 29,
-                                    columnNumber: 19
-                                }, this))
-                        }, i, false, {
-                            fileName: "src/DataTable.js",
-                            lineNumber: 27,
-                            columnNumber: 15
-                        }, this))
-                }, void 0, false, {
-                    fileName: "src/DataTable.js",
-                    lineNumber: 25,
-                    columnNumber: 11
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/DataTable.js",
-            lineNumber: 17,
-            columnNumber: 9
-        }, this)
-    }, void 0, false, {
-        fileName: "src/DataTable.js",
-        lineNumber: 16,
-        columnNumber: 5
-    }, this);
-}
-exports.default = DataTable;
-_c = DataTable;
-var _c;
-$RefreshReg$(_c, "DataTable");
-
-  $parcel$ReactRefreshHelpers$4602.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"doKPU":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$b040 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$b040.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-var _graphViewWide = require("./GraphViewWide");
-var _graphViewWideDefault = parcelHelpers.interopDefault(_graphViewWide);
-var _graphEditorNarrow = require("./GraphEditorNarrow");
-var _graphEditorNarrowDefault = parcelHelpers.interopDefault(_graphEditorNarrow);
-function GraphArea({ graphData , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
-    const isDirty = true;
-    console.error("GraphArea");
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "GraphArea",
-        style: {
-            display: "flex",
-            flexDirection: "column"
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "grid",
-                    gridTemplateColumns: "350px auto"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorNarrowDefault.default), {
-                        graphData: graphData,
-                        handleGraphTypeSelect: handleGraphTypeSelect
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 13,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphViewWideDefault.default), {
-                        graphData: graphData,
-                        handleGraphTitle: handleGraphTitle,
-                        handleGraphDescription: handleGraphDescription
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 14,
-                        columnNumber: 13
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/GraphAreaSwapped.js",
-                lineNumber: 12,
-                columnNumber: 9
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    backgroundColor: "#999"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "link",
-                        children: "DUPLICATE (Save As)"
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 21,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "link",
-                        onClick: handleGraphDelete,
-                        children: "DELETE"
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 22,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "secondary",
-                        children: "CLOSE"
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 23,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        disabled: !isDirty,
-                        className: isDirty ? "primary" : "",
-                        onClick: handleGraphSave,
-                        children: "SAVE"
-                    }, void 0, false, {
-                        fileName: "src/GraphAreaSwapped.js",
-                        lineNumber: 24,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/GraphAreaSwapped.js",
-                lineNumber: 20,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/GraphAreaSwapped.js",
-        lineNumber: 11,
-        columnNumber: 5
-    }, this);
-}
-exports.default = GraphArea;
-_c = GraphArea;
-var _c;
-$RefreshReg$(_c, "GraphArea");
-
-  $parcel$ReactRefreshHelpers$b040.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphViewWide":"9I581","./GraphEditorNarrow":"1amTR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"9I581":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$dec9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$dec9.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-var _graphIcon = require("./GraphIcon");
-var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
-function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
-    console.warn("GraphView Render", graphData);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "GraphView",
-        style: {
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "300px auto"
-        },
-        children: graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        display: "flex",
-                        flexDirection: "column"
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                display: "flex"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    value: graphData.title,
-                                    onChange: handleGraphTitle,
-                                    style: {
-                                        flexGrow: 1
-                                    }
-                                }, void 0, false, {
-                                    fileName: "src/GraphViewWide.js",
-                                    lineNumber: 12,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    children: "[ ]"
-                                }, void 0, false, {
-                                    fileName: "src/GraphViewWide.js",
-                                    lineNumber: 13,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/GraphViewWide.js",
-                            lineNumber: 11,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                            onChange: handleGraphDescription,
-                            value: graphData.description,
-                            style: {
-                                width: "98%",
-                                height: "10em"
-                            }
-                        }, void 0, false, {
-                            fileName: "src/GraphViewWide.js",
-                            lineNumber: 15,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                flexGrow: 1
-                            },
-                            children: "\xa0"
-                        }, void 0, false, {
-                            fileName: "src/GraphViewWide.js",
-                            lineNumber: 16,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "colophon",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    children: "Data"
-                                }, void 0, false, {
-                                    fileName: "src/GraphViewWide.js",
-                                    lineNumber: 17,
-                                    columnNumber: 39
-                                }, this),
-                                " from ",
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    children: "Water Insights"
-                                }, void 0, false, {
-                                    fileName: "src/GraphViewWide.js",
-                                    lineNumber: 17,
-                                    columnNumber: 56
-                                }, this),
-                                " project"
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/GraphViewWide.js",
-                            lineNumber: 17,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "colophon",
-                            children: [
-                                "Powered by ",
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    children: "FieldScope"
-                                }, void 0, false, {
-                                    fileName: "src/GraphViewWide.js",
-                                    lineNumber: 18,
-                                    columnNumber: 50
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/GraphViewWide.js",
-                            lineNumber: 18,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/GraphViewWide.js",
-                    lineNumber: 10,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                    size: "max",
-                    type: graphData.type
-                }, void 0, false, {
-                    fileName: "src/GraphViewWide.js",
-                    lineNumber: 20,
-                    columnNumber: 11
-                }, this)
-            ]
-        }, void 0, true)
-    }, void 0, false, {
-        fileName: "src/GraphViewWide.js",
-        lineNumber: 8,
-        columnNumber: 5
-    }, this);
-}
-exports.default = GraphView;
-_c = GraphView;
-var _c;
-$RefreshReg$(_c, "GraphView");
-
-  $parcel$ReactRefreshHelpers$dec9.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"1amTR":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9701 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9701.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _explorationCss = require("./Exploration.css");
-var _graphIcon = require("./GraphIcon");
-var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
-function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "GraphEditor",
-        style: {
-            overflow: "hidden"
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "system",
-                children: "DATA DISPLAY"
-            }, void 0, false, {
-                fileName: "src/GraphEditorNarrow.js",
-                lineNumber: 8,
-                columnNumber: 7
-            }, this),
-            graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    display: "grid",
-                    gridTemplateColumns: "40px 2fr"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        children: "X:"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 10,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        value: "x"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 11,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        children: "Y:"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        value: "y"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 13,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 14,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        style: {
-                            textAlign: "left"
-                        },
-                        children: "Select Graph Type:"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 15,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 16,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        style: {
-                            display: "grid",
-                            gridTemplateColumns: "1fr 1fr 1fr",
-                            rowGap: "10px"
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "map",
-                                handleClick: ()=>handleGraphTypeSelect("map")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 18,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "histogram",
-                                handleClick: ()=>handleGraphTypeSelect("histogram")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 19,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "numeric",
-                                handleClick: ()=>handleGraphTypeSelect("numeric")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 20,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "scatterplot",
-                                handleClick: ()=>handleGraphTypeSelect("scatterplot")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 21,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "timeseries",
-                                handleClick: ()=>handleGraphTypeSelect("timeseries")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 22,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
-                                size: "large",
-                                type: "whisker",
-                                handleClick: ()=>handleGraphTypeSelect("whisker")
-                            }, void 0, false, {
-                                fileName: "src/GraphEditorNarrow.js",
-                                lineNumber: 23,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 17,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 25,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 26,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 27,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 28,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 29,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        children: "Copy to Clipboard"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 30,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 31,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        children: "Download PNG"
-                    }, void 0, false, {
-                        fileName: "src/GraphEditorNarrow.js",
-                        lineNumber: 32,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/GraphEditorNarrow.js",
-                lineNumber: 9,
-                columnNumber: 21
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/GraphEditorNarrow.js",
-        lineNumber: 7,
-        columnNumber: 5
-    }, this);
-}
-exports.default = GraphEditor;
-_c = GraphEditor;
-var _c;
-$RefreshReg$(_c, "GraphEditor");
-
-  $parcel$ReactRefreshHelpers$9701.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"gJHs0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"gJHs0":[function(require,module,exports) {
 module.exports = function(t) {
     var e = {};
     function r(n) {
@@ -36171,9 +36429,1467 @@ module.exports = function(t) {
     }
 ]);
 
-},{}],"lojGL":[function(require,module,exports) {
+},{}],"8qGWe":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$991b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$991b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _exploreCss = require("./Explore.css");
+var _explorationTitle = require("./ExplorationTitle");
+var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
+var _history = require("./History");
+var _historyDefault = parcelHelpers.interopDefault(_history);
+var _filterSet = require("./FilterSet");
+var _filterSetDefault = parcelHelpers.interopDefault(_filterSet);
+var _mapTable = require("./MapTable");
+var _mapTableDefault = parcelHelpers.interopDefault(_mapTable);
+var _graphArea = require("./GraphArea");
+var _graphAreaDefault = parcelHelpers.interopDefault(_graphArea);
+function Explore({ e , tableData , handleTitleUpdate , handleFilterTitle , handleFilterSource , handleAddFilter , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete  }) {
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "Explore",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex",
+                    flexDirection: "column",
+                    maxHeight: "25%",
+                    padding: "10px"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                        title: e.title,
+                        handleTitleUpdate: handleTitleUpdate
+                    }, void 0, false, {
+                        fileName: "src/ExploreRound4.js",
+                        lineNumber: 43,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr",
+                            columnGap: "10px",
+                            height: "90%"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetDefault.default), {
+                                data: e.filtersets[e.selectedFilterSetIndex],
+                                filters: tableData.headers,
+                                handleFilterTitle: handleFilterTitle,
+                                handleFilterSource: handleFilterSource,
+                                handleAddFilter: handleAddFilter
+                            }, void 0, false, {
+                                fileName: "src/ExploreRound4.js",
+                                lineNumber: 45,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyDefault.default), {
+                                data: e,
+                                handleShowHistory: handleShowHistory,
+                                handleShowSaved: handleShowSaved,
+                                handleGraphSelect: handleGraphSelect,
+                                handleAddGraph: handleAddGraph
+                            }, void 0, false, {
+                                fileName: "src/ExploreRound4.js",
+                                lineNumber: 50,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/ExploreRound4.js",
+                        lineNumber: 44,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/ExploreRound4.js",
+                lineNumber: 42,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    flexGrow: 1,
+                    overflow: "hidden"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableDefault.default), {
+                    tableData: tableData
+                }, void 0, false, {
+                    fileName: "src/ExploreRound4.js",
+                    lineNumber: 58,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/ExploreRound4.js",
+                lineNumber: 57,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaDefault.default), {
+                graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
+                handleGraphTitle: handleGraphTitle,
+                handleGraphDescription: handleGraphDescription,
+                handleGraphTypeSelect: handleGraphTypeSelect,
+                handleGraphSave: handleGraphSave,
+                handleGraphDelete: handleGraphDelete
+            }, void 0, false, {
+                fileName: "src/ExploreRound4.js",
+                lineNumber: 60,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/ExploreRound4.js",
+        lineNumber: 41,
+        columnNumber: 5
+    }, this);
+}
+exports.default = Explore;
+_c = Explore;
+var _c;
+$RefreshReg$(_c, "Explore");
+
+  $parcel$ReactRefreshHelpers$991b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./History":"lnqOz","./FilterSet":"jl9N2","./MapTable":"c7II1","./GraphArea":"ey9Se","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fmS59":[function() {},{}],"lnqOz":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4abe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4abe.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _explorationCss = require("./Exploration.css");
+var _graphIcon = require("./GraphIcon");
+var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
+var _s = $RefreshSig$();
+function History({ data , selected , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph  }) {
+    _s();
+    (0, _react.useEffect)(()=>{
+        const els = document.getElementsByClassName("selected");
+        els[0].scrollIntoView();
+    });
+    const showHistory = data.showHistory;
+    function handleGraphClick(filterIndex, graphIndex) {
+        handleGraphSelect(filterIndex, graphIndex);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "History",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "100px 1fr 1fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: "Selection History"
+                    }, void 0, false, {
+                        fileName: "src/History.js",
+                        lineNumber: 21,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleShowHistory,
+                        children: "HISTORY"
+                    }, void 0, false, {
+                        fileName: "src/History.js",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: handleShowSaved,
+                        children: "SAVED GRAPHS"
+                    }, void 0, false, {
+                        fileName: "src/History.js",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/History.js",
+                lineNumber: 20,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "browserViewer",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "browser",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                        children: data.filtersets.map((d, filterIndex)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                style: {
+                                    display: "grid",
+                                    gridTemplateColumns: "100px auto"
+                                },
+                                className: filterIndex === data.selectedFilterSetIndex ? "selected" : "",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "FilterSet filtersetTitle",
+                                        children: d.title !== undefined ? d.title : "No Filters"
+                                    }, void 0, false, {
+                                        fileName: "src/History.js",
+                                        lineNumber: 32,
+                                        columnNumber: 17
+                                    }, this),
+                                    d.graphs.map((g, graphIndex)=>{
+                                        if (showHistory || g.saved) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                            type: g.type,
+                                            selected: filterIndex === data.selectedFilterSetIndex && data.selectedGraphIndex === graphIndex,
+                                            saved: g.saved,
+                                            handleClick: ()=>handleGraphClick(filterIndex, graphIndex)
+                                        }, graphIndex, false, {
+                                            fileName: "src/History.js",
+                                            lineNumber: 35,
+                                            columnNumber: 28
+                                        }, this);
+                                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            children: "No Graph"
+                                        }, void 0, false, {
+                                            fileName: "src/History.js",
+                                            lineNumber: 43,
+                                            columnNumber: 26
+                                        }, this);
+                                    }),
+                                    filterIndex === data.selectedFilterSetIndex && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "primary",
+                                        onClick: handleAddGraph,
+                                        children: "+ GRAPH"
+                                    }, void 0, false, {
+                                        fileName: "src/History.js",
+                                        lineNumber: 46,
+                                        columnNumber: 63
+                                    }, this)
+                                ]
+                            }, filterIndex, true, {
+                                fileName: "src/History.js",
+                                lineNumber: 29,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "src/History.js",
+                        lineNumber: 27,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/History.js",
+                    lineNumber: 26,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/History.js",
+                lineNumber: 25,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/History.js",
+        lineNumber: 19,
+        columnNumber: 5
+    }, this);
+}
+exports.default = History;
+_s(History, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = History;
+var _c;
+$RefreshReg$(_c, "History");
+
+  $parcel$ReactRefreshHelpers$4abe.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"jl9N2":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d865 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d865.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _explorationCss = require("./Exploration.css");
+var _filterEditor = require("./FilterEditor");
+var _filterEditorDefault = parcelHelpers.interopDefault(_filterEditor);
+var _s = $RefreshSig$();
+function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , handleAddFilter  }) {
+    _s();
+    const [editorIsOpen, setEditorIsOpen] = (0, _react.useState)(false);
+    function handleAddFilterClick() {
+        setEditorIsOpen(true);
+    }
+    function handleFilterAdded(filter) {
+        setEditorIsOpen(false);
+        const title = data.title !== undefined ? data.title + ", " + filter.title : filter.title;
+        handleAddFilter(filter);
+    }
+    function handleClose() {
+        setEditorIsOpen(false);
+    }
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "FilterSet",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "90px 2fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "Selection"
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 24,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: data.title !== undefined ? data.title : "No Filters",
+                        onChange: handleFilterTitle
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 25,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/FilterSet.js",
+                lineNumber: 23,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "160px 2fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "SOURCE"
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 28,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: data.source,
+                        onChange: handleFilterSource
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 29,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 30,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 31,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "FILTERS"
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 32,
+                        columnNumber: 11
+                    }, this),
+                    data.filters.length > 0 ? data.filters.map((d, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                            children: [
+                                i > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                                    fileName: "src/FilterSet.js",
+                                    lineNumber: 35,
+                                    columnNumber: 27
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "filter",
+                                    children: d.title
+                                }, i, false, {
+                                    fileName: "src/FilterSet.js",
+                                    lineNumber: 36,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 38,
+                        columnNumber: 15
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 40,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "primary",
+                        onClick: handleAddFilterClick,
+                        style: {
+                            marginTop: "10px"
+                        },
+                        children: "+ FILTER"
+                    }, void 0, false, {
+                        fileName: "src/FilterSet.js",
+                        lineNumber: 41,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/FilterSet.js",
+                lineNumber: 27,
+                columnNumber: 9
+            }, this),
+            editorIsOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterEditorDefault.default), {
+                data: data,
+                filters: filters,
+                handleAddFilter: handleFilterAdded,
+                handleClose: handleClose
+            }, void 0, false, {
+                fileName: "src/FilterSet.js",
+                lineNumber: 43,
+                columnNumber: 24
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/FilterSet.js",
+        lineNumber: 22,
+        columnNumber: 5
+    }, this);
+}
+exports.default = FilterSet;
+_s(FilterSet, "a18FP1GyOAV7O+xmbrwSmDtP/ag=");
+_c = FilterSet;
+var _c;
+$RefreshReg$(_c, "FilterSet");
+
+  $parcel$ReactRefreshHelpers$d865.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Exploration.css":"99opG","./FilterEditor":"9z5Gh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"c7II1":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a936 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a936.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _dataTable = require("./DataTable");
+var _dataTableDefault = parcelHelpers.interopDefault(_dataTable);
+var _contextMapPng = require("./img/context-map.png");
+var _contextMapPngDefault = parcelHelpers.interopDefault(_contextMapPng);
+function MapTable({ tableData , handleAddFilter  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "MapTable",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "flex"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "stats",
+                        style: {
+                            flexGrow: 1
+                        },
+                        children: [
+                            tableData.count,
+                            " Observations"
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/MapTable.js",
+                        lineNumber: 10,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Table/Map"
+                    }, void 0, false, {
+                        fileName: "src/MapTable.js",
+                        lineNumber: 11,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/MapTable.js",
+                lineNumber: 9,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dataTableDefault.default), {
+                tableData: tableData
+            }, void 0, false, {
+                fileName: "src/MapTable.js",
+                lineNumber: 14,
+                columnNumber: 11
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    position: "relative"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: (0, _contextMapPngDefault.default),
+                    alt: "map",
+                    style: {
+                        width: "150px",
+                        position: "absolute",
+                        right: "5px",
+                        bottom: "10px"
+                    }
+                }, void 0, false, {
+                    fileName: "src/MapTable.js",
+                    lineNumber: 16,
+                    columnNumber: 13
+                }, this)
+            }, void 0, false, {
+                fileName: "src/MapTable.js",
+                lineNumber: 15,
+                columnNumber: 11
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/MapTable.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+exports.default = MapTable;
+_c = MapTable;
+var _c;
+$RefreshReg$(_c, "MapTable");
+
+  $parcel$ReactRefreshHelpers$a936.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./DataTable":"8666l","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./img/context-map.png":"Bem3p"}],"99opG":[function() {},{}],"Bem3p":[function(require,module,exports) {
+module.exports = require("db973d93f9acfcef").getBundleURL("bLxZJ") + "context-map.e4797ea8.png" + "?" + Date.now();
+
+},{"db973d93f9acfcef":"lgJ39"}],"k8H9N":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2870 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2870.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _exploreCss = require("./Explore.css");
+var _explorationTitle = require("./ExplorationTitle");
+var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
+var _historyShort = require("./HistoryShort");
+var _historyShortDefault = parcelHelpers.interopDefault(_historyShort);
+var _filterSetNarrow = require("./FilterSetNarrow");
+var _filterSetNarrowDefault = parcelHelpers.interopDefault(_filterSetNarrow);
+var _contextMap = require("./ContextMap");
+var _contextMapDefault = parcelHelpers.interopDefault(_contextMap);
+var _mapTableNarrow = require("./MapTableNarrow");
+var _mapTableNarrowDefault = parcelHelpers.interopDefault(_mapTableNarrow);
+var _graphAreaSwapped = require("./GraphAreaSwapped");
+var _graphAreaSwappedDefault = parcelHelpers.interopDefault(_graphAreaSwapped);
+function Explore({ e , tableData , handleTitleUpdate , handleFilterTitle , handleFilterSource , handleAddFilter , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete , handleNotImplemented  }) {
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "Explore",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    padding: "0 5px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                    title: e.title,
+                    handleTitleUpdate: handleTitleUpdate
+                }, void 0, false, {
+                    fileName: "src/ExploreMapHistory.js",
+                    lineNumber: 46,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/ExploreMapHistory.js",
+                lineNumber: 45,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    overflow: "hidden",
+                    flexGrow: 1,
+                    display: "flex",
+                    flexDirection: "row"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetNarrowDefault.default), {
+                                    data: e.filtersets[e.selectedFilterSetIndex],
+                                    filters: tableData.headers,
+                                    handleFilterTitle: handleFilterTitle,
+                                    handleFilterSource: handleFilterSource,
+                                    handleAddFilter: handleAddFilter
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapHistory.js",
+                                    lineNumber: 53,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contextMapDefault.default), {}, void 0, false, {
+                                    fileName: "src/ExploreMapHistory.js",
+                                    lineNumber: 58,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
+                                    data: e,
+                                    style: {
+                                        flexGrow: 1
+                                    },
+                                    handleShowHistory: handleShowHistory,
+                                    handleShowSaved: handleShowSaved,
+                                    handleGraphSelect: handleGraphSelect,
+                                    handleAddGraph: handleAddGraph
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapHistory.js",
+                                    lineNumber: 59,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/ExploreMapHistory.js",
+                            lineNumber: 52,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/ExploreMapHistory.js",
+                        lineNumber: 51,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    overflow: "hidden",
+                                    flexGrow: 1
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableNarrowDefault.default), {
+                                    tableData: tableData
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapHistory.js",
+                                    lineNumber: 70,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/ExploreMapHistory.js",
+                                lineNumber: 69,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    display: "flex",
+                                    flexDirection: "column"
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaSwappedDefault.default), {
+                                    graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
+                                    handleAddGraph: handleAddGraph,
+                                    handleGraphTitle: handleGraphTitle,
+                                    handleGraphDescription: handleGraphDescription,
+                                    handleGraphTypeSelect: handleGraphTypeSelect,
+                                    handleGraphSave: handleGraphSave,
+                                    handleGraphDelete: handleGraphDelete,
+                                    handleNotImplemented: handleNotImplemented
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapHistory.js",
+                                    lineNumber: 75,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/ExploreMapHistory.js",
+                                lineNumber: 73,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/ExploreMapHistory.js",
+                        lineNumber: 67,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/ExploreMapHistory.js",
+                lineNumber: 49,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/ExploreMapHistory.js",
+        lineNumber: 42,
+        columnNumber: 5
+    }, this);
+}
+exports.default = Explore;
+_c = Explore;
+var _c;
+$RefreshReg$(_c, "Explore");
+
+  $parcel$ReactRefreshHelpers$2870.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./HistoryShort":"eOAxI","./FilterSetNarrow":"50Bfr","./MapTableNarrow":"fLdC1","./GraphAreaSwapped":"doKPU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ContextMap":"6NfZx"}],"fmS59":[function() {},{}],"doKPU":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b040 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b040.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphViewWide = require("./GraphViewWide");
+var _graphViewWideDefault = parcelHelpers.interopDefault(_graphViewWide);
+var _graphEditorNarrow = require("./GraphEditorNarrow");
+var _graphEditorNarrowDefault = parcelHelpers.interopDefault(_graphEditorNarrow);
+function GraphArea({ graphData , handleAddGraph , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete , handleNotImplemented  }) {
+    const isDirty = true;
+    console.log("graphData is", graphData);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphArea",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            style: {
+                display: "grid",
+                gridTemplateColumns: "auto"
+            },
+            children: graphData.title !== undefined && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                children: [
+                    !graphData.saved && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphEditorNarrowDefault.default), {
+                        graphData: graphData,
+                        handleGraphTypeSelect: handleGraphTypeSelect
+                    }, void 0, false, {
+                        fileName: "src/GraphAreaSwapped.js",
+                        lineNumber: 16,
+                        columnNumber: 38
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphViewWideDefault.default), {
+                        graphData: graphData,
+                        handleGraphTitle: handleGraphTitle,
+                        handleGraphDescription: handleGraphDescription
+                    }, void 0, false, {
+                        fileName: "src/GraphAreaSwapped.js",
+                        lineNumber: 17,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            display: "flex",
+                            justifyContent: "space-between",
+                            backgroundColor: "#999"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "link",
+                                onClick: handleNotImplemented,
+                                children: "DUPLICATE (Save As)"
+                            }, void 0, false, {
+                                fileName: "src/GraphAreaSwapped.js",
+                                lineNumber: 23,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "link",
+                                onClick: handleGraphDelete,
+                                children: "DELETE"
+                            }, void 0, false, {
+                                fileName: "src/GraphAreaSwapped.js",
+                                lineNumber: 24,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "secondary",
+                                onClick: handleNotImplemented,
+                                children: "CLOSE"
+                            }, void 0, false, {
+                                fileName: "src/GraphAreaSwapped.js",
+                                lineNumber: 25,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                disabled: !isDirty,
+                                className: isDirty ? "primary" : "",
+                                onClick: handleGraphSave,
+                                children: "SAVE"
+                            }, void 0, false, {
+                                fileName: "src/GraphAreaSwapped.js",
+                                lineNumber: 26,
+                                columnNumber: 19
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/GraphAreaSwapped.js",
+                        lineNumber: 22,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true)
+        }, void 0, false, {
+            fileName: "src/GraphAreaSwapped.js",
+            lineNumber: 12,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "src/GraphAreaSwapped.js",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphArea;
+_c = GraphArea;
+var _c;
+$RefreshReg$(_c, "GraphArea");
+
+  $parcel$ReactRefreshHelpers$b040.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphViewWide":"9I581","./GraphEditorNarrow":"1amTR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"9I581":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$dec9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$dec9.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphIcon = require("./GraphIcon");
+var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
+function GraphView({ graphData , handleGraphTitle , handleGraphDescription  }) {
+    console.warn("GraphView Render", graphData);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphView",
+        style: {
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "33% auto"
+        },
+        children: graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    style: {
+                        display: "flex",
+                        flexDirection: "column"
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                display: "flex"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    value: graphData.title,
+                                    onChange: handleGraphTitle,
+                                    style: {
+                                        flexGrow: 1
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 12,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    children: "[ ]"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 13,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 11,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                            onChange: handleGraphDescription,
+                            value: graphData.description,
+                            style: {
+                                width: "98%",
+                                height: "10em"
+                            }
+                        }, void 0, false, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 15,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                flexGrow: 1
+                            },
+                            children: "\xa0"
+                        }, void 0, false, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 16,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "colophon",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "Data"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 17,
+                                    columnNumber: 39
+                                }, this),
+                                " from ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "Water Insights"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 17,
+                                    columnNumber: 56
+                                }, this),
+                                " project"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 17,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "colophon",
+                            children: [
+                                "Powered by ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    children: "FieldScope"
+                                }, void 0, false, {
+                                    fileName: "src/GraphViewWide.js",
+                                    lineNumber: 18,
+                                    columnNumber: 50
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/GraphViewWide.js",
+                            lineNumber: 18,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/GraphViewWide.js",
+                    lineNumber: 10,
+                    columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                    size: "max",
+                    type: graphData.type
+                }, void 0, false, {
+                    fileName: "src/GraphViewWide.js",
+                    lineNumber: 20,
+                    columnNumber: 11
+                }, this)
+            ]
+        }, void 0, true)
+    }, void 0, false, {
+        fileName: "src/GraphViewWide.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphView;
+_c = GraphView;
+var _c;
+$RefreshReg$(_c, "GraphView");
+
+  $parcel$ReactRefreshHelpers$dec9.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"1amTR":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9701 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9701.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _explorationCss = require("./Exploration.css");
+var _graphIcon = require("./GraphIcon");
+var _graphIconDefault = parcelHelpers.interopDefault(_graphIcon);
+function GraphEditor({ graphData , handleAddFilter , handleGraphTypeSelect  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "GraphEditor dialog",
+        style: {
+            overflow: "hidden"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "system",
+                children: "DATA DISPLAY"
+            }, void 0, false, {
+                fileName: "src/GraphEditorNarrow.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
+            graphData && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    display: "grid",
+                    gridTemplateColumns: "40px 2fr"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "X:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: "x"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: "Y:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        value: "y"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 14,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        style: {
+                            textAlign: "left"
+                        },
+                        children: "Select Graph Type:"
+                    }, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 15,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr 1fr",
+                            rowGap: "10px"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "map",
+                                handleClick: ()=>handleGraphTypeSelect("map")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 18,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "histogram",
+                                handleClick: ()=>handleGraphTypeSelect("histogram")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 19,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "numeric",
+                                handleClick: ()=>handleGraphTypeSelect("numeric")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 20,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "scatterplot",
+                                handleClick: ()=>handleGraphTypeSelect("scatterplot")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 21,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "timeseries",
+                                handleClick: ()=>handleGraphTypeSelect("timeseries")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 22,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphIconDefault.default), {
+                                size: "large",
+                                type: "whisker",
+                                handleClick: ()=>handleGraphTypeSelect("whisker")
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 23,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                children: "Copy to Clipboard"
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 27,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                children: "Download PNG"
+                            }, void 0, false, {
+                                fileName: "src/GraphEditorNarrow.js",
+                                lineNumber: 28,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/GraphEditorNarrow.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/GraphEditorNarrow.js",
+                lineNumber: 9,
+                columnNumber: 21
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/GraphEditorNarrow.js",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+exports.default = GraphEditor;
+_c = GraphEditor;
+var _c;
+$RefreshReg$(_c, "GraphEditor");
+
+  $parcel$ReactRefreshHelpers$9701.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./Exploration.css":"99opG","./GraphIcon":"6wFHx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"99opG":[function() {},{}],"6NfZx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$854c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$854c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _contextMapPng = require("./img/context-map.png");
+var _contextMapPngDefault = parcelHelpers.interopDefault(_contextMapPng);
+function ContextMap() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+        src: (0, _contextMapPngDefault.default),
+        alt: "Context Map",
+        style: {
+            maxHeight: "100px"
+        }
+    }, void 0, false, {
+        fileName: "src/ContextMap.js",
+        lineNumber: 4,
+        columnNumber: 13
+    }, this);
+}
+exports.default = ContextMap;
+_c = ContextMap;
+var _c;
+$RefreshReg$(_c, "ContextMap");
+
+  $parcel$ReactRefreshHelpers$854c.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./img/context-map.png":"Bem3p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hY5oD":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c948 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c948.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _exploreCss = require("./Explore.css");
+var _explorationTitle = require("./ExplorationTitle");
+var _explorationTitleDefault = parcelHelpers.interopDefault(_explorationTitle);
+var _historyShort = require("./HistoryShort");
+var _historyShortDefault = parcelHelpers.interopDefault(_historyShort);
+var _filterSetNarrow = require("./FilterSetNarrow");
+var _filterSetNarrowDefault = parcelHelpers.interopDefault(_filterSetNarrow);
+var _contextMap = require("./ContextMap");
+var _contextMapDefault = parcelHelpers.interopDefault(_contextMap);
+var _mapTable = require("./MapTable");
+var _mapTableDefault = parcelHelpers.interopDefault(_mapTable);
+var _graphAreaSwapped = require("./GraphAreaSwapped");
+var _graphAreaSwappedDefault = parcelHelpers.interopDefault(_graphAreaSwapped);
+function Explore({ e , tableData , handleTitleUpdate , handleFilterTitle , handleFilterSource , handleAddFilter , handleShowHistory , handleShowSaved , handleGraphSelect , handleAddGraph , handleGraphTitle , handleGraphDescription , handleGraphTypeSelect , handleGraphSave , handleGraphDelete , handleNotImplemented  }) {
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "Explore",
+        style: {
+            display: "flex",
+            flexDirection: "column"
+        },
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    padding: "0 5px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _explorationTitleDefault.default), {
+                    title: e.title,
+                    handleTitleUpdate: handleTitleUpdate
+                }, void 0, false, {
+                    fileName: "src/ExploreMapTable.js",
+                    lineNumber: 45,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/ExploreMapTable.js",
+                lineNumber: 44,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    overflow: "hidden",
+                    flexGrow: 1,
+                    display: "flex",
+                    flexDirection: "row"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            style: {
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterSetNarrowDefault.default), {
+                                    data: e.filtersets[e.selectedFilterSetIndex],
+                                    filters: tableData.headers,
+                                    handleFilterTitle: handleFilterTitle,
+                                    handleFilterSource: handleFilterSource,
+                                    handleAddFilter: handleAddFilter
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapTable.js",
+                                    lineNumber: 52,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyShortDefault.default), {
+                                    data: e,
+                                    style: {
+                                        flexGrow: 1
+                                    },
+                                    handleShowHistory: handleShowHistory,
+                                    handleShowSaved: handleShowSaved,
+                                    handleGraphSelect: handleGraphSelect,
+                                    handleAddGraph: handleAddGraph
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapTable.js",
+                                    lineNumber: 57,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/ExploreMapTable.js",
+                            lineNumber: 51,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/ExploreMapTable.js",
+                        lineNumber: 50,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            overflow: "hidden",
+                            minWidth: "350px",
+                            display: "flex",
+                            flexDirection: "column"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    overflow: "hidden",
+                                    flexGrow: 1
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mapTableDefault.default), {
+                                    tableData: tableData
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapTable.js",
+                                    lineNumber: 68,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/ExploreMapTable.js",
+                                lineNumber: 67,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    display: "flex",
+                                    flexDirection: "column"
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _graphAreaSwappedDefault.default), {
+                                    graphData: e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex],
+                                    handleAddGraph: handleAddGraph,
+                                    handleGraphTitle: handleGraphTitle,
+                                    handleGraphDescription: handleGraphDescription,
+                                    handleGraphTypeSelect: handleGraphTypeSelect,
+                                    handleGraphSave: handleGraphSave,
+                                    handleGraphDelete: handleGraphDelete,
+                                    handleNotImplemented: handleNotImplemented
+                                }, void 0, false, {
+                                    fileName: "src/ExploreMapTable.js",
+                                    lineNumber: 73,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/ExploreMapTable.js",
+                                lineNumber: 71,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/ExploreMapTable.js",
+                        lineNumber: 65,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/ExploreMapTable.js",
+                lineNumber: 48,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/ExploreMapTable.js",
+        lineNumber: 41,
+        columnNumber: 5
+    }, this);
+}
+exports.default = Explore;
+_c = Explore;
+var _c;
+$RefreshReg$(_c, "Explore");
+
+  $parcel$ReactRefreshHelpers$c948.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Explore.css":"fmS59","./ExplorationTitle":"4IoEo","./HistoryShort":"eOAxI","./FilterSetNarrow":"50Bfr","./ContextMap":"6NfZx","./MapTable":"c7II1","./GraphAreaSwapped":"doKPU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fmS59":[function() {},{}],"cgQmH":[function(require,module,exports) {
+module.exports = require("c285608bdbbafc07").getBundleURL("bLxZJ") + "journeynorth.3659b770.csv" + "?" + Date.now();
+
+},{"c285608bdbbafc07":"lgJ39"}],"lojGL":[function(require,module,exports) {
 module.exports = require("56f9db67ab81bcd7").getBundleURL("bLxZJ") + "frogs.cd815536.csv" + "?" + Date.now();
 
-},{"56f9db67ab81bcd7":"lgJ39"}]},["1xC6H","jC2qd","8lqZg"], "8lqZg", "parcelRequire94c2")
+},{"56f9db67ab81bcd7":"lgJ39"}],"5B9dJ":[function(require,module,exports) {
+module.exports = require("7acf8317a460a5c4").getBundleURL("bLxZJ") + "chesapeake.e708d708.csv" + "?" + Date.now();
+
+},{"7acf8317a460a5c4":"lgJ39"}],"4r76X":[function(require,module,exports) {
+module.exports = require("2b33d93fb86b1eff").getBundleURL("bLxZJ") + "waterinsights.f39b1842.csv" + "?" + Date.now();
+
+},{"2b33d93fb86b1eff":"lgJ39"}]},["1xC6H","jC2qd","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map
