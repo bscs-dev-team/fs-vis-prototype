@@ -7,11 +7,11 @@ import ExploreMapHistory from './ExploreMapHistory';
 import ExploreMapTable from './ExploreMapTable';
 
 const csv2json = require('csvtojson');
-import csvFileUrl from 'url:./data/frogs.csv';
+import csvFileUrl from 'url:./data/journeynorth.csv';
 
-// CSV DATA LOADING
-let alreadyLoaded = false;
-const fieldsToShow = [ // in sort order
+const FROGS = {};
+FROGS.url = 'url:./data/frogs.csv';
+FROGS.headers = [ // in sort order
   "Observation Date",
   "Start Time",
   "End Time",
@@ -20,7 +20,22 @@ const fieldsToShow = [ // in sort order
   "Air Temperature",
   "Characterize Land Use",
   "Observation Notes"
-]
+];
+
+const JOURNEY = {};
+JOURNEY.headers = [
+  "Station Name",
+  "Observation Date",
+  "Latitude",
+  "Longitude",
+  "Reporting Category",
+  "# Observed",
+  "Comments"
+];
+
+// CSV DATA LOADING
+let alreadyLoaded = false;
+const fieldsToShow = JOURNEY.headers; // in sort order
 let fullDataSet;
 
 // LAYOUT
@@ -192,8 +207,8 @@ export default function Explore() {
             filters.forEach(f => {
               if (!Object.hasOwn(d, f.field)) return;
               if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed=false;
-              if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
-              if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
+              if (f.min !== undefined && d[f.field] <= f.min) passed=false;
+              if (f.max !== undefined && d[f.field] >= f.max) passed=false;
             });
             return passed;
           }) 
@@ -256,7 +271,7 @@ export default function Explore() {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       const newGraph = Object.assign({},selectedGraph);
-      newGraph.title = newGraph.title + " copy";
+      newGraph.title = newGraph.title ? newGraph.title + " copy" : "untitled";
       newGraph.saved = undefined;
       filterset.graphs.push(newGraph);
       draft.selectedGraphIndex = filterset.graphs.length - 1; // select it
@@ -308,6 +323,10 @@ export default function Explore() {
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
 
+  const handleNotImplemented = () => {
+    alert('Not implemented!');
+  }
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   let VIEW;
 
@@ -329,6 +348,7 @@ export default function Explore() {
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
       />);
       break;
     case FILTERHISTORY:
@@ -348,6 +368,7 @@ export default function Explore() {
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
       />);
       break;
     case MAPHISTORY:
@@ -367,6 +388,7 @@ export default function Explore() {
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
       />);
       break;
     case MAPTABLE:
@@ -386,15 +408,16 @@ export default function Explore() {
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
       />);
       break;
     default:
       VIEW = (<div>
         Select a view:
         <ul>
-          <li><button onClick={()=>setLayout(ROUND4)}>{ROUND4}</button></li>
-          <li><button onClick={()=>setLayout(FILTERHISTORY)}>{FILTERHISTORY}</button></li>
-          <li><button onClick={()=>setLayout(MAPHISTORY)}>{MAPHISTORY}</button></li>
+          <li><button onClick={()=>setLayout(ROUND4)}>{ROUND4}</button> -- "Filter" and "History" side by side -- needs screen > 700px tall</li>
+          <li><button onClick={()=>setLayout(FILTERHISTORY)}>{FILTERHISTORY}</button> -- "History" below "Filter", no map in Table -- needs screen > 700px tall</li>
+          <li><button onClick={()=>setLayout(MAPHISTORY)}>{MAPHISTORY}</button> -- "Context Map" below "Filter", "History" full height</li>
           <li><button onClick={()=>setLayout(MAPTABLE)}>{MAPTABLE}</button></li>
         </ul>
       </div>);

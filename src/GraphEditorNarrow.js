@@ -4,7 +4,7 @@ import GraphIcon from './GraphIcon';
 export default function GraphEditor({graphData, handleAddFilter, handleGraphTypeSelect}) {
 
   return (
-    <div className="GraphEditor" style={{ overflow: 'hidden' }}>
+    <div className="GraphEditor dialog" style={{ overflow: 'hidden' }}>
       <div className="system">DATA DISPLAY</div>
       {graphData && <div style={{ display: "grid", gridTemplateColumns: "40px 2fr"}}>
         <label>X:</label>

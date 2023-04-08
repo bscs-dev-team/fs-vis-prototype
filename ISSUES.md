@@ -5,6 +5,11 @@
 * Pop up Editr
 * When editing existing graph, duplicate?  Or replace?  Only if previously saved?
 
+* Hide Graph area to start?
+    --  How do you start a graph?
+* Show/Hide Graph Editor
+* Does the graph footer bar still make sense?
+
 
 
 ## MAJOR

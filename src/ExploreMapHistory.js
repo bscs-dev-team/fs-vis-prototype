@@ -12,8 +12,8 @@ import GraphArea from './GraphAreaSwapped';
   Set 3
   
   FILTER    |    TABLE
-  HISTORY   |    TABLE
-  MAP       |    GRAPH | MAP
+  MAP       |    
+  HISTORY   |    GRAPH
 
 */
 
@@ -33,10 +33,11 @@ export default function Explore({
     handleGraphDescription,
     handleGraphTypeSelect,
     handleGraphSave,
-    handleGraphDelete
+    handleGraphDelete,
+    handleNotImplemented
   }) {
   
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   return (
     <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
       {/* LAYOUT with two columns */}
@@ -79,6 +80,7 @@ export default function Explore({
                     handleGraphTypeSelect={handleGraphTypeSelect}
                     handleGraphSave={handleGraphSave}
                     handleGraphDelete={handleGraphDelete}
+                    handleNotImplemented={handleNotImplemented}
                 />
             </div>
         </div>
