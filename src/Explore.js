@@ -121,10 +121,8 @@ const DATASETS = [
     label: 'waterinsights',
     url: URLWATERINSIGHTS,
     headers: [ // in sort order
-      "Station Name",
       "Observation Date",
-      "Latitude",
-      "Longitude",
+      "Station Name",
       "Water Type",
       "pH",
       "Nitrate",
@@ -132,7 +130,9 @@ const DATASETS = [
       "Hardness",
       "Chlorine",
       "Alkalinity",
-      "Other Observations"
+      "Other Observations",
+      "Latitude",
+      "Longitude"
     ]
   },  
 ]
@@ -175,8 +175,6 @@ export default function Explore() {
   }
 
   // CSV
-  // const [data, setData] = useState([]);
-  // const [headers, setHeaders] = useState([]);
   // -- Loader Function
   async function loadCSV() {
     if (alreadyLoaded) return console.log('...skipping');
@@ -190,13 +188,6 @@ export default function Explore() {
           .fromString(text)
           .then((json) => {
             if (json === undefined) return console.error('Could not load CSV!');
-            // setHeaders( fieldsToShow );
-            // const fieldData = json.map(row => {
-            //   const items = [];
-            //   fieldsToShow.forEach(k => items.push(row[k]));
-            //   return items;
-            // });
-            // setData( json );
             const allData = {
               count: json.length,
               data: json,
