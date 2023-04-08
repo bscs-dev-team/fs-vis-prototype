@@ -27494,10 +27494,8 @@ const DATASETS = [
         label: "waterinsights",
         url: (0, _waterinsightsCsvDefault.default),
         headers: [
-            "Station Name",
             "Observation Date",
-            "Latitude",
-            "Longitude",
+            "Station Name",
             "Water Type",
             "pH",
             "Nitrate",
@@ -27505,7 +27503,9 @@ const DATASETS = [
             "Hardness",
             "Chlorine",
             "Alkalinity",
-            "Other Observations"
+            "Other Observations",
+            "Latitude",
+            "Longitude"
         ]
     }
 ];
@@ -27547,8 +27547,6 @@ function Explore() {
         setLayout(layout);
     }
     // CSV
-    // const [data, setData] = useState([]);
-    // const [headers, setHeaders] = useState([]);
     // -- Loader Function
     async function loadCSV() {
         if (alreadyLoaded) return console.log("...skipping");
@@ -27558,13 +27556,6 @@ function Explore() {
             alreadyLoaded = true;
             csv2json().fromString(text).then((json)=>{
                 if (json === undefined) return console.error("Could not load CSV!");
-                // setHeaders( fieldsToShow );
-                // const fieldData = json.map(row => {
-                //   const items = [];
-                //   fieldsToShow.forEach(k => items.push(row[k]));
-                //   return items;
-                // });
-                // setData( json );
                 const allData = {
                     count: json.length,
                     data: json,
@@ -27845,7 +27836,7 @@ function Explore() {
                 handleNotImplemented: handleNotImplemented
             }, void 0, false, {
                 fileName: "src/Explore.js",
-                lineNumber: 480,
+                lineNumber: 471,
                 columnNumber: 15
             }, this);
             break;
@@ -27869,7 +27860,7 @@ function Explore() {
                 handleNotImplemented: handleNotImplemented
             }, void 0, false, {
                 fileName: "src/Explore.js",
-                lineNumber: 500,
+                lineNumber: 491,
                 columnNumber: 15
             }, this);
             break;
@@ -27893,7 +27884,7 @@ function Explore() {
                 handleNotImplemented: handleNotImplemented
             }, void 0, false, {
                 fileName: "src/Explore.js",
-                lineNumber: 520,
+                lineNumber: 511,
                 columnNumber: 15
             }, this);
             break;
@@ -27917,7 +27908,7 @@ function Explore() {
                 handleNotImplemented: handleNotImplemented
             }, void 0, false, {
                 fileName: "src/Explore.js",
-                lineNumber: 540,
+                lineNumber: 531,
                 columnNumber: 15
             }, this);
             break;
@@ -27937,18 +27928,18 @@ function Explore() {
                                         children: d.label
                                     }, void 0, false, {
                                         fileName: "src/Explore.js",
-                                        lineNumber: 565,
+                                        lineNumber: 556,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "src/Explore.js",
-                                lineNumber: 563,
+                                lineNumber: 554,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Explore.js",
-                        lineNumber: 561,
+                        lineNumber: 552,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27963,14 +27954,14 @@ function Explore() {
                                                 children: ROUND4
                                             }, void 0, false, {
                                                 fileName: "src/Explore.js",
-                                                lineNumber: 572,
+                                                lineNumber: 563,
                                                 columnNumber: 17
                                             }, this),
                                             ' -- "Filter" and "History" side by side -- needs screen > 700px tall'
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Explore.js",
-                                        lineNumber: 572,
+                                        lineNumber: 563,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -27980,14 +27971,14 @@ function Explore() {
                                                 children: FILTERHISTORY
                                             }, void 0, false, {
                                                 fileName: "src/Explore.js",
-                                                lineNumber: 573,
+                                                lineNumber: 564,
                                                 columnNumber: 17
                                             }, this),
                                             ' -- "History" below "Filter", no map in Table -- needs screen > 700px tall'
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Explore.js",
-                                        lineNumber: 573,
+                                        lineNumber: 564,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -27997,14 +27988,14 @@ function Explore() {
                                                 children: MAPHISTORY
                                             }, void 0, false, {
                                                 fileName: "src/Explore.js",
-                                                lineNumber: 574,
+                                                lineNumber: 565,
                                                 columnNumber: 17
                                             }, this),
                                             ' -- "Context Map" below "Filter", "History" full height'
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Explore.js",
-                                        lineNumber: 574,
+                                        lineNumber: 565,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -28013,31 +28004,31 @@ function Explore() {
                                             children: MAPTABLE
                                         }, void 0, false, {
                                             fileName: "src/Explore.js",
-                                            lineNumber: 575,
+                                            lineNumber: 566,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/Explore.js",
-                                        lineNumber: 575,
+                                        lineNumber: 566,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Explore.js",
-                                lineNumber: 571,
+                                lineNumber: 562,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Explore.js",
-                        lineNumber: 569,
+                        lineNumber: 560,
                         columnNumber: 9
                     }, this),
                     'Hit "Reload" to select a different dataset or layout.'
                 ]
             }, void 0, true, {
                 fileName: "src/Explore.js",
-                lineNumber: 560,
+                lineNumber: 551,
                 columnNumber: 15
             }, this);
             break;
