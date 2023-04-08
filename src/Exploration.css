@@ -77,7 +77,7 @@ select option {
     position: absolute;
     top: 40%; /* hack centered */
     left: 40%; /* hack centered */
-    box-shadow: 20px 20px 20px #00000033;
+    /* box-shadow: 20px 20px 20px #00000033; */
     padding: 40px;
     background-color: #33460dcc;
     z-index: 1000;
@@ -109,7 +109,8 @@ select option {
     max-height: inherit;
     background-color: #0004;
     flex-grow: 1;
-    margin: 10px;
+    margin: 3px 0 0 0;
+    padding: 0 0 0 3px;
     font-size: 12px;
 }
 .History.short .FilterSet {
@@ -118,11 +119,15 @@ select option {
     border-bottom-right-radius: 0;
     margin: 0;
     padding: 3px 3px 3px 5px;
-    line-height: 20px;
+    line-height: 18px;
     color: #ffffff66;
+    font-size: 12px;
+}
+.History.short ul {
+    margin: 0;
 }
 .History.short li {
-    padding: 2px;
+    padding: 1px;
 }
 .History.short .browserViewer {
     height: 100%;
@@ -158,12 +163,12 @@ select option {
 .GraphIcon, .GraphIcon img {
     font-size: 10px;
     background-color: #ffffff33;
-    border: 2px solid #ffffff00;
+    border: 1px solid #ffffff00;
     position: relative; /* needed for checkmark */
 }
 .GraphIcon, .GraphIcon img {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
 }
 .GraphIcon.max {
     height: fit-content;
@@ -174,11 +179,11 @@ select option {
     width: 100%;
 }
 .GraphIcon.large, .GraphIcon.large img {
-    width: 75px;
-    height: 75px;
+    width: 50px; /* 75px; */
+    height: 50px;
 }
 .GraphIcon.small, .GraphIcon.small img {
-    width: 25px; height: 25px;
+    width: 20px; height: 20px;
 }
 .GraphIcon.selected {
     border: 2px solid #f65925
@@ -192,10 +197,10 @@ select option {
     position: absolute; /* GraphIcon needs to be relative */
     color: #f65925;
     text-align: center;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 900;
-    line-height: 40px;
-    width: 45px;
+    line-height: 18px;
+    width: 22px;
     z-index: 10;
     text-shadow: 2px 2px #00000044;
 }
@@ -206,18 +211,22 @@ select option {
 
 /* FilterSet */
 .FilterSet {
-    border-radius: 15px;
+    border-radius: 10px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     /* border-bottom-left-radius: 0; */
     margin: 0 0 0 5px;
-    padding: 5px;
+    padding: 3px;
     background-color: indigo;
     /* background-color: #577421; */
+    font-size: 14px;
 }
 .FilterSet label, .GraphEditor label {
     text-align: right;
     padding-right: 10px;
+}
+.FilterSet input {
+    margin-bottom: 3px;
 }
 .FilterSet .filter {
     background-color: #ffffff33;
@@ -227,7 +236,7 @@ select option {
 }
 
 
-/* Map Tablle */
+/* Map Table */
 .MapTable {
     flex-grow: 1;
     height: 100%;
@@ -264,11 +273,23 @@ select option {
     padding: 5px;
     background-color: #ccc;
 }
+.GraphEditor.dialog {
+    position: absolute;
+    z-index: 100;
+    top: inherit;
+    bottom: 0;
+    left: 10px;
+    width: 330px;
+}
 .GraphView input, .GraphEditor input {
+    width: 100%;
     color: #333;
     background-color: #f3f3f3;
 }
 .GraphView textarea { 
     color: #333;
     background-color: #f3f3f3;
+}
+.GraphEditor a {
+    font-size: 12px;
 }

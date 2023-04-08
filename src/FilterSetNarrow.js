@@ -20,7 +20,7 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
 
   return (
     <div className="FilterSet">
-        <div style={{ display: "flex", flexDirection: 'column', padding: '5px'}}>
+        <div style={{ display: "flex", flexDirection: 'column', padding: '3px'}}>
           <input value={data.title !== undefined ? data.title : 'No Filters'} onChange={handleFilterTitle} />
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "80px 2fr"}}>
@@ -37,7 +37,7 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
             : <div></div>
           }
           <label></label>
-          <button className="primary" onClick={handleAddFilterClick} style={{ marginTop: '10px'}}>+ FILTER</button>
+          <button className="primary small" onClick={handleAddFilterClick} style={{ marginTop: '3px'}}>+ FILTER</button>
       </div>
       {editorIsOpen && <FilterEditor data={data} filters={filters} 
         handleAddFilter={handleFilterAdded} 

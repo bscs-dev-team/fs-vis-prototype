@@ -1,40 +1,186 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useImmer } from "use-immer";
 
-import './Explore.css';
-import ExplorationTitle from './ExplorationTitle';
-import History from './History';
-import FilterSet from './FilterSet';
-import MapTable from './MapTable';
-import GraphArea from './GraphArea';
+import ExploreRound4 from './ExploreRound4';
+import ExploreFilterHistory from './ExploreFilterHistory';
+import ExploreMapHistory from './ExploreMapHistory';
+import ExploreMapTable from './ExploreMapTable';
 
 const csv2json = require('csvtojson');
-import csvFileUrl from 'url:./data/frogs.csv';
+let csvFileUrl; // Defined in handleSetLayout;
+import URLCHESAPEAKE from 'url:./data/chesapeake.csv';
+import URLFROGS from 'url:./data/frogs.csv';
+import URLJOURNEY from 'url:./data/journeynorth.csv';
+import URLWATERINSIGHTS from 'url:./data/waterinsights.csv';
+
+const DATASETS = [
+  {
+    label: 'chesapeake',
+    url: URLCHESAPEAKE,
+    headers: [ // in sort order
+      "Station Name",
+      "Observation Date",
+      "Latitude",
+      "Longitude",
+      "Observation Time",
+      "Observation Notes",
+      "Relative Humidity",
+      "Barometric Pressure",
+      "Air Temperature",
+      "Wind Direction ",
+      "Visibility ",
+      "Water Temperature",
+      "Turbidity",
+      "Secchi Depth",
+      "Width",
+      "Depth",
+      "Stream Discharge",
+      "Surface Water Appearance",
+      "Stream Bank Eroision",
+      "Water Type",
+      "Salinity",
+      "Conductivity",
+      "Dissolved Oxygen",
+      "Nitrate",
+      "Ammonia",
+      "Phosphate",
+      "pH",
+      "Biological Oxygen Demand",
+      "Total Dissolved Solids",
+      "Fecal Coliform",
+      "Dissolved Carbon Dioxide",
+      "Tolerant Macroinvertebrates",
+      "Less Sensitive Macroinvertebrates",
+      "Sensitive Macroinvertebrates",
+      "Total Index Value",
+      "Caddisfly (Trichoptera-Other)",
+      "Mayfly (Ephemeroptera)",
+      "Stonefly (Plecoptera)",
+      "Watersnipe Flies (Diptera-Athericidae)",
+      "Riffle Beetles (Elmidae)",
+      "Water Pennies (Psephenidae)",
+      "Gilled Snails (Viviparidae)",
+      "Dobsonfies (Corydalinae)",
+      "Fishflies (Chauliodinae)",
+      "Netspinning Caddisfly (Trichoptera-Hydropsychidae)",
+      "Damselflies (Zygoptera)",
+      "Dragonflies (Anisoptera)",
+      "Alderflies (Sialidae)",
+      "Crayfish (Astacoidea)",
+      "Scuds (Amphipoda)",
+      "Aquatic Sowbugs (Isopoda)",
+      "Clams (Sphaeriidae)",
+      "Mussels (Palaeoheterodonta)",
+      "Aquatic Worms (Oligochaeta)",
+      "Black Flies (Diptera-Simuliidae)",
+      "Midge Flies",
+      "Leeches (Hirundinea)",
+      "Lunged Snails (Pulmonata)",
+      "Other Macroinvertebrate",
+      "silt (mud)",
+      'sand (1/16"" - 1/4"" grains)',
+      'gravel (1/4"" - 2"" stones)',
+      'cobbles (2"" - 10"" stones)',
+      'boulders (> 10"" stones)',
+      "trees",
+      "shrubs",
+      "grass",
+      "bare soil",
+      "rocks",
+      "other"
+    ]
+  },
+  {
+    label: 'frogwatch',
+    url: URLFROGS,
+    headers: [ // in sort order
+      "Observation Date",
+      "Start Time",
+      "End Time",
+      "Species",
+      "Call Intensity",
+      "Air Temperature",
+      "Characterize Land Use",
+      "Observation Notes"
+    ]
+  },
+  {
+    label: 'journeynorth',
+    url: URLJOURNEY,
+    headers: [ // in sort order
+      "Station Name",
+      "Observation Date",
+      "Latitude",
+      "Longitude",
+      "Reporting Category",
+      "# Observed",
+      "Comments"
+    ]
+  },  
+  {
+    label: 'waterinsights',
+    url: URLWATERINSIGHTS,
+    headers: [ // in sort order
+      "Station Name",
+      "Observation Date",
+      "Latitude",
+      "Longitude",
+      "Water Type",
+      "pH",
+      "Nitrate",
+      "Nitrite",
+      "Hardness",
+      "Chlorine",
+      "Alkalinity",
+      "Other Observations"
+    ]
+  },  
+]
+
 
 // CSV DATA LOADING
 let alreadyLoaded = false;
-const fieldsToShow = [ // in sort order
-  "Observation Date",
-  "Start Time",
-  "End Time",
-  "Species",
-  "Call Intensity",
-  "Air Temperature",
-  "Characterize Land Use",
-  "Observation Notes"
-]
-let fullDataSet;
+let fieldsToShow = []; // in sort order
+let fullDataset = [];
 
+// LAYOUTS
+const ROUND4 = 'Round 4';
+const FILTERHISTORY = 'History below Filter';
+const MAPHISTORY = 'Context Map below History';
+const MAPTABLE = 'Context Map in Table';
 
 export default function Explore() {
+  // LAYOUT SELECTOR
+  const [layout, setLayout] = useState();
   // CSV
+  const [selectedDataset, setSelectedDataset] = useState(DATASETS[0]);
   const [tableData, updateTableData] = useImmer({count: 0, headers: [], data: []});
-  const [data, setData] = useState([]);
-  const [headers, setHeaders] = useState([]);
+
+  // UI Handlers - - - - - - - - - - - - - - - - - 
+  function handleDatasetSelect(e) {
+    setSelectedDataset(DATASETS[e.target.value]);
+    console.log('handle datsetselect', JSON.stringify(DATASETS[e.target.value]));
+  }
+  function handleSetLayout(layout) {
+    // 1. Load CSV First
+    //    a. set selected dataset
+    console.warn('selected dataset', selectedDataset.url, selectedDataset.headers)
+    csvFileUrl = selectedDataset.url;
+    fieldsToShow = selectedDataset.headers;
+    initFilters(selectedDataset.label);
+    //    b. load 
+    loadCSV();
+    // 2. Then set layout
+    setLayout(layout);
+  }
+
+  // CSV
+  // const [data, setData] = useState([]);
+  // const [headers, setHeaders] = useState([]);
   // -- Loader Function
   async function loadCSV() {
     if (alreadyLoaded) return console.log('...skipping');
-    console.log('...loadCSV!')
+    console.log('...loadCSV! csvFileUrl', csvFileUrl, fieldsToShow)
     await fetch(csvFileUrl)
       .then(r => r.text())
       .then(text => {
@@ -44,30 +190,31 @@ export default function Explore() {
           .fromString(text)
           .then((json) => {
             if (json === undefined) return console.error('Could not load CSV!');
-            setHeaders( fieldsToShow );
+            // setHeaders( fieldsToShow );
             // const fieldData = json.map(row => {
             //   const items = [];
             //   fieldsToShow.forEach(k => items.push(row[k]));
             //   return items;
             // });
-            setData( json );
+            // setData( json );
             const allData = {
               count: json.length,
               data: json,
               headers: fieldsToShow
             };
-            fullDataSet = allData;
+            fullDataset = allData;
             console.warn('......loadCSV apply filter allData is', allData)
             applyFilters(allData);
           });
       });
   }
-  // -- Init Load
-  useEffect(() => {
-    console.error('useEffect!', alreadyLoaded)
-    loadCSV();
-    return
-  }, [data, headers]);
+  // NOW HANDLED BY handleSetLayout
+  // // -- Init Load
+  // useEffect(() => {
+  //   console.error('useEffect!', alreadyLoaded)
+  //   loadCSV();
+  //   return
+  // }, [data, headers]);
 
 
   // Exploration Data
@@ -80,18 +227,18 @@ export default function Explore() {
 
     title: 'March 10 2023 4:35p Exploration',
     filtersets: [
-      {
-        title: undefined,
-        source: 'FrogWatch',
-        filters: [],
-        graphs: [
-          {
-            title: 'No filter',
-            description: 'Map',
-            type: 'map'
-          }
-        ]
-      },
+      // {
+      //   title: undefined,
+      //   source: selectedDataset.label,
+      //   filters: [],
+      //   graphs: [
+      //     {
+      //       title: undefined,
+      //       description: undefined,
+      //       type: 'map'
+      //     }
+      //   ]
+      // },
       // {
       //   title: 'Chlorine > 1',
       //   source: 'Water Insights',
@@ -133,6 +280,24 @@ export default function Explore() {
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   // FILTER
+  const initFilters = useCallback((selectedLabel) => {
+    updateE(draft => {
+      const filterset = {
+        source: selectedLabel,
+        filters: [],
+        graphs: [
+          {
+            title: undefined,
+            description: undefined,
+            type: 'map'
+          }
+        ]        
+      };
+      draft.filtersets.push(filterset);
+      draft.selectedFilterSetIndex = draft.filtersets.length-1; // select it
+    });
+  }, [updateE]);
+
   const handleAddFilter = useCallback((filter) => {
     let newFilters = [];
     updateE(draft => {
@@ -144,7 +309,7 @@ export default function Explore() {
       // Clone filterset
       const newFilterset = Object.assign({}, filterset);
       newFilterset.title = (filterset.title ? filterset.title + ', ' : '') + filterTitle;
-
+      
       // Clone only the currently selected graph
       const selectedGraph = Object.assign({}, filterset.graphs[e.selectedGraphIndex]);
       selectedGraph.saved = undefined;
@@ -160,11 +325,11 @@ export default function Explore() {
       draft.filtersets.push(newFilterset);
       draft.selectedFilterSetIndex = draft.filtersets.length-1; // select it
     });
-    applyFilters(fullDataSet, newFilters);
+    applyFilters(fullDataset, newFilters);
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
   const applyFilters = useCallback((allData, filters) => {
-    console.log('applyFIlter caleld fullDataset is', fullDataSet)
+    console.log('applyFIlter caleld fullDataset is', allData)
     updateTableData(draft => {
       draft.headers = allData.headers;
       // Apply Filters
@@ -185,9 +350,9 @@ export default function Explore() {
             let passed = true;
             filters.forEach(f => {
               if (!Object.hasOwn(d, f.field)) return;
-              if (f.eq !== undefined && String(d[f.field]) !== String(f.eq)) passed=false;
-              if (f.min !== undefined && Number(d[f.field]) <= Number(f.min)) passed=false;
-              if (f.max !== undefined && Number(d[f.field]) >= Number(f.max)) passed=false;
+              if (f.eq !== undefined && !String(d[f.field]).includes(String(f.eq))) passed=false;
+              if (f.min !== undefined && d[f.field] <= f.min) passed=false;
+              if (f.max !== undefined && d[f.field] >= f.max) passed=false;
             });
             return passed;
           }) 
@@ -236,7 +401,7 @@ export default function Explore() {
     console.log('try ', filterIndex,' filtersets', e.filtersets[filterIndex])
     try {
       const newFilters = e.filtersets[filterIndex].filters;
-      applyFilters(fullDataSet, newFilters);
+      applyFilters(fullDataset, newFilters);
     } catch (e) {
       console.error('Failed', e )
     }
@@ -250,7 +415,7 @@ export default function Explore() {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       const newGraph = Object.assign({},selectedGraph);
-      newGraph.title = newGraph.title + " copy";
+      newGraph.title = newGraph.title ? newGraph.title + " copy" : "untitled";
       newGraph.saved = undefined;
       filterset.graphs.push(newGraph);
       draft.selectedGraphIndex = filterset.graphs.length - 1; // select it
@@ -279,7 +444,8 @@ export default function Explore() {
       const filterset = draft.filtersets[e.selectedFilterSetIndex];
       const selectedGraph = filterset.graphs[e.selectedGraphIndex];
       selectedGraph.type = type;
-      selectedGraph.description += ` ${type}`;
+      selectedGraph.title = selectedGraph.title ? `${selectedGraph.title} ${type}` : type;
+      selectedGraph.description = selectedGraph.description ? `${selectedGraph.description} ${type}` : type;
     });
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
@@ -302,35 +468,119 @@ export default function Explore() {
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
 
+  const handleNotImplemented = () => {
+    alert('Not implemented!');
+  }
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-  return (
-    <div className="Explore" style={{ display: 'flex', flexDirection: 'column'}}>
-      <div style={{display: 'flex', flexDirection: 'column', maxHeight: '25%', padding: "10px"}}>
-        <ExplorationTitle title={e.title} handleTitleUpdate={handleTitleUpdate} />
-        <div style={{display: "grid", gridTemplateColumns: '1fr 1fr', columnGap: '10px', height: '90%' }}>
-          <FilterSet data={e.filtersets[e.selectedFilterSetIndex]} 
-            filters={tableData.headers}
-            handleFilterTitle={handleFilterTitle}
-            handleFilterSource={handleFilterSource}
-            handleAddFilter={handleAddFilter} />
-          <History data={e} 
-            handleShowHistory={handleShowHistory}
-            handleShowSaved={handleShowSaved}
-            handleGraphSelect={handleGraphSelect} 
-            handleAddGraph={handleAddGraph} />
-        </div>
-      </div>
-      <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-        <MapTable tableData={tableData} />
-      </div>
-      <GraphArea 
-        graphData={e.filtersets[e.selectedFilterSetIndex].graphs[e.selectedGraphIndex]}
+  let VIEW;
+
+  switch (layout) {
+    case ROUND4:
+      VIEW = (<ExploreRound4
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
         handleGraphTitle={handleGraphTitle}
         handleGraphDescription={handleGraphDescription}
         handleGraphTypeSelect={handleGraphTypeSelect}
         handleGraphSave={handleGraphSave}
         handleGraphDelete={handleGraphDelete}
-      />
-    </div>
-  );
+        handleNotImplemented={handleNotImplemented}
+      />);
+      break;
+    case FILTERHISTORY:
+      VIEW = (<ExploreFilterHistory
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
+      />);
+      break;
+    case MAPHISTORY:
+      VIEW = (<ExploreMapHistory
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
+      />);
+      break;
+    case MAPTABLE:
+      VIEW = (<ExploreMapTable
+        e={e}
+        tableData={tableData}
+        handleTitleUpdate={handleTitleUpdate}
+        handleFilterTitle={handleFilterTitle}
+        handleFilterSource={handleFilterSource}
+        handleAddFilter={handleAddFilter}
+        handleShowHistory={handleShowHistory}
+        handleShowSaved={handleShowSaved}
+        handleGraphSelect={handleGraphSelect}
+        handleAddGraph={handleAddGraph}
+        handleGraphTitle={handleGraphTitle}
+        handleGraphDescription={handleGraphDescription}
+        handleGraphTypeSelect={handleGraphTypeSelect}
+        handleGraphSave={handleGraphSave}
+        handleGraphDelete={handleGraphDelete}
+        handleNotImplemented={handleNotImplemented}
+      />);
+      break;
+    default:
+      VIEW = (<div>
+        <div>
+          1. Select a dataset:
+          <select style={{color:'#000'}} onChange={handleDatasetSelect}>
+            {DATASETS.map((d,i) =>
+              <option value={i}>{d.label}</option>
+            )}
+          </select>
+        </div>
+        <div>
+          2. Select a view:
+          <ul>
+            <li><button onClick={()=>handleSetLayout(ROUND4)}>{ROUND4}</button> -- "Filter" and "History" side by side -- needs screen > 700px tall</li>
+            <li><button onClick={()=>handleSetLayout(FILTERHISTORY)}>{FILTERHISTORY}</button> -- "History" below "Filter", no map in Table -- needs screen > 700px tall</li>
+            <li><button onClick={()=>handleSetLayout(MAPHISTORY)}>{MAPHISTORY}</button> -- "Context Map" below "Filter", "History" full height</li>
+            <li><button onClick={()=>handleSetLayout(MAPTABLE)}>{MAPTABLE}</button></li>
+          </ul>
+        </div>
+        Hit "Reload" to select a different dataset or layout.
+      </div>);
+      break;
+  }
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  return (<>{VIEW}</>);
 }

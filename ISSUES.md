@@ -2,6 +2,11 @@
 
 
 ## REWORK
+* Base map is not selectable
+* base filter source needs to be set.
+
+* When editing existing graph, duplicate?  Or replace?  Only if previously saved?
+
 
 ## MAJOR
 * No graph view?  Default "No Filters" has a no graph view?  But then how do you select it again?
