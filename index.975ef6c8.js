@@ -27999,15 +27999,18 @@ function Explore() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                            onClick: ()=>handleSetLayout(MAPTABLE),
-                                            children: MAPTABLE
-                                        }, void 0, false, {
-                                            fileName: "src/Explore.js",
-                                            lineNumber: 566,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                onClick: ()=>handleSetLayout(MAPTABLE),
+                                                children: MAPTABLE
+                                            }, void 0, false, {
+                                                fileName: "src/Explore.js",
+                                                lineNumber: 566,
+                                                columnNumber: 17
+                                            }, this),
+                                            ' -- "Context Map" in table, "History" full height'
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/Explore.js",
                                         lineNumber: 566,
                                         columnNumber: 13
