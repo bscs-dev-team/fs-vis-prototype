@@ -3,7 +3,7 @@ import './Exploration.css';
 import GraphIcon from './GraphIcon';
 import Help, { showhelpStyle } from './Help';
 
-export default function History({data, selected, handleShowHistory, handleShowSaved, handleGraphSelect, handleAddGraph}) {
+export default function History({data, selected, handleShowHistory, handleShowSaved, handleGraphSelect, handleAddGraph, handleDeleteFilter}) {
 
   useEffect(() => {
     console.log('useEffect history')
@@ -16,7 +16,6 @@ export default function History({data, selected, handleShowHistory, handleShowSa
   function handleGraphClick(filterIndex, graphIndex) {
     handleGraphSelect(filterIndex, graphIndex);
   }
-
       
   const [showhelp, setShowhelp] = useState(false);  
   const helptext = `"History" keeps track of the filters and graphs you've created,
@@ -55,6 +54,12 @@ export default function History({data, selected, handleShowHistory, handleShowSa
                       return <div></div>
                     })}
                     {filterIndex===data.selectedFilterSetIndex && <button className="primary" onClick={handleAddGraph}>+ GRAPH</button>}
+                    {filterIndex > 0 && filterIndex===data.selectedFilterSetIndex && 
+                      <>
+                        <div style={{ flexGrow: 1}}>&nbsp;</div>
+                        <button className="link" onClick={()=>handleDeleteFilter(filterIndex)}>X</button>
+                      </>
+                    }
                 </li>
               )}
               </ul>

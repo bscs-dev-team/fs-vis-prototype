@@ -319,6 +319,17 @@ export default function Explore() {
     applyFilters(fullDataset, newFilters);
   }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
 
+  const handleDeleteFilter = useCallback((filterSetIndex) => {
+    updateE(draft => {
+      draft.filtersets.splice(filterSetIndex, 1);
+      if (filterSetIndex === draft.selectedFilterSetIndex) {
+        // deleted current selection, reselect previous
+        draft.selectedGraphIndex = 0;
+        draft.selectedFilterSetIndex = filterSetIndex > 0 ? filterSetIndex - 1 : 0; 
+      }
+    });
+  }, [updateE, e.selectedFilterSetIndex, e.selectedGraphIndex]);
+
   const applyFilters = useCallback((allData, filters) => {
     console.log('applyFIlter caleld fullDataset is', allData)
     updateTableData(draft => {
@@ -475,6 +486,7 @@ export default function Explore() {
         handleFilterTitle={handleFilterTitle}
         handleFilterSource={handleFilterSource}
         handleAddFilter={handleAddFilter}
+        handleDeleteFilter={handleDeleteFilter}
         handleShowHistory={handleShowHistory}
         handleShowSaved={handleShowSaved}
         handleGraphSelect={handleGraphSelect}
@@ -495,6 +507,7 @@ export default function Explore() {
         handleFilterTitle={handleFilterTitle}
         handleFilterSource={handleFilterSource}
         handleAddFilter={handleAddFilter}
+        handleDeleteFilter={handleDeleteFilter}
         handleShowHistory={handleShowHistory}
         handleShowSaved={handleShowSaved}
         handleGraphSelect={handleGraphSelect}
@@ -515,6 +528,7 @@ export default function Explore() {
         handleFilterTitle={handleFilterTitle}
         handleFilterSource={handleFilterSource}
         handleAddFilter={handleAddFilter}
+        handleDeleteFilter={handleDeleteFilter}
         handleShowHistory={handleShowHistory}
         handleShowSaved={handleShowSaved}
         handleGraphSelect={handleGraphSelect}
@@ -535,6 +549,7 @@ export default function Explore() {
         handleFilterTitle={handleFilterTitle}
         handleFilterSource={handleFilterSource}
         handleAddFilter={handleAddFilter}
+        handleDeleteFilter={handleDeleteFilter}
         handleShowHistory={handleShowHistory}
         handleShowSaved={handleShowSaved}
         handleGraphSelect={handleGraphSelect}

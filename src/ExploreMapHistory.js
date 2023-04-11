@@ -25,6 +25,7 @@ export default function Explore({
     handleFilterTitle,
     handleFilterSource,
     handleAddFilter,
+    handleDeleteFilter,
     handleShowHistory,
     handleShowSaved,
     handleGraphSelect,
@@ -61,7 +62,8 @@ export default function Explore({
                     handleShowHistory={handleShowHistory}
                     handleShowSaved={handleShowSaved}
                     handleGraphSelect={handleGraphSelect} 
-                    handleAddGraph={handleAddGraph} />
+                    handleAddGraph={handleAddGraph}
+                    handleDeleteFilter={handleDeleteFilter} />
             </div>
         </div>
         <div style={{overflow: 'hidden', minWidth: '350px', display: 'flex', flexDirection: 'column'}}>
