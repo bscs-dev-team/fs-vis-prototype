@@ -22,8 +22,8 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
       s += ' < ' + maxval;
     } else {
       s += eqval !==undefined ? `${eqval}` : '';
-      s += minval !== undefined ? `${parameter} > ${minval}` : '';
-      s += maxval !== undefined ? `${parameter} < ${maxval}` : '';
+      s += minval !== undefined ? `${parameter} ${'>'} ${minval}` : '';
+      s += maxval !== undefined ? `${parameter} ${'<'} ${maxval}` : '';
     }
     const filter = {
       title: s,

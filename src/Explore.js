@@ -560,10 +560,10 @@ export default function Explore() {
         <div>
           2. Select a view:
           <ul>
-            <li><button onClick={()=>handleSetLayout(ROUND4)}>{ROUND4}</button> -- "Filter" and "History" side by side -- needs screen > 700px tall</li>
-            <li><button onClick={()=>handleSetLayout(FILTERHISTORY)}>{FILTERHISTORY}</button> -- "History" below "Filter", no map in Table -- needs screen > 700px tall</li>
+            <li><button onClick={()=>handleSetLayout(ROUND4)}>{ROUND4}</button> -- "Filter" and "History" side by side -- needs screen &gt; 700px tall</li>
+            <li><button onClick={()=>handleSetLayout(FILTERHISTORY)}>{FILTERHISTORY}</button> -- "History" below "Filter", no map in Table -- needs screen &gt; 700px tall</li>
             <li><button onClick={()=>handleSetLayout(MAPHISTORY)}>{MAPHISTORY}</button> -- "Context Map" below "Filter", "History" full height</li>
-            <li><button onClick={()=>handleSetLayout(MAPTABLE)}>{MAPTABLE}</button></li>
+            <li><button onClick={()=>handleSetLayout(MAPTABLE)}>{MAPTABLE}</button> -- "Context Map" in table, "History" full height</li>
           </ul>
         </div>
         Hit "Reload" to select a different dataset or layout.
