@@ -27,7 +27,10 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
       The matches are case sensitive, so "Equals Spring" will match "Spring Peeper" but not "spring peeper".`
 
   return (
-    <div>
+    <>
+      {editorIsOpen && <FilterEditor data={data} filters={filters} 
+        handleAddFilter={handleFilterAdded} 
+        handleClose={handleClose}/>}
       <Help helptext={helptext} left="350px" showhelp={showhelp}/>
       <div className="FilterSet" style={showhelp ? showhelpStyle : {}} onMouseEnter={()=>setShowhelp(true)} onMouseLeave={()=>setShowhelp(false)}>
           <div style={{ display: "flex", flexDirection: 'column', padding: '3px'}}>
@@ -49,11 +52,7 @@ export default function FilterSet({data, filters, handleFilterTitle, handleFilte
             <label></label>
             <button className="primary small" onClick={handleAddFilterClick} style={{ marginTop: '3px'}}>+ FILTER</button>
         </div>
-        {editorIsOpen && <FilterEditor data={data} filters={filters} 
-          handleAddFilter={handleFilterAdded} 
-          handleClose={handleClose}/>}
       </div>
-      <HelpFader  showhelp={showhelp}/>
-    </div>
+    </>
   );
 }

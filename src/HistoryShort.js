@@ -25,7 +25,7 @@ export default function History({data, selected, handleShowHistory, handleShowSa
    you've saved.`
 
   return (
-    <div>
+    <>
       <Help helptext={helptext} left="350px" showhelp={showhelp}/>
       <div className="History short"  onMouseEnter={()=>setShowhelp(true)} onMouseLeave={()=>setShowhelp(false)}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
@@ -61,6 +61,6 @@ export default function History({data, selected, handleShowHistory, handleShowSa
             </div>
           </div>
         </div>
-    </div>
+    </>
    );
 }

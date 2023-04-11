@@ -35,8 +35,13 @@ export default function FilterEditor({data, filters, handleAddFilter, handleClos
     handleAddFilter(filter);
   }
 
+  function preventDefault(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   return (
-    <div className="FilterEditor dialog">
+    <div className="FilterEditor dialog" onMouseEnter={preventDefault} onMouseLeave={preventDefault}>
         <label><b>ADD FILTER</b></label>
         <p></p>
         <div style={{ display: "grid", gridTemplateColumns: "120px 2fr"}}>
