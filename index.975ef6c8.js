@@ -30117,7 +30117,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
    as well as the graphs you saved. Click on a graph to select it. 
    Click on "SAVED GRAPHS" to toggle between a full history view and a list of graphs
    you've saved.`;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _helpDefault.default), {
                 helptext: helptext,
@@ -30238,11 +30238,7 @@ function History({ data , selected , handleShowHistory , handleShowSaved , handl
                 columnNumber: 7
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "src/HistoryShort.js",
-        lineNumber: 28,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
 exports.default = History;
 _s(History, "VILhJbCZSLaz1Sn/1zlS7b7ebEA=");
@@ -30292,15 +30288,25 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
       e.g. a filter for "Temperature" with a "MinimuM" of 32 will show only observations
       that have a "Temperature" above 32.  The "Equals" criteria can be used to match substrings.
       The matches are case sensitive, so "Equals Spring" will match "Spring Peeper" but not "spring peeper".`;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            editorIsOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterEditorDefault.default), {
+                data: data,
+                filters: filters,
+                handleAddFilter: handleFilterAdded,
+                handleClose: handleClose
+            }, void 0, false, {
+                fileName: "src/FilterSetNarrow.js",
+                lineNumber: 31,
+                columnNumber: 24
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _helpDefault.default), {
                 helptext: helptext,
                 left: "350px",
                 showhelp: showhelp
             }, void 0, false, {
                 fileName: "src/FilterSetNarrow.js",
-                lineNumber: 31,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30320,12 +30326,12 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                             onChange: handleFilterTitle
                         }, void 0, false, {
                             fileName: "src/FilterSetNarrow.js",
-                            lineNumber: 34,
+                            lineNumber: 37,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/FilterSetNarrow.js",
-                        lineNumber: 33,
+                        lineNumber: 36,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30338,7 +30344,7 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                                 children: "SOURCE"
                             }, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 37,
+                                lineNumber: 40,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
@@ -30349,26 +30355,26 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                                     children: data.source
                                 }, void 0, false, {
                                     fileName: "src/FilterSetNarrow.js",
-                                    lineNumber: 39,
+                                    lineNumber: 42,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 38,
+                                lineNumber: 41,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                                 children: "FILTERS"
                             }, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 41,
+                                lineNumber: 44,
                                 columnNumber: 13
                             }, this),
                             data.filters.length > 0 ? data.filters.map((d, i)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: [
                                         i > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                             fileName: "src/FilterSetNarrow.js",
-                                            lineNumber: 44,
+                                            lineNumber: 47,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30376,18 +30382,18 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                                             children: d.title
                                         }, i, false, {
                                             fileName: "src/FilterSetNarrow.js",
-                                            lineNumber: 45,
+                                            lineNumber: 48,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 47,
+                                lineNumber: 50,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {}, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 49,
+                                lineNumber: 52,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30399,44 +30405,23 @@ function FilterSet({ data , filters , handleFilterTitle , handleFilterSource , h
                                 children: "+ FILTER"
                             }, void 0, false, {
                                 fileName: "src/FilterSetNarrow.js",
-                                lineNumber: 50,
+                                lineNumber: 53,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/FilterSetNarrow.js",
-                        lineNumber: 36,
+                        lineNumber: 39,
                         columnNumber: 11
-                    }, this),
-                    editorIsOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterEditorDefault.default), {
-                        data: data,
-                        filters: filters,
-                        handleAddFilter: handleFilterAdded,
-                        handleClose: handleClose
-                    }, void 0, false, {
-                        fileName: "src/FilterSetNarrow.js",
-                        lineNumber: 52,
-                        columnNumber: 26
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/FilterSetNarrow.js",
-                lineNumber: 32,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _help.HelpFader), {
-                showhelp: showhelp
-            }, void 0, false, {
-                fileName: "src/FilterSetNarrow.js",
-                lineNumber: 56,
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "src/FilterSetNarrow.js",
-        lineNumber: 30,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
 exports.default = FilterSet;
 _s(FilterSet, "fBB+9v4PFi90YkeXY7y3V2ZLiVk=");
@@ -30493,25 +30478,31 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
         };
         handleAddFilter(filter);
     }
+    function preventDefault(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "FilterEditor dialog",
+        onMouseEnter: preventDefault,
+        onMouseLeave: preventDefault,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
                     children: "ADD FILTER"
                 }, void 0, false, {
                     fileName: "src/FilterEditor.js",
-                    lineNumber: 40,
+                    lineNumber: 45,
                     columnNumber: 16
                 }, this)
             }, void 0, false, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 40,
+                lineNumber: 45,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 41,
+                lineNumber: 46,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30524,7 +30515,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "Parameter"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 43,
+                        lineNumber: 48,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
@@ -30535,7 +30526,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                                 children: "--Select a parameter--"
                             }, void 0, false, {
                                 fileName: "src/FilterEditor.js",
-                                lineNumber: 45,
+                                lineNumber: 50,
                                 columnNumber: 15
                             }, this),
                             options.map((o)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30543,20 +30534,20 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                                     children: o
                                 }, o, false, {
                                     fileName: "src/FilterEditor.js",
-                                    lineNumber: 46,
+                                    lineNumber: 51,
                                     columnNumber: 33
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 44,
+                        lineNumber: 49,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Equals"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 48,
+                        lineNumber: 53,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30564,14 +30555,14 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setEqval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 49,
+                        lineNumber: 54,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Minimum"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 50,
+                        lineNumber: 55,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30579,14 +30570,14 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setMinval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 51,
+                        lineNumber: 56,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         children: "Maximum"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 52,
+                        lineNumber: 57,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30594,17 +30585,17 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         onChange: (e)=>setMaxval(e.target.value)
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 53,
+                        lineNumber: 58,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 54,
+                        lineNumber: 59,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 54,
+                        lineNumber: 59,
                         columnNumber: 20
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30612,7 +30603,7 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "CANCEL"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 55,
+                        lineNumber: 60,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -30621,19 +30612,19 @@ function FilterEditor({ data , filters , handleAddFilter , handleClose  }) {
                         children: "SAVE"
                     }, void 0, false, {
                         fileName: "src/FilterEditor.js",
-                        lineNumber: 56,
+                        lineNumber: 61,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/FilterEditor.js",
-                lineNumber: 42,
+                lineNumber: 47,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/FilterEditor.js",
-        lineNumber: 39,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 }
